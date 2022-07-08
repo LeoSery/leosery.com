@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link';
 
 const About = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <div className="w-full md:h-screen p-2 flex items-center py-16">
@@ -49,9 +50,6 @@ const About = () => {
                 </nav>
               </div>
             </div>
-          </div>
-          <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4">
-            <img className="rounded-md" src="/../assets/Test_Image.png"></img>
           </div>
         </div>
       </div>

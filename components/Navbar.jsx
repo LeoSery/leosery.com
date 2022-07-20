@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import Image from "next/image";
 import { Transition } from "@headlessui/react";
-import { Link } from "react-scroll";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import React, { useState } from "react";
 
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
   return (
     <>
       <nav className="shadow-sm sticky bg-white top-0 w-full z-10">
@@ -22,61 +24,61 @@ function navbar() {
               </div>
               <div className=" hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <Link
-                    href="/"
+                  <button
+                    onClick={() => router.push("/")}
                     activeClass="home"
                     to="home"
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                    className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                   >
                     Home
-                  </Link>
-                  <Link
-                    href="/CV"
+                  </button>
+                  <button
+                    onClick={() => router.push("/CV")}
                     activeClass="cv"
                     to="cv"
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="cursor-pointer hover:bg-blue-600 text--[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                    className="cursor-pointer hover:bg-blue-600 text--[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                   >
                     Curriculum vitae
-                  </Link>
-                  <Link
-                    href="/Projects"
+                  </button>
+                  <button
+                    onClick={() => router.push("/Projects")}
                     activeClass="projects"
                     to="projects"
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                    className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                   >
                     Projects
-                  </Link>
-                  <Link
-                    href="/Stage"
+                  </button>
+                  <button
+                    onClick={() => router.push("/Stage")}
                     activeClass="stage"
                     to="stage"
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                    className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                   >
                     Stage
-                  </Link>
-                  <Link
-                    href="/Contact"
+                  </button>
+                  <button
+                    onClick={() => router.push("/Contact")}
                     activeClass="contact"
                     to="contact"
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="cursor-pointer bg-blue-600 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium"
+                    className="cursor-pointer bg-blue-600 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium capitalize"
                   >
                     Contact
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -84,7 +86,7 @@ function navbar() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-blue-600 inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-blue-600 focus: outline-none focus:ring-offset-2 focus-ring-blue-800 focus:ring-white"
+                className="inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-offset-2 focus-ring-blue-800 focus:ring-white capitalize"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               ></button>
@@ -138,63 +140,63 @@ function navbar() {
             <div className="md:hidden id=mobile-menu">
               <div
                 ref={ref}
-                className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
+                className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col"
               >
-                <Link
-                  href="/home"
+                <button
+                  onClick={() => router.push("/")}
                   activeClass="Home"
                   to="home"
                   smooth={true}
                   offset={50}
                   duration={50}
-                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Home
-                </Link>
-                <Link
-                  href="/cv"
+                </button>
+                <button
+                  onClick={() => router.push("/CV")}
                   activeClass="cv"
                   to="cv"
                   smooth={true}
                   offset={50}
                   duration={50}
-                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Curriculum vitae
-                </Link>
-                <Link
-                  href="/projects"
+                </button>
+                <button
+                  onClick={() => router.push("/Projects")}
                   activeClass="projects"
                   to="projects"
                   smooth={true}
                   offset={50}
                   duration={50}
-                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Projects
-                </Link>
-                <Link
-                  href="/stage"
+                </button>
+                <button
+                  onClick={() => router.push("/Stage")}
                   activeClass="stage"
                   to="stage"
                   smooth={true}
                   offset={50}
                   duration={50}
-                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Stage
-                </Link>
-                <Link
-                  href="/contact"
+                </button>
+                <button
+                  onClick={() => router.push("/Contact")}
                   activeClass="contact"
                   to="contact"
                   smooth={true}
                   offset={50}
                   duration={50}
-                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                  className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Contact
-                </Link>
+                </button>
               </div>
             </div>
           )}

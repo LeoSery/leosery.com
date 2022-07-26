@@ -1,10 +1,10 @@
-import React from "react";
-import ProjectItem from "./ProjectItem";
 import FlightSimulatorImg from "/public/assets/projects/FlightSimulator.png";
 import EarthSaverGameImg from "/public/assets/projects/EarthSaver.png";
-import PongGameImg from "/public/assets/projects/PongGame.png";
 import RobotGameImg from "/public/assets/projects/RobotGame.png";
 import SnakeGameImg from "/public/assets/projects/SnakeGame.png";
+import PongGameImg from "/public/assets/projects/PongGame.png";
+import ProjectItem from "./ProjectItem";
+import React from "react";
 
 function Main() {
   return (

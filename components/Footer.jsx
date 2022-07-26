@@ -1,7 +1,7 @@
-import Link from "next/link";
-import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
+import Link from "next/link";
+import React from "react";
 
 function footer() {
   return (

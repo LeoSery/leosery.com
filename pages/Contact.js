@@ -1,18 +1,18 @@
+import Main from "../components/Contact/Main";
+import Head from "next/head";
 import React from "react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 
-function Contact() {
+export default function Contact() {
   return (
-    <div>
-      <div>
-        <Navbar />
+    <>
+      <Head>
+        <title>Leo Séry - Contact</title>
+        <meta name="Leo Séry - Portfolio" content="Contact"></meta>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="relative">
+        <Main />
       </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 }
-
-export default Contact;

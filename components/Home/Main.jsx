@@ -1,5 +1,5 @@
-import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 import React from "react";

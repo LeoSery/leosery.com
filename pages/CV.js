@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Head from "next/head";
 
 export default function CV() {
@@ -7,15 +5,11 @@ export default function CV() {
     <>
       <Head>
         <title>Leo Séry - CV</title>
-        <meta
-          name="Leo Séry - Portfolio"
-          content="Blog, CV and Portfolio"
-        ></meta>
+        <meta name="Leo Séry - Portfolio" content="CV"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">
-        <Navbar />
-        <Footer />
+        <div>toto</div>
       </div>
     </>
   );

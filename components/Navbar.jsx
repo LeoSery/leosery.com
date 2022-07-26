@@ -1,7 +1,7 @@
 import { Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import React, { useState } from "react";
+import Image from "next/image";
 
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +14,18 @@ function navbar() {
           <div className="flex items-center h-20 w-full">
             <div className="flex items items-center mx-20 justify-between w-full">
               <div className="flex justify-center items-center flex-shrink-0">
-                <Image
-                  src="/../public/assets/profilePicture.jpg"
-                  alt="My profile piccture"
-                  width="50"
-                  height="50"
-                  class="rounded-full"
-                />
+                <button
+                  onClick={() => router.push("/")}
+                  className="hover:bg-white"
+                >
+                  <Image
+                    src="/../public/assets/profilePicture.jpg"
+                    alt="My profile piccture"
+                    width="50"
+                    height="50"
+                    class="rounded-full"
+                  />
+                </button>
               </div>
               <div className=" hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">

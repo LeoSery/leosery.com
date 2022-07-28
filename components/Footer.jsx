@@ -3,7 +3,7 @@ import { IoIosMail } from "react-icons/io";
 import Link from "next/link";
 import React from "react";
 
-function footer() {
+export default function footer() {
   return (
     <>
       <div className="bg-gray-50 w-full flex md:flex-row flex-col justify-evenly items-start px-5 py-2">
@@ -37,5 +37,3 @@ function footer() {
     </>
   );
 }
-
-export default footer;

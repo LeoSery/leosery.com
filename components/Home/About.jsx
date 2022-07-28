@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-const About = () => {
+export default function About() {
   const router = useRouter();
 
   return (
@@ -44,6 +44,4 @@ const About = () => {
       </div>
     </>
   );
-};
-
-export default About;
+}

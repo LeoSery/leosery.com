@@ -4,7 +4,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 import React from "react";
 
-function Main() {
+export default function Main() {
   return (
     <div className="w-full pt-20 text-center mt-20">
       <div className="max-w[1240px] w-full mx-auto p-2 flex justify-center items-center">
@@ -21,10 +21,6 @@ function Main() {
             development of video games, more particularly by Virtual reality and
             the metaverse. I like object languages such as C# and C++, in my
             free time I develop games on Unity3D.
-          </p>
-          <p className="text-gray-600 max-w-[70%] m-auto text-center cursor-auto">
-            I am currently looking for an apprenticeship in the field of
-            development.
           </p>
           <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
             <Link href="https://www.linkedin.com/in/leosery/">
@@ -53,5 +49,3 @@ function Main() {
     </div>
   );
 }
-
-export default Main;

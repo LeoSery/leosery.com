@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import React from "react";
 
-const Main = () => {
+export default function Main() {
   return (
     <div className="w-full lg:h-screen">
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
@@ -106,6 +106,4 @@ const Main = () => {
       </div>
     </div>
   );
-};
-
-export default Main;
+}

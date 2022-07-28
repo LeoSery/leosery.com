@@ -6,7 +6,7 @@ import PongGameImg from "/public/assets/projects/PongGame.png";
 import ProjectItem from "./ProjectItem";
 import React from "react";
 
-function Main() {
+export default function Main() {
   return (
     <div className="w-full">
       <div className="max-w-[1240px] mx-auto px-12 py-16">
@@ -19,36 +19,34 @@ function Main() {
             title="Flight Simulator"
             backgroundImg={FlightSimulatorImg}
             technos={"Unity3D / C#"}
-            projectUrl="/flightsimulator"
+            projectUrl="/Projects/flight-simulator"
           />
           <ProjectItem
             title="Earth Saver Game"
             backgroundImg={EarthSaverGameImg}
             technos={"Unity3D / C#"}
-            projectUrl="/earthsaver"
+            projectUrl="/Projects/earth-saver"
           />
           <ProjectItem
-            title="Pong Game"
+            title="Pong on an STM32"
             backgroundImg={PongGameImg}
             technos={"Unity3D / C#"}
-            projectUrl="/pong"
+            projectUrl="Projects/pong"
           />
           <ProjectItem
             title="Robot Game"
             backgroundImg={RobotGameImg}
             technos={"Unity3D / C#"}
-            projectUrl="/robotgame"
+            projectUrl="Projects/robot"
           />
           <ProjectItem
             title="Snake Game"
             backgroundImg={SnakeGameImg}
             technos={"Qt / C++"}
-            projectUrl="/snake"
+            projectUrl="Projects/snake"
           />
         </div>
       </div>
     </div>
   );
 }
-
-export default Main;

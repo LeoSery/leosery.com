@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import React from "react";
 
-function MainSkills() {
+export default function MainSkills() {
   const router = useRouter();
 
   return (
@@ -88,5 +88,3 @@ function MainSkills() {
     </>
   );
 }
-
-export default MainSkills;

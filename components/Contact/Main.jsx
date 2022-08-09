@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Main() {
   return (
-    <div className="w-full lg:h-screen">
+    <div className="w-full">
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
         <p className="text-xl tracking-widest uppercase text-[#ff9f1c]">
           Contact
@@ -25,9 +25,7 @@ export default function Main() {
                 <h2 className="py-2">Léo Séry</h2>
                 <p>Game programming student</p>
                 <p className="py-4">
-                  I am currently looking for an apprenticeship in game
-                  programming, software development or web development, contact
-                  me !
+                  Contact me for any questions, suggestions or to work together
                 </p>
               </div>
               <div>

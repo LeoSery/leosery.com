@@ -87,7 +87,7 @@ export default function Main() {
                     rows="7"
                   ></textarea>
                 </div>
-                <button className="w-full p-4 text-gray-100 mt-4">
+                <button className="w-full p-4 bg-blue-600 text-gray-100 mt-4">
                   Send Message
                 </button>
               </form>

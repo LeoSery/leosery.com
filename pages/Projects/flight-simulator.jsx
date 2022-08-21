@@ -29,7 +29,7 @@ export default function flightSimulator() {
           <h2 className="py-2 text-gray-700">Overview</h2>
           <p className="text-justify py-2 text-gray-600">
             Game made for the end of year project during the bachelor year 2
-            (2021/2022). The Dev project was to develop a project in a given
+            (2021/2022). The Dev project was to develop a project in a limited
             time, so we decided to make a flight simulator under Unity3D. In
             this project, you can take off your plane and control it on 3
             different axes. control the flaps, brake and pull and play with your

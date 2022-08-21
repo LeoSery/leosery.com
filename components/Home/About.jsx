@@ -16,11 +16,11 @@ export default function About() {
             <p className="text-justify text-gray-600">
               I am Léo Séry, I discovered computer science very young and I
               quickly knew that it was the field towards which I wanted to go.
-              The field of development has interested me since I was little. A
+              The development sector caught my attention during my childhood. A
               family environment and more particularly uncles working in the
               field of video games have allowed me for several years to
-              consolidate my choice of orientation. It is naturally that I
-              continue my studies in the field of development.
+              consolidate my choice of orientation. It is obvious that I
+              continue my studies in the development's ground.
             </p>
             <div className="flex justify-center space-x-10 py-3">
               <button

@@ -1,3 +1,4 @@
+import PDFviewer from "../components/PDF/PDFviewer";
 import Head from "next/head";
 
 export default function CV() {
@@ -9,7 +10,7 @@ export default function CV() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">
-        <div>toto</div>
+        <PDFviewer />
       </div>
     </>
   );

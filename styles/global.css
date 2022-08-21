@@ -30,7 +30,7 @@
 
   button,
   Link {
-    @apply cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium uppercase;
+    @apply cursor-pointer text-black px-3 py-2 rounded-md text-sm font-medium uppercase;
   }
 }
 

@@ -23,7 +23,7 @@ export default function navbar() {
                     alt="My profile piccture"
                     width="50"
                     height="50"
-                    class="rounded-full"
+                    className="rounded-full"
                   />
                 </button>
               </div>
@@ -31,9 +31,7 @@ export default function navbar() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <button
                     onClick={() => router.push("/")}
-                    activeClass="home"
                     to="home"
-                    smooth={true}
                     offset={50}
                     duration={500}
                     className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
@@ -42,9 +40,7 @@ export default function navbar() {
                   </button>
                   <button
                     onClick={() => router.push("/CV")}
-                    activeClass="cv"
                     to="cv"
-                    smooth={true}
                     offset={50}
                     duration={500}
                     className="cursor-pointer hover:bg-blue-600 text--[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
@@ -53,9 +49,7 @@ export default function navbar() {
                   </button>
                   <button
                     onClick={() => router.push("/Projects")}
-                    activeClass="projects"
                     to="projects"
-                    smooth={true}
                     offset={50}
                     duration={500}
                     className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
@@ -63,21 +57,17 @@ export default function navbar() {
                     Projects
                   </button>
                   <button
-                    onClick={() => router.push("/Stage")}
-                    activeClass="stage"
-                    to="stage"
-                    smooth={true}
+                    onClick={() => router.push("/Blog")}
+                    to="blog"
                     offset={50}
                     duration={500}
                     className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                   >
-                    Stage
+                    Blog
                   </button>
                   <button
                     onClick={() => router.push("/Contact")}
-                    activeClass="contact"
                     to="contact"
-                    smooth={true}
                     offset={50}
                     duration={500}
                     className="cursor-pointer bg-blue-600 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium capitalize"
@@ -149,9 +139,7 @@ export default function navbar() {
               >
                 <button
                   onClick={() => router.push("/")}
-                  activeClass="Home"
                   to="home"
-                  smooth={true}
                   offset={50}
                   duration={50}
                   className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
@@ -160,9 +148,7 @@ export default function navbar() {
                 </button>
                 <button
                   onClick={() => router.push("/CV")}
-                  activeClass="cv"
                   to="cv"
-                  smooth={true}
                   offset={50}
                   duration={50}
                   className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
@@ -171,9 +157,7 @@ export default function navbar() {
                 </button>
                 <button
                   onClick={() => router.push("/Projects")}
-                  activeClass="projects"
                   to="projects"
-                  smooth={true}
                   offset={50}
                   duration={50}
                   className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
@@ -181,21 +165,17 @@ export default function navbar() {
                   Projects
                 </button>
                 <button
-                  onClick={() => router.push("/Stage")}
-                  activeClass="stage"
-                  to="stage"
-                  smooth={true}
+                  onClick={() => router.push("/Blog")}
+                  to="blog"
                   offset={50}
                   duration={50}
                   className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
-                  Stage
+                  Blog
                 </button>
                 <button
                   onClick={() => router.push("/Contact")}
-                  activeClass="contact"
                   to="contact"
-                  smooth={true}
                   offset={50}
                   duration={50}
                   className="cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"

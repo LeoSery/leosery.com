@@ -38,7 +38,10 @@ export default function About() {
             </div>
           </div>
           <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4">
-            <img className="rounded-md" src="/../assets/Test_Image.png"></img>
+            <img
+              className="rounded-md"
+              src="/../assets/images/Home/About-me-image.jpg"
+            ></img>
           </div>
         </div>
       </div>

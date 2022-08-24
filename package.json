@@ -8,12 +8,19 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@react-pdf-viewer/core": "^3.6.0",
     "@react-pdf-viewer/default-layout": "^3.6.0",
     "date-fns": "^2.28.0",
+    "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
+    "marked": "^4.0.19",
     "next": "12.1.6",
     "pdfjs-dist": "^2.14.305",
     "react": "18.2.0",

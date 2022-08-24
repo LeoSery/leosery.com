@@ -17,7 +17,7 @@ export default function Main() {
               <div>
                 <img
                   className="rounded-xl hover:scale-105 ease-in duration-300"
-                  src="/../assets/Test_Image.png"
+                  src="/assets/images/Contact/Contact-image.jpg"
                   alt="/"
                 />
               </div>

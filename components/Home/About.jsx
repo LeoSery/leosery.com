@@ -41,6 +41,7 @@ export default function About() {
             <img
               className="rounded-md"
               src="/../assets/images/Home/About-me-image.jpg"
+              alt="/"
             ></img>
           </div>
         </div>

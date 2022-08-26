@@ -62,7 +62,7 @@ export default function Navbar() {
                     duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
-                      router.pathname == "/Projects"
+                      router.pathname.includes("/Projects")
                         ? "border-b-4 hover:border-blue-600"
                         : "border-b-4 border-white hover:border-blue-600"
                     )}
@@ -76,7 +76,7 @@ export default function Navbar() {
                     duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
-                      router.pathname == "/Blog"
+                      router.pathname.includes("/Blog")
                         ? "border-b-4 hover:border-blue-600"
                         : "border-b-4 border-white hover:border-blue-600"
                     )}

@@ -11,7 +11,6 @@ export default function PostPage({
   slug,
   content,
 }) {
-  console.log(content);
   return (
     <>
       <Head>

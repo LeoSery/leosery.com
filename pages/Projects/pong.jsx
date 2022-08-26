@@ -1,4 +1,4 @@
-import ProjectImg from "/public/assets/projects/PongGame.png";
+import ProjectImg from "/public/assets/images/projects/PongGame.png";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";

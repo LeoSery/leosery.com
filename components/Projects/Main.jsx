@@ -1,8 +1,8 @@
-import FlightSimulatorImg from "/public/assets/projects/FlightSimulator.png";
-import EarthSaverGameImg from "/public/assets/projects/EarthSaver.png";
-import RobotGameImg from "/public/assets/projects/RobotGame.png";
-import SnakeGameImg from "/public/assets/projects/SnakeGame.png";
-import PongGameImg from "/public/assets/projects/PongGame.png";
+import FlightSimulatorImg from "/public/assets/images/projects/FlightSimulator.png";
+import EarthSaverGameImg from "/public/assets/images/projects/EarthSaver.png";
+import RobotGameImg from "/public/assets/images/projects/RobotGame.png";
+import SnakeGameImg from "/public/assets/images/projects/SnakeGame.png";
+import PongGameImg from "/public/assets/images/projects/PongGame.png";
 import ProjectItem from "./ProjectItem";
 import React from "react";
 

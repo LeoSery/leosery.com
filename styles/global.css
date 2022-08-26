@@ -34,10 +34,16 @@
   }
 }
 
-.PostBody > h2 {
-  color: red;
+.PostBody > h4 {
+  @apply text-gray-700 m-5 text-center;
 }
 
-.presentation {
-  color: blue;
+.PostBody > p {
+  @apply text-gray-700 m-5 text-justify;
+}
+
+.PostBody > li,
+ul,
+ol {
+  @apply text-gray-700 m-5 text-left;
 }

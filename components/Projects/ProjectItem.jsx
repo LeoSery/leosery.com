@@ -1,4 +1,4 @@
-import DefaultImg from "/public/assets/projects/DefaultImg.png";
+import DefaultImg from "/public/assets/images/projects/DefaultImg.png";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

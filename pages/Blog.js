@@ -4,7 +4,6 @@ import Head from "next/head";
 import React from "react";
 import path from "path";
 import fs from "fs";
-import { sortByDate } from "../utils/Blog";
 
 export default function Blog({ posts }) {
   return (
@@ -34,6 +33,10 @@ export default function Blog({ posts }) {
     </>
   );
 }
+
+export const sortByDate = (a, b) => {
+  return new Date(a.frontmatter.date) - new Date(b.frontmatter.date);
+};
 
 export async function getStaticProps() {
   const files = fs.readdirSync(path.join("public/assets/BlogPosts/Markdown"));

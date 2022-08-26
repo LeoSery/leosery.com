@@ -1,9 +1,9 @@
 ---
 title: "Stage B2 Ynov"
-subtitle: "Mars High Tech"
+subtitle: "4/4"
 date: "07-10-2022"
 excerpt: "Rapport de stage de fin de B2 a Ynov"
-cover_image: "/assets/images/Blog/preview-article-image.png"
+cover_image: "/assets/images/Blog/image-preview-article-4-stage-b2.png"
 slug: "Stage-Web-Ynov-B2-participation-au-projet"
 ---
 

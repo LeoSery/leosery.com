@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* basic css for site pages */
 @layer base {
   body {
     @apply bg-[#e7ecef] text-black tracking-wide;
@@ -34,6 +35,7 @@
   }
 }
 
+/* special css for displaying markdown in blog part */
 .PostBody > h4 {
   @apply text-gray-700 m-5 text-center;
 }
@@ -46,4 +48,22 @@
 ul,
 ol {
   @apply text-gray-700 m-5 text-left;
+}
+
+.PostBody > a {
+  @apply text-blue-600 visited:text-purple-600;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(202, 20%, 92%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(210, 5%, 53%);
+  border-radius: 100vw;
 }

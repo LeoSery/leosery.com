@@ -1,3 +1,4 @@
+import ProfilPicture from "../public/assets/profilePicture.png";
 import { Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -16,7 +17,7 @@ export default function Navbar() {
               <div className="flex justify-center items-center flex-shrink-0">
                 <button onClick={() => router.push("/")}>
                   <Image
-                    src="/../public/assets/profilePicture.png"
+                    src={ProfilPicture}
                     alt="profile piccture"
                     width="75"
                     height="75"

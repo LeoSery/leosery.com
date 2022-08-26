@@ -16,7 +16,7 @@ export default function Main() {
             <div className="lg:p-4 h-full">
               <div>
                 <img
-                  className="rounded-xl hover:scale-105 ease-in duration-300"
+                  className="rounded-xl"
                   src="/assets/images/Contact/Contact-image.jpg"
                   alt="/"
                 />

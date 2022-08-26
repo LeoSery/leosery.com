@@ -1,3 +1,7 @@
+import VisualStudio from "../../public/assets/images/Home/skills/visual-studio.png";
+import UnityLogo from "../../public/assets/images/Home/skills/unity.png";
+import CSharp from "../../public/assets/images/Home/skills/c-sharp.png";
+import GitHub from "../../public/assets/images/Home/skills/github.png";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import React from "react";
@@ -17,12 +21,7 @@ export default function MainSkills() {
             <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
-                  <Image
-                    src="/../public/assets/skills/unity.png"
-                    width="64px"
-                    height="64px"
-                    alt="/"
-                  />
+                  <Image src={UnityLogo} width="64px" height="64px" alt="/" />
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   <h3>Unity3D</h3>
@@ -32,12 +31,7 @@ export default function MainSkills() {
             <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
-                  <Image
-                    src="/../public/assets/skills/c-sharp.png"
-                    width="64px"
-                    height="64px"
-                    alt="/"
-                  />
+                  <Image src={CSharp} width="64px" height="64px" alt="/" />
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   <h3>C-Sharp</h3>
@@ -47,12 +41,7 @@ export default function MainSkills() {
             <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
-                  <Image
-                    src="/../public/assets/skills/github.png"
-                    width="64px"
-                    height="64px"
-                    alt="/"
-                  />
+                  <Image src={GitHub} width="64px" height="64px" alt="/" />
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   <h3>GitHub</h3>
@@ -63,7 +52,7 @@ export default function MainSkills() {
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
                   <Image
-                    src="/../public/assets/skills/visual-studio.png"
+                    src={VisualStudio}
                     width="64px"
                     height="64px"
                     alt="/"

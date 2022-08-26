@@ -10,7 +10,7 @@ export default function Main() {
       <div className="max-w[1240px] w-full mx-auto p-2 flex justify-center items-center">
         <div>
           <h1>
-            Hi, I'm<span className="text-[#ff9f1c] cursor-auto"> Léo</span>
+            Hi, I&apos;m<span className="text-[#ff9f1c] cursor-auto"> Léo</span>
           </h1>
           <h2 className="py-4 text-gray-700 max-w-[70%] m-auto cursor-auto">
             A student in Game programming

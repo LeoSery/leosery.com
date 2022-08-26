@@ -20,7 +20,7 @@ export default function About() {
               family environment and more particularly uncles working in the
               field of video games have allowed me for several years to
               consolidate my choice of orientation. It is obvious that I
-              continue my studies in the development's ground.
+              continue my studies in the development&apos;s ground.
             </p>
             <div className="flex justify-center space-x-10 py-3">
               <button

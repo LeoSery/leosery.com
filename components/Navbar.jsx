@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Image from "next/image";
 
-export default function navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 

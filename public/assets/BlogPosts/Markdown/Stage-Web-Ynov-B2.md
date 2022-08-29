@@ -16,6 +16,10 @@ Lors de mon arrivée dans l'entreprise, le projet en cours était la réalisatio
 
 voici quelques images du site web :
 
+![](https://i.imgur.com/NpVqVSS.png)
+
+![](https://i.imgur.com/pJYNA20.png)
+
 Le déroulement du stage peut être catégorisé en 3 parties :
 
 - [- Découverte des technologies utilisées par l'entreprise.](/Blog/Stage-Web-Ynov-B2-technologies-utilisees-par-l-entreprise)

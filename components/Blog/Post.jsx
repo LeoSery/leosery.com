@@ -5,7 +5,7 @@ import React from "react";
 export default function Post({ post }) {
   return (
     <>
-      <div className="card">
+      <div className="card cursor-pointer">
         <Link href={`/Blog/${post.frontmatter.slug}`}>
           <div className="p-3 shadow-lg rounded-xl hover:scale-105 ease-in duration-300 max-w-[400px] border-solid border border-[#C8CCCE]">
             <div className="grid grid-cols-1 justify-center items-center">

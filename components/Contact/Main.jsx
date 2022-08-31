@@ -1,9 +1,13 @@
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Main() {
+  useEffect(() => {
+    document.getElementById("contactForm").reset();
+  }, []);
+
   return (
     <div className="w-full">
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
@@ -47,11 +51,16 @@ export default function Main() {
           </div>
           <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
             <div className="p-4">
-              <form>
+              <form
+                id="contactForm"
+                method="POST"
+                action="https://getform.io/f/48553dcc-187b-402d-bb91-6202bf37afa1"
+              >
                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
                   <div className="flex flex-col">
                     <label className="uppercase text-sm py-2">Name</label>
                     <input
+                      name="name"
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       type="text"
                     />
@@ -61,6 +70,7 @@ export default function Main() {
                       Phone Number
                     </label>
                     <input
+                      name="phone"
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       type="text"
                     />
@@ -69,6 +79,7 @@ export default function Main() {
                 <div className="flex flex-col py-2">
                   <label className="uppercase text-sm py-2">Email</label>
                   <input
+                    name="email"
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     type="email"
                   />
@@ -76,18 +87,23 @@ export default function Main() {
                 <div className="flex flex-col py-2">
                   <label className="uppercase text-sm py-2">Subject</label>
                   <input
+                    name="subject"
                     className="border-2 rounded-lg p-3 flex border-gray-300"
-                    type="email"
+                    type="text"
                   />
                 </div>
                 <div className="flex flex-col py-2">
                   <label className="uppercase text-sm py-2">Message</label>
                   <textarea
+                    name="message"
                     className="border-2 rounded-lg p-3 border-gray-300"
                     rows="7"
                   ></textarea>
                 </div>
-                <button className="w-full p-4 bg-blue-600 text-gray-100 mt-4">
+                <button
+                  className="w-full p-4 bg-blue-600 text-gray-100 mt-4"
+                  type="submit"
+                >
                   Send Message
                 </button>
               </form>

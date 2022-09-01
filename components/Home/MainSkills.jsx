@@ -16,9 +16,11 @@ export default function MainSkills() {
           <p className="text-xl tracking-widest uppercase text-[#ff9f1c] text-center">
             Some of my skills
           </p>
-          <h2 className="py-4 text-gray-700 text-center">What I Can Do</h2>
+          <h2 className="py-4 text-gray-700 dark:text-[#BDB7AF] text-center">
+            What I Can Do
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+            <div className="dark:bg-[#1E1E1E] p-6 shadow-xl dark:shadow-lg dark:shadow-gray-800 rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
                   <Image src={UnityLogo} width="64px" height="64px" alt="/" />
@@ -28,7 +30,7 @@ export default function MainSkills() {
                 </div>
               </div>
             </div>
-            <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+            <div className="dark:bg-[#1E1E1E] p-6 shadow-xl dark:shadow-lg dark:shadow-gray-800 rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
                   <Image src={CSharp} width="64px" height="64px" alt="/" />
@@ -38,7 +40,7 @@ export default function MainSkills() {
                 </div>
               </div>
             </div>
-            <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+            <div className="dark:bg-[#1E1E1E] p-6 shadow-xl dark:shadow-lg dark:shadow-gray-800 rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
                   <Image src={GitHub} width="64px" height="64px" alt="/" />
@@ -48,7 +50,7 @@ export default function MainSkills() {
                 </div>
               </div>
             </div>
-            <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+            <div className="dark:bg-[#1E1E1E] p-6 shadow-xl dark:shadow-lg dark:shadow-gray-800 rounded-xl hover:scale-105 ease-in duration-300">
               <div className="grid grid-cols-2 gap-4 justify-center items-center">
                 <div className="m-auto">
                   <Image
@@ -65,10 +67,10 @@ export default function MainSkills() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center py-4">
+        <div className="flex justify-center py-4 pt-6">
           <button
             onClick={() => router.push("/CV")}
-            className="cursor-pointer bg-blue-600 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium text-justify"
+            className="cursor-pointer bg-blue-600 dark:bg-blue-800 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium text-justify"
           >
             Check out all my skills
           </button>

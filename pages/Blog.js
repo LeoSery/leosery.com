@@ -20,7 +20,9 @@ export default function Blog({ posts }) {
               <p className="text-xl tracking-widest uppercase text-[#ff9f1c] text-center">
                 Blog
               </p>
-              <h2 className="py-4 text-gray-700 text-center">Mes articles</h2>
+              <h2 className="py-4 text-gray-700 dark:text-[#BDB7AF] text-center">
+                Mes articles
+              </h2>
               <div className="grid grid-cols-4 gap-4 justify-center items-center">
                 {posts.map((posts, index) => (
                   <PostComponent key={index} post={posts} />

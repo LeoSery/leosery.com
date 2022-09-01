@@ -13,7 +13,9 @@ export default function Main() {
         <p className="text-xl tracking-widest uppercase text-[#ff9f1c]">
           Projects
         </p>
-        <h2 className="py-4">What I&apos;ve Built</h2>
+        <h2 className="py-4 text-gray-700 dark:text-[#BDB7AF]">
+          What I&apos;ve Built
+        </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <ProjectItem
             title="Flight Simulator"

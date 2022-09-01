@@ -15,9 +15,9 @@ export default function PostPage({
     <>
       <Head>
         <title>
-          Leo Séry - Blog - {title} - {subtitle}
+          Léo Séry - Blog - {title} - {subtitle}
         </title>
-        <meta name="Leo Séry - Portfolio" content="Blog"></meta>
+        <meta name="Léo Séry - Portfolio" content="Blog"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">
@@ -30,17 +30,19 @@ export default function PostPage({
                     <p>Retour</p>
                   </button>
                 </Link>
-                <h2 className="py-4 text-gray-700 text-center">{title}</h2>
-                <h3 className="py-4 text-gray-700 text-center">
+                <h2 className="py-4 text-gray-700 dark:text-[#BDB7AF] text-center">
+                  {title}
+                </h2>
+                <h3 className="py-4 text-gray-700 dark:text-[#BDB7AF] text-center">
                   - {subtitle} -
                 </h3>
-                <p className="py-4 text-gray-600 m-auto cursor-auto text-center italic">
+                <p className="py-4 text-gray-600 dark:text-[#BDB7AF] m-auto cursor-auto text-center italic">
                   Publié le : {new Date(date).toLocaleDateString("en-GB")}
                 </p>
               </div>
             </div>
           </div>
-          <div className="shadow-2xl rounded-lg max-w-[1000px] mx-auto bg-white border-solid border-2 border-gray-700">
+          <div className="shadow-2xl rounded-lg max-w-[1000px] mx-auto bg-white dark:bg-[#2C2C2C] border-solid border-2 border-gray-700 mb-4">
             <span
               className="PostBody"
               dangerouslySetInnerHTML={{ __html: marked(content) }}

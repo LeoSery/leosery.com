@@ -26,8 +26,8 @@ export default function flightSimulator() {
           <p className="uppercase text-xl tracking-widest text-[#ff9f1c]">
             Project
           </p>
-          <h2 className="py-2 text-gray-700">Overview</h2>
-          <p className="text-justify py-2 text-gray-600">
+          <h2 className="py-2 text-gray-700 dark:text-[#BDB7AF]">Overview</h2>
+          <p className="text-justify py-2 text-gray-600 dark:text-[#B1AAA0]">
             Game made during my bachelor year 2 (2021/2022) for an IOT course at
             Ynov. The goal of the project was to create an application that
             could be controlled from an STM32 programmable card. So I decided to
@@ -51,29 +51,29 @@ export default function flightSimulator() {
             <button className="px-8 py-2 mt-4">Download</button>
           </a> */}
         </div>
-        <div className="col-span-4 md:col-span-1 shadow-xl shadow-gray-400 rounded-xl py-4">
+        <div className="col-span-4 md:col-span-1 shadow-xl dark:bg-[#1E1E1E] shadow-gray-400 dark:shadow-gray-800 rounded-xl py-4">
           <div className="p-2">
             <p className="text-center font-bold pb-2">Technologies</p>
             <div className="grid grid-cols-3 md:grid-cols-1">
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> C#
               </p>
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> C
               </p>
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> STM32 Card
               </p>
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> Unity3D
               </p>
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> CubeMX
               </p>
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> Visual Studio
               </p>
-              <p className="text-gray-800 py-2 flex items-center">
+              <p className="text-gray-800 py-2 flex items-center dark:text-[#BDB7AF]">
                 <RiRadioButtonFill className="pr-1" /> Eclipse IDE
               </p>
             </div>

@@ -8,7 +8,7 @@ export default function earthSaver() {
   return (
     <div className="w-full">
       <div className="w-screen h-[50vh] relative">
-        <div className="absolute top-0 left-0 w-full h-[50vh] bg-black/60 z-20" />
+        <div className="absolute top-0 left-0 w-full h-[50vh] bg-black/60 z-9" />
         <Image
           className="absolute z-1"
           layout="fill"

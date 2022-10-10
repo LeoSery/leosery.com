@@ -1,4 +1,4 @@
-import ProfilPicture from "../public/assets/profilePicture.png";
+import ProfilPicture from "../public/assets/profilePicture2.png";
 import React, { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
 import { MdOutlineDarkMode } from "react-icons/md";

@@ -1,5 +1,8 @@
 import FlightSimulatorImg from "/public/assets/images/projects/FlightSimulator.png";
 import EarthSaverGameImg from "/public/assets/images/projects/EarthSaver.png";
+import FlappyBirdImg from "/public/assets/images/projects/FlappyBirdGame.png";
+import OvercookedImg from "/public/assets/images/projects/OverCoockedGame.png";
+import SokobanImg from "/public/assets/images/projects/SokobanGame.png";
 import RobotGameImg from "/public/assets/images/projects/RobotGame.png";
 import SnakeGameImg from "/public/assets/images/projects/SnakeGame.png";
 import PongGameImg from "/public/assets/images/projects/PongGame.png";
@@ -17,6 +20,18 @@ export default function Main() {
           What I&apos;ve Built
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
+          <ProjectItem
+            title="Sokoban"
+            backgroundImg={SokobanImg}
+            technos={"Unity3D / C#"}
+            projectUrl="/Projects/sokoban"
+          />
+          <ProjectItem
+            title="Flappy Bird"
+            backgroundImg={FlappyBirdImg}
+            technos={"Unity3D / C#"}
+            projectUrl="/Projects/flappy-bird"
+          />
           <ProjectItem
             title="Flight Simulator"
             backgroundImg={FlightSimulatorImg}
@@ -46,6 +61,12 @@ export default function Main() {
             backgroundImg={SnakeGameImg}
             technos={"Qt / C++"}
             projectUrl="Projects/snake"
+          />
+          <ProjectItem
+            title="Overcooked"
+            backgroundImg={OvercookedImg}
+            technos={"Unity3D / C#"}
+            projectUrl="Projects/overcooked"
           />
         </div>
       </div>

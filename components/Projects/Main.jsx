@@ -6,6 +6,8 @@ import SokobanImg from "/public/assets/images/projects/SokobanGame.png";
 import RobotGameImg from "/public/assets/images/projects/RobotGame.png";
 import SnakeGameImg from "/public/assets/images/projects/SnakeGame.png";
 import PongGameImg from "/public/assets/images/projects/PongGame.png";
+import ARControlToolImg from "/public/assets/images/projects/ARControlTool.png";
+import ARTargetIndicatorImg from "/public/assets/images/projects/ARTargetIndicator.png";
 import ProjectItem from "./ProjectItem";
 import React from "react";
 
@@ -25,6 +27,18 @@ export default function Main() {
             backgroundImg={SokobanImg}
             technos={"Unity3D / C#"}
             projectUrl="/Projects/sokoban"
+          />
+          <ProjectItem
+            title="AR-Control-Tool"
+            backgroundImg={ARControlToolImg}
+            technos={"Unity3D / C#"}
+            projectUrl="/Projects/ar-control-tool"
+          />
+          <ProjectItem
+            title="AR-Target-Indicator"
+            backgroundImg={ARTargetIndicatorImg}
+            technos={"Unity3D / C#"}
+            projectUrl="/Projects/ar-target-indicator"
           />
           <ProjectItem
             title="Flappy Bird"

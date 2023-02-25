@@ -20,7 +20,11 @@ export default function footer() {
           <div className="flex flex-col space-y-2">
             <div className="flex justify-start space-x-3">
               <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-600"></FaLinkedin>
-              <Link href="https://www.linkedin.com/in/leosery/">
+              <Link
+                href="https://www.linkedin.com/in/leosery/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
                   leosery
                 </p>
@@ -28,7 +32,11 @@ export default function footer() {
             </div>
             <div className="flex justify-start space-x-3">
               <IoIosMail className="text-2xl cursor-pointer hover:text-blue-600"></IoIosMail>
-              <Link href="mailto:leo.sery@ynov.com">
+              <Link
+                href="mailto:leo.sery@ynov.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
                   leo.sery@ynov.com
                 </p>
@@ -43,7 +51,11 @@ export default function footer() {
           <div className="flex flex-col space-y-2">
             <div className="flex justify-start space-x-3">
               <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-600"></FaLinkedin>
-              <Link href="https://www.linkedin.com/school/bordeaux-ynov-campus/">
+              <Link
+                href="https://www.linkedin.com/school/bordeaux-ynov-campus/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
                   Ynov Bordeaux
                 </p>
@@ -51,7 +63,11 @@ export default function footer() {
             </div>
             <div className="flex justify-start space-x-3">
               <CgWebsite className="text-2xl cursor-pointer hover:text-blue-600"></CgWebsite>
-              <Link href="https://ynov-bordeaux.com/">
+              <Link
+                href="https://ynov-bordeaux.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
                   ynov-bordeaux.com
                 </p>
@@ -66,17 +82,25 @@ export default function footer() {
           <div className="flex flex-col space-y-2">
             <div className="flex justify-start space-x-3">
               <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-600"></FaLinkedin>
-              <Link href="https://www.linkedin.com/company/smartbottle/">
+              <Link
+                href="https://www.linkedin.com/company/yzar/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
-                  SmartBottle
+                  YZAR
                 </p>
               </Link>
             </div>
             <div className="flex justify-start space-x-3">
               <CgWebsite className="text-2xl cursor-pointer hover:text-blue-600"></CgWebsite>
-              <Link href="https://smartbottle.wine/">
+              <Link
+                href="https://yzar.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
-                  smartbottle.wine
+                  yzar.fr
                 </p>
               </Link>
             </div>

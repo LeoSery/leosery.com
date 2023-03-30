@@ -8,6 +8,7 @@ import SnakeGameImg from "/public/assets/images/projects/SnakeGame.png";
 import PongGameImg from "/public/assets/images/projects/PongGame.png";
 import ARControlToolImg from "/public/assets/images/projects/ARControlTool.png";
 import ARTargetIndicatorImg from "/public/assets/images/projects/ARTargetIndicator.png";
+import TheProbablyEnchantedCavernImg from "/public/assets/images/projects/TheProbablyEnchantedCavern.png";
 import ProjectItem from "./ProjectItem";
 import React from "react";
 
@@ -23,19 +24,25 @@ export default function Main() {
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <ProjectItem
+            title="The Probably Enchanted Cavern"
+            backgroundImg={TheProbablyEnchantedCavernImg}
+            technos={"Unreal Engine 5 / C++"}
+            projectUrl="/Projects/the-probably-enchanted-cavern"
+          />
+          <ProjectItem
+            title="AR Control Tool"
+            backgroundImg={ARControlToolImg}
+            technos={"Unity3D / C#"}
+            projectUrl="/Projects/ar-control-tool"
+          />
+          <ProjectItem
             title="Sokoban"
             backgroundImg={SokobanImg}
             technos={"Unity3D / C#"}
             projectUrl="/Projects/sokoban"
           />
           <ProjectItem
-            title="AR-Control-Tool"
-            backgroundImg={ARControlToolImg}
-            technos={"Unity3D / C#"}
-            projectUrl="/Projects/ar-control-tool"
-          />
-          <ProjectItem
-            title="AR-Target-Indicator"
+            title="AR Target Indicator"
             backgroundImg={ARTargetIndicatorImg}
             technos={"Unity3D / C#"}
             projectUrl="/Projects/ar-target-indicator"

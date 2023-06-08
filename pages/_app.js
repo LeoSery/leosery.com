@@ -6,14 +6,12 @@ import "../styles/global.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <DarkThemeProvider>
-        <ThemeProvider enableSystem={true} attribute="class">
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </ThemeProvider>
-      </DarkThemeProvider>
-    </>
+    <DarkThemeProvider>
+      <ThemeProvider enableSystem={true} attribute="class">
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </ThemeProvider>
+    </DarkThemeProvider>
   );
 }

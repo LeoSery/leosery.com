@@ -9,7 +9,7 @@ export default function CV() {
         <meta name="Leo Séry - Portfolio" content="CV"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="relative">
+      <div className="container mx-auto">
         <PDFviewer />
       </div>
     </>

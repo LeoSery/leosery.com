@@ -1,35 +1,28 @@
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { toolbarPlugin } from "@react-pdf-viewer/toolbar";
 import { ThemeContext } from "../../context/themeContext";
 import { Worker, Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import React, { useContext } from "react";
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
+import { themePlugin } from '@react-pdf-viewer/theme';
 
 export default function PDFviewer() {
-  // const toolbarPluginInstance = toolbarPlugin({
-  //   searchPlugin: {
-  //     keyword: "PDF",
-  //   },
-  //   selectionModePlugin: {
-  //     selectionMode: SelectionMode.Hand,
-  //   },
-  // });
-
-  // const { Toolbar } = toolbarPluginInstance;
-
   const { isDark } = useContext(ThemeContext);
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  const themePluginInstance = themePlugin();
 
   return (
-    <>
-      {/* <Toolbar /> */}
+    <div className="w-9/12 mx-auto mt-14">
       <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js">
         <Viewer
-          fileUrl="/CV.pdf"
-          // plugins={[toolbarPluginInstance]}
-          defaultScale={1}
           theme={isDark ? "light" : "dark"}
+          fileUrl="/CV.pdf"
+          plugins={[
+            defaultLayoutPluginInstance,
+            themePlugin
+          ]}
         />
       </Worker>
-    </>
+    </div>
   );
 }

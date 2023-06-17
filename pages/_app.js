@@ -8,9 +8,11 @@ export default function App({ Component, pageProps }) {
   return (
     <DarkThemeProvider>
       <ThemeProvider enableSystem={true} attribute="class">
+        <div className="flex flex-col h-screen justify-between">
         <Navbar />
         <Component {...pageProps} />
         <Footer />
+        </div>
       </ThemeProvider>
     </DarkThemeProvider>
   );

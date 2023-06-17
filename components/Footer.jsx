@@ -6,7 +6,7 @@ import React from "react";
 
 export default function footer() {
   return (
-    <footer className="bg-white w-full mt-64 first-letter:bottom-0 flex md:flex-row flex-col justify-evenly items-start px-5 py-2 dark:bg-[#202020]">
+    <footer className="bg-white w-full mt-16 first-letter:bottom-0 flex md:flex-row flex-col justify-evenly items-start px-5 py-2 dark:bg-[#202020]">
       <div className="self-center">
         <p className="text-gray-800 dark:text-white font-bold text-3xl">
           Léo<span className="text-blue-600"> Séry</span>

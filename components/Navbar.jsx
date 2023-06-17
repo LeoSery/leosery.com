@@ -115,7 +115,7 @@ export default function Navbar() {
                   >
                     Projects
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => router.push("/Blog")}
                     to="blog"
                     offset={50}
@@ -128,7 +128,7 @@ export default function Navbar() {
                     )}
                   >
                     Blog
-                  </button>
+                  </button> */}
                   <button
                     onClick={() => router.push("/Contact")}
                     to="contact"

@@ -47,9 +47,6 @@ export default function flightSimulator() {
               </button>
             </div>
           </a>
-          {/* <a href="" target="_blank" rel="noreferrer">
-            <button className="px-8 py-2 mt-4">Download</button>
-          </a> */}
         </div>
         <div className="col-span-4 md:col-span-1 shadow-xl dark:bg-[#1E1E1E] shadow-gray-400 dark:shadow-gray-800 rounded-xl py-4">
           <div className="p-2">

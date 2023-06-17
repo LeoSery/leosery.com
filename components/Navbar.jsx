@@ -77,7 +77,7 @@ export default function Navbar() {
                     onClick={() => router.push("/")}
                     to="home"
                     offset={50}
-                    data-duration={500}
+                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname == "/"
@@ -91,7 +91,7 @@ export default function Navbar() {
                     onClick={() => router.push("/CV")}
                     to="cv"
                     offset={50}
-                    //data-duration={500}
+                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname == "/CV"
@@ -105,7 +105,7 @@ export default function Navbar() {
                     onClick={() => router.push("/Projects")}
                     to="projects"
                     offset={50}
-                    //data-duration={500}
+                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname.includes("/Projects")
@@ -119,7 +119,7 @@ export default function Navbar() {
                     onClick={() => router.push("/Blog")}
                     to="blog"
                     offset={50}
-                    //data-duration={500}
+                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname.includes("/Blog")
@@ -133,7 +133,7 @@ export default function Navbar() {
                     onClick={() => router.push("/Contact")}
                     to="contact"
                     offset={50}
-                    data-duration={500}
+                    duration={500}
                     className="cursor-pointer bg-blue-600 dark:bg-blue-800 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] dark:hover:bg-[#BB6C00] rounded-md text-sm font-medium capitalize"
                   >
                     Contact
@@ -208,7 +208,7 @@ export default function Navbar() {
                   }}
                   to="home"
                   offset={50}
-                  data-duration={50}
+                  duration={50}
                   className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Home
@@ -220,7 +220,7 @@ export default function Navbar() {
                   }}
                   to="cv"
                   offset={50}
-                  data-duration={50}
+                  duration={50}
                   className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Curriculum vitae
@@ -232,7 +232,7 @@ export default function Navbar() {
                   }}
                   to="projects"
                   offset={50}
-                  data-duration={50}
+                  duration={50}
                   className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Projects
@@ -244,7 +244,7 @@ export default function Navbar() {
                   }}
                   to="blog"
                   offset={50}
-                  data-duration={50}
+                  duration={50}
                   className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Blog
@@ -256,7 +256,7 @@ export default function Navbar() {
                   }}
                   to="contact"
                   offset={50}
-                  data-duration={50}
+                  duration={50}
                   className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Contact

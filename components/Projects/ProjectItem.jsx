@@ -1,16 +1,20 @@
-import DefaultImg from "/public/assets/images/projects/DefaultImg.png";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const ProjectItem = ({ title, backgroundImg, technos, projectUrl }) => {
   return (
-    <div className="relative flex items-center justify-center h-auto w-full dark:bg-[#1E1E1E] shadow-xl shadow-gray-400 dark:shadow-gray-800 rounded-xl p-4 group hover:bg-gradient-to-r from-[#ff9f1c]">
-      <Image
-        className="rounded-xl group-hover:opacity-30"
-        src={backgroundImg ? backgroundImg : DefaultImg}
-        alt="/"
-      />
+    <div className="relative flex items-center justify-center h-full w-full dark:bg-[#1E1E1E] shadow-xl shadow-gray-400 dark:shadow-gray-800 rounded-xl p-4 group hover:bg-gradient-to-r from-[#ff9f1c] aspect-video">
+      <div
+        className="relative w-full h-full">
+        <Image
+          className="relative rounded-xl group-hover:opacity-30"
+          src={backgroundImg}
+          layout="fill"
+          objectFit='cover'
+          alt="/"
+        />
+      </div>
       <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
         <h3 className="text-2xl text-[#312f2f] dark:text-[#BDB7AF] tracking-wider text-center">
           {title}

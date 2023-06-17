@@ -1,4 +1,4 @@
-import ProjectImg from "/public/assets/images/projects/RobotGame.png";
+import ProjectImg from "/public/static/projects/RobotGame.png";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";

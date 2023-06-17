@@ -18,7 +18,7 @@ export default function Main() {
               key={project.Id}
               title={project.Title}
               backgroundImg={project.CardImage}
-              technos={project.Technologies}
+              technos={project.CardTechnologies}
               projectUrl={project.Url}
             />
           ))}

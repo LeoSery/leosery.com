@@ -1,6 +1,17 @@
 export const projectsData = [
   {
     Id: 1,
+    Title: "ArLab",
+    CardTechnologies: ["Unity3D", "C#"],
+    Technologies: ["Unity3D", "C#", "Vuforia", "Visual Studio"],
+    Description:
+      "AR Lab est une application de réalité augmentée que j'ai développée lors de mon alternance en 3ème année chez YZAR. Elle permet aux professionnels de la vente, aux intervenants techniques et aux formateurs de visualiser de manière interactive des produits et des concepts.",
+    CardImage: "/static/projects/ArLabProject.png",
+    BannerImage: "/static/projects/ArLabProject.png",
+    Url: "/Projects/arlab",
+  },
+  {
+    Id: 2,
     Title: "The Probably Enchanted Cavern",
     CardTechnologies: ["Unreal Engine 5", "C++"],
     Technologies: ["C++", "C#", "Unreal Engine 5", "Visual Studio"],
@@ -11,7 +22,7 @@ export const projectsData = [
     Url: "/Projects/the-probably-enchanted-cavern",
   },
   {
-    Id: 2,
+    Id: 3,
     Title: "AR Control Tool",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -22,7 +33,7 @@ export const projectsData = [
     Url: "/Projects/ar-control-tool",
   },
   {
-    Id: 3,
+    Id: 4,
     Title: "Sokoban",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -33,7 +44,7 @@ export const projectsData = [
     Url: "/Projects/sokoban",
   },
   {
-    Id: 4,
+    Id: 5,
     Title: "AR Target Indicator",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -44,7 +55,7 @@ export const projectsData = [
     Url: "/Projects/ar-target-indicator",
   },
   {
-    Id: 5,
+    Id: 6,
     Title: "Flappy Bird",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -55,7 +66,7 @@ export const projectsData = [
     Url: "/Projects/flappy-bird",
   },
   {
-    Id: 6,
+    Id: 7,
     Title: "Flight Simulator",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -66,7 +77,7 @@ export const projectsData = [
     Url: "/Projects/flight-simulator",
   },
   {
-    Id: 7,
+    Id: 8,
     Title: "Earth Saver Game",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -77,7 +88,7 @@ export const projectsData = [
     Url: "/Projects/earth-saver",
   },
   {
-    Id: 8,
+    Id: 9,
     Title: "Pong on an STM32",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -88,7 +99,7 @@ export const projectsData = [
     Url: "Projects/pong",
   },
   {
-    Id: 9,
+    Id: 10,
     Title: "Robot Game",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -99,7 +110,7 @@ export const projectsData = [
     Url: "Projects/robot",
   },
   {
-    Id: 10,
+    Id: 11,
     Title: "Snake Game",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],
@@ -110,7 +121,7 @@ export const projectsData = [
     Url: "Projects/snake",
   },
   {
-    Id: 11,
+    Id: 12,
     Title: "Overcooked",
     CardTechnologies: ["Unity3D", "C#"],
     Technologies: ["C#", "Unity3D", "Visual Studio"],

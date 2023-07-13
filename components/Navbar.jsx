@@ -115,20 +115,6 @@ export default function Navbar() {
                   >
                     Projects
                   </button>
-                  {/* <button
-                    onClick={() => router.push("/Blog")}
-                    to="blog"
-                    offset={50}
-                    duration={500}
-                    className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
-                      " ",
-                      router.pathname.includes("/Blog")
-                        ? "border-b-4 border-[#E5E7EB] hover:border-blue-600 dark:border-[#363B3D] dark:hover:border-blue-800"
-                        : "border-b-4 border-white hover:border-blue-600 dark:border-[#212121] dark:hover:border-blue-800"
-                    )}
-                  >
-                    Blog
-                  </button> */}
                   <button
                     onClick={() => router.push("/Contact")}
                     to="contact"

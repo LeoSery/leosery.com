@@ -77,7 +77,6 @@ export default function Navbar() {
                     onClick={() => router.push("/")}
                     to="home"
                     offset={50}
-                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname == "/"
@@ -91,7 +90,6 @@ export default function Navbar() {
                     onClick={() => router.push("/CV")}
                     to="cv"
                     offset={50}
-                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname == "/CV"
@@ -105,7 +103,6 @@ export default function Navbar() {
                     onClick={() => router.push("/Projects")}
                     to="projects"
                     offset={50}
-                    duration={500}
                     className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
                       " ",
                       router.pathname.includes("/Projects")
@@ -119,7 +116,6 @@ export default function Navbar() {
                     onClick={() => router.push("/Contact")}
                     to="contact"
                     offset={50}
-                    duration={500}
                     className="cursor-pointer bg-blue-600 dark:bg-blue-800 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] dark:hover:bg-[#BB6C00] rounded-md text-sm font-medium capitalize"
                   >
                     Contact

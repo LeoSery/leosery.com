@@ -28,11 +28,10 @@ export default function earthSaver() {
           </p>
           <h2 className="py-2 text-gray-700 dark:text-[#BDB7AF]">Overview</h2>
           <p className="text-justify py-2 text-gray-600 dark:text-[#B1AAA0]">
-            AR Lab est une application de réalité augmentée que j&apos;ai
-            développée lors de mon alternance en 3ème année chez YZAR. Elle
-            permet aux professionnels de la vente, aux intervenants techniques
-            et aux formateurs de visualiser de manière interactive des produits
-            et des concepts.
+            ARLab is an augmented reality application that I helped develop
+            during my 3rd year work-study program at YZAR. It enables sales
+            professionals, technical staff and trainers to visualize products
+            and concepts interactively.
           </p>
           <a
             href="https://apps.apple.com/fr/app/ar-lab/id1663786351"

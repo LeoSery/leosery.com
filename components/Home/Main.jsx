@@ -20,11 +20,11 @@ export default function Main() {
             A student in Game programming
           </h2>
           <p className="py-4 text-gray-600 dark:text-[#B1AAA0] max-w-[62%] m-auto text-justify cursor-auto">
-            I am a 4th-year game programming student at Bordeaux Ynov Campus,
-            located in the city of Bordeaux in south-west France. I'm passionate
-            about video game development, especially in virtual reality. I like
-            object languages like C# and C++, and I develop games on Unity3D as
-            a hobby.
+            I&apos;m 4th-year game programming student at Bordeaux Ynov Campus,
+            located in the city of Bordeaux in south-west France. I&apos;m
+            passionate about video game development, especially in virtual
+            reality. I like object languages like C# and C++, and I develop
+            games on Unity3D as a hobby.
           </p>
           <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
             <Link href="https://www.linkedin.com/in/leosery/">

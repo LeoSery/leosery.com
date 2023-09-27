@@ -112,8 +112,8 @@ export const projectsData = [
   {
     Id: 11,
     Title: "Snake Game",
-    CardTechnologies: ["Unity3D", "C#"],
-    Technologies: ["C#", "Unity3D", "Visual Studio"],
+    CardTechnologies: ["Qt", "C++"],
+    Technologies: ["C++", "Qt", "Visual Studio"],
     Description:
       "Game made during the YDAYS Ynov of 2021-2022. This game was made formy end-of-year project to show what I was able to learn in C++during this course. it was made with the help of Qt. You can movethe snake to eat the fruits that will appear randomly on the gamegrid, if you eat a fruit, the counter increases but if you eatyourself you lose.",
     CardImage: "/static/projects/SnakeGame.png",

@@ -75,7 +75,7 @@ export default function footer() {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <p className="text-gray-800 dark:text-[#BDB7AF] font-bold text-3xl pb-6">
             My work-study company
           </p>
@@ -105,7 +105,7 @@ export default function footer() {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

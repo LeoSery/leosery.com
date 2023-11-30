@@ -136,6 +136,7 @@ export default function Navbar() {
                     className="block h-6 w-6"
                     xmlns="http:www.w3.org/2000/svg"
                     fill="none"
+                    color={theme === "light" ? "#212121" : "#FDFDFD"}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     aria-hidden="true"
@@ -152,6 +153,7 @@ export default function Navbar() {
                     className="block h-6 w-6"
                     xmlns="http:www.w3.org/2000/svg"
                     fill="none"
+                    color={theme === "light" ? "#212121" : "#FDFDFD"}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     aria-hidden="true"
@@ -215,17 +217,6 @@ export default function Navbar() {
                   className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
                 >
                   Projects
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/Blog");
-                    setIsOpen(!isOpen);
-                  }}
-                  to="blog"
-                  offset={50}
-                  className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
-                >
-                  Blog
                 </button>
                 <button
                   onClick={() => {

@@ -75,7 +75,7 @@ export default function footer() {
             </div>
           </div>
         </div>
-        {/* <div>
+        <div>
           <p className="text-gray-800 dark:text-[#BDB7AF] font-bold text-3xl pb-6">
             My work-study company
           </p>
@@ -83,29 +83,29 @@ export default function footer() {
             <div className="flex justify-start space-x-3">
               <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-600"></FaLinkedin>
               <Link
-                href="https://www.linkedin.com/company/yzar/"
+                href="https://www.linkedin.com/company/simforhealth/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
-                  YZAR
+                  SimforHealth
                 </p>
               </Link>
             </div>
             <div className="flex justify-start space-x-3">
               <CgWebsite className="text-2xl cursor-pointer hover:text-blue-600"></CgWebsite>
               <Link
-                href="https://yzar.fr/"
+                href="https://simforhealth.fr/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <p className="text-gray-500 dark:text-[#B1AAA0] text-md pb-2 font-semibold hover:text-blue-600 dark:hover:text-blue-600 cursor-pointer">
-                  yzar.fr
+                  simforhealth.fr
                 </p>
               </Link>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

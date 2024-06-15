@@ -20,19 +20,19 @@ export default function Main() {
             A student in Game programming
           </h2>
           <p className="py-4 text-gray-600 dark:text-[#B1AAA0] max-w-[62%] m-auto text-justify cursor-auto">
-            I&apos;m 4th-year game programming student at Bordeaux Ynov Campus,
+            I&apos;m 5th-year game programming student at Bordeaux Ynov Campus,
             located in the city of Bordeaux in south-west France. I&apos;m
             passionate about video game development, especially in virtual
             reality. I like object languages like C# and C++, and I develop
-            games on Unity3D as a hobby.
+            games on Unity3D and Unreal Engine 5 as a hobby.
           </p>
           <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
-            <Link href="https://www.linkedin.com/in/leosery/">
+            <Link href="https://www.linkedin.com/in/leosery/" target="_blank" rel="noreferrer">
               <div className="rounded-[20px] shadow-lg shadow-gray-400 dark:shadow-md dark:shadow-gray-800 dark:bg-[#1E1E1E] p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <FaLinkedin className="text-black dark:text-white" />
               </div>
             </Link>
-            <Link href="https://github.com/LeoSery">
+            <Link href="https://github.com/LeoSery" target="_blank" rel="noreferrer">
               <div className="rounded-[20px] shadow-lg shadow-gray-400 dark:shadow-md dark:shadow-gray-800 dark:bg-[#1E1E1E] p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <FaGithub className="text-black dark:text-white" />
               </div>

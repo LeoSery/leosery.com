@@ -13,7 +13,7 @@ export default function PDFviewer() {
 
   return (
     <div className="w-9/12 mx-auto mt-14">
-      <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js">
+      <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js">
         <Viewer
           theme={isDark ? "light" : "dark"}
           fileUrl="/CV.pdf"

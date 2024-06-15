@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function earthSaver() {
+export default function earthSaverPageContent() {
   return (
     <div className="w-full">
       <div className="w-screen h-[50vh] relative">

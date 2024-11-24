@@ -1,0 +1,99 @@
+portfolio-website
+├── components
+│   ├── Contact
+    │   └── Main.jsx
+│   ├── Footer.jsx
+│   ├── Home
+    │   ├── About.jsx
+    │   ├── Main.jsx
+    │   └── MainSkills.jsx
+│   ├── Navbar.jsx
+│   ├── PDF
+    │   └── PDFviewer.jsx
+│   └── Projects
+        ├── Main.jsx
+        ├── ProjectItem.jsx
+        └── ProjectsData.js
+├── context
+│   └── themeContext.js
+├── pages
+│   ├── CV.js
+│   ├── Contact.js
+│   ├── Projects
+    │   ├── a-star-pathfinding.jsx
+    │   ├── ar-control-tool.jsx
+    │   ├── ar-target-indicator.jsx
+    │   ├── arlab.jsx
+    │   ├── earth-saver.jsx
+    │   ├── flappy-bird.jsx
+    │   ├── flight-simulator.jsx
+    │   ├── frost-engine.jsx
+    │   ├── game-of-life-3d.jsx
+    │   ├── overcooked.jsx
+    │   ├── poladroid.jsx
+    │   ├── pong.jsx
+    │   ├── robot.jsx
+    │   ├── snake.jsx
+    │   ├── sokoban.jsx
+    │   └── the-probably-enchanted-cavern.jsx
+│   ├── Projects.js
+│   ├── _app.js
+│   └── index.js
+├── public
+│   ├── CV.pdf
+│   ├── assets
+    │   ├── DataObjects
+        │   └── Projects
+    │   ├── images
+        │   ├── Blog
+            │   ├── image-preview-article-1-stage-b2.png
+            │   ├── image-preview-article-2-stage-b2.png
+            │   ├── image-preview-article-3-stage-b2.png
+            │   └── image-preview-article-4-stage-b2.png
+        │   ├── Contact
+            │   └── Contact-image.jpg
+        │   └── Home
+                ├── About-me-image.jpg
+                └── skills
+                    ├── Unreal-engine-5.png
+                    ├── c-plusplus.png
+                    ├── c-sharp.png
+                    ├── github.png
+                    ├── plastic-scm.png
+                    ├── rider.png
+                    ├── unity.png
+                    ├── visual-studio-code.png
+                    └── visual-studio.png
+    │   ├── profilePicture.png
+    │   └── profilePicture2.png
+│   ├── favicon.ico
+│   ├── sitemap.xml
+│   └── static
+        ├── profilePicture.png
+        └── projects
+            ├── ARControlTool.png
+            ├── ARTargetIndicator.png
+            ├── AStarPathFinding.png
+            ├── ArLabProject.png
+            ├── DefaultImg.png
+            ├── EarthSaver.png
+            ├── FlappyBirdGame.png
+            ├── FlightSimulator.png
+            ├── FrostEngineProject.png
+            ├── GameOfLife3D.png
+            ├── OverCoockedGame.png
+            ├── PoladroidGame.png
+            ├── PongGame.png
+            ├── RobotGame.png
+            ├── SnakeGame.png
+            ├── SokobanGame.png
+            └── TheProbablyEnchantedCavern.png
+├── styles
+│   └── global.css
+├── .eslintrc.json
+├── README.md
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+└── tailwind.config.js

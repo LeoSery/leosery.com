@@ -13,6 +13,7 @@ portfolio-website
 │   └── Projects
         ├── Main.jsx
         ├── ProjectItem.jsx
+        ├── ProjectTemplate.jsx
         └── ProjectsData.js
 ├── context
 │   └── themeContext.js
@@ -20,22 +21,7 @@ portfolio-website
 │   ├── CV.js
 │   ├── Contact.js
 │   ├── Projects
-    │   ├── a-star-pathfinding.jsx
-    │   ├── ar-control-tool.jsx
-    │   ├── ar-target-indicator.jsx
-    │   ├── arlab.jsx
-    │   ├── earth-saver.jsx
-    │   ├── flappy-bird.jsx
-    │   ├── flight-simulator.jsx
-    │   ├── frost-engine.jsx
-    │   ├── game-of-life-3d.jsx
-    │   ├── overcooked.jsx
-    │   ├── poladroid.jsx
-    │   ├── pong.jsx
-    │   ├── robot.jsx
-    │   ├── snake.jsx
-    │   ├── sokoban.jsx
-    │   └── the-probably-enchanted-cavern.jsx
+    │   └── [slug].jsx
 │   ├── Projects.js
 │   ├── _app.js
 │   └── index.js

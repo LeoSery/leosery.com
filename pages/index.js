@@ -1,4 +1,5 @@
 import MainSkills from "../components/Home/MainSkills";
+import FeaturedProjects from "../components/Home/FeaturedProjects";
 import About from "../components/Home/About";
 import Main from "../components/Home/Main";
 import Head from "next/head";
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <div className="relative">
         <Main />
+        <FeaturedProjects />
         <About />
         <MainSkills />
       </div>

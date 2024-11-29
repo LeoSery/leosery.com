@@ -19,10 +19,11 @@ const PDFviewer = () => {
   }, []);
 
   const currentTheme = () => {
-    if (!mounted) return 'dark';
-    return isDark ? 'dark' : 'light';
+    if (!mounted) return null;
+    const resolvedTheme = theme === 'system' ? systemTheme : theme;
+    return resolvedTheme === 'dark' ? 'dark' : 'light';
   };
-
+  
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;

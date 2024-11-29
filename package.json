@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
-    "@react-pdf-viewer/core": "^3.6.0",
-    "@react-pdf-viewer/default-layout": "^3.6.0",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf-viewer/search": "^3.7.0",
     "@react-pdf-viewer/theme": "^3.12.0",
     "@react-pdf-viewer/toolbar": "^3.7.0",

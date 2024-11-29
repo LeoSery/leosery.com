@@ -1,10 +1,13 @@
 portfolio-website
 ├── components
+│   ├── Common
+    │   └── ScrollIndicator.jsx
 │   ├── Contact
     │   └── Main.jsx
 │   ├── Footer.jsx
 │   ├── Home
     │   ├── About.jsx
+    │   ├── FeaturedProjects.jsx
     │   ├── Main.jsx
     │   └── MainSkills.jsx
 │   ├── Navbar.jsx

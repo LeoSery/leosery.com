@@ -1,110 +1,3 @@
-// import Image from "next/image";
-// import { useRouter } from "next/router";
-// import React from "react";
-
-// const ProjectItem = ({ 
-//   title, 
-//   backgroundImg, 
-//   technologies, 
-//   projectUrl, 
-//   description, 
-//   type, 
-//   period,
-//   myRoles,
-//   collaborators = [] 
-// }) => {
-//   const router = useRouter();
-  
-//   // On prend les deux premières technologies pour la card
-//   const mainTechnologies = technologies.slice(0, 2);
-  
-//   // Formatage de la période
-//   const formattedPeriod = new Date(period.start).toLocaleDateString('en-US', { 
-//     month: 'short', 
-//     year: 'numeric' 
-//   });
-  
-//   // Style du badge selon le type
-//   const typeBadgeStyle = {
-//     school: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
-//     personal: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
-//     professional: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
-//   };
-
-//   // Calcul de la taille de l'équipe
-//   const teamSize = collaborators.length + 1; // +1 pour vous-même
-
-//   return (
-//     <div 
-//       onClick={() => router.push(projectUrl)}
-//       className="bg-white dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow-sm
-//                 hover:shadow-md transition-all duration-300 hover:scale-[1.02] cursor-pointer"
-//     >
-//       {/* Image Container */}
-//       <div className="relative w-full aspect-video">
-//         <Image
-//           src={backgroundImg}
-//           alt={title}
-//           layout="fill"
-//           objectFit="cover"
-//           className="transition-transform duration-300"
-//         />
-        
-//         {/* Type Badge */}
-//         <div className={`absolute top-2 right-2 px-2 py-1 rounded-md text-xs font-medium
-//                         ${typeBadgeStyle[type]}`}>
-//           {type.charAt(0).toUpperCase() + type.slice(1)}
-//         </div>
-//       </div>
-
-//       {/* Content */}
-//       <div className="p-4">
-//         <div className="flex items-center justify-between mb-2">
-//           <h3 className="text-lg font-medium text-gray-800 dark:text-[#CAC5BE] truncate">
-//             {title}
-//           </h3>
-//           <span className="text-xs text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
-//             {formattedPeriod}
-//           </span>
-//         </div>
-        
-//         <p className="text-sm text-gray-600 dark:text-[#B1AAA0] mb-3 line-clamp-2">
-//           {description.split('.')[0]}.
-//         </p>
-
-//         {/* Technologies Tags */}
-//         <div className="flex flex-wrap gap-2 mb-3">
-//           {mainTechnologies.map((tech, idx) => (
-//             <span 
-//               key={idx}
-//               className="text-xs px-2 py-1 bg-gray-100 dark:bg-[#2C2C2C] 
-//                        text-gray-600 dark:text-[#B1AAA0] rounded"
-//             >
-//               {tech}
-//             </span>
-//           ))}
-//         </div>
-
-//         {/* Project Info */}
-//         <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-//           <div className="flex items-center space-x-2">
-//             <span>{teamSize > 1 ? `Team of ${teamSize}` : 'Solo Project'}</span>
-//           </div>
-//           <div className="flex items-center">
-//             {myRoles.map((role, index) => (
-//               <span key={index} className="ml-2 text-blue-600 dark:text-blue-400">
-//                 {role}
-//               </span>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProjectItem;
-
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { HiUsers } from 'react-icons/hi';
@@ -124,24 +17,20 @@ const ProjectItem = ({
 }) => {
   const router = useRouter();
   
-  // On prend les deux premières technologies pour la card
   const mainTechnologies = technologies.slice(0, 2);
   
-  // Formatage de la période
   const formattedPeriod = new Date(period.start).toLocaleDateString('en-US', { 
     month: 'short', 
     year: 'numeric' 
   });
   
-  // Style du badge selon le type
   const typeBadgeStyle = {
     school: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
     personal: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
     professional: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
   };
 
-  // Calcul de la taille de l'équipe
-  const teamSize = collaborators.length + 1; // +1 pour vous-même
+  const teamSize = collaborators.length + 1;
 
   return (
     <div 

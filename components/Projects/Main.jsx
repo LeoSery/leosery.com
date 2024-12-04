@@ -4,24 +4,21 @@ import ProjectItem from "./ProjectItem";
 import ScrollToTop from "../Common/ScrollToTop";
 
 export default function Main() {
-  const [viewMode, setViewMode] = useState("default"); // "default", "timeline", "tech"
+  const [viewMode, setViewMode] = useState("default");
   const [selectedTechnos, setSelectedTechnos] = useState(new Set());
-  const [timelineOrder, setTimelineOrder] = useState("desc"); // "asc" ou "desc"
+  const [timelineOrder, setTimelineOrder] = useState("desc");
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Extraction des années des projets
   const projectYears = useMemo(() => {
     return [...new Set(projectsData.map(project => 
       new Date(project.Period.start).getFullYear()
     ))];
   }, []);
 
-  // Extraction de toutes les technologies uniques
   const allTechnologies = useMemo(() => {
     return [...new Set(projectsData.flatMap(project => project.Technologies))];
   }, []);
 
-  // Fonction de filtrage des projets
   const filteredAndGroupedProjects = useMemo(() => {
     let filtered = projectsData.filter(project =>
       project.Title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -30,13 +27,11 @@ export default function Main() {
         keyword.toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-  
-    // Mode par défaut - retourne simplement les projets filtrés
+
     if (viewMode === "default") {
       return filtered;
     }
-  
-    // Mode Timeline
+
     if (viewMode === "timeline") {
       const byYear = filtered.reduce((acc, project) => {
         const year = new Date(project.Period.start).getFullYear();
@@ -44,12 +39,11 @@ export default function Main() {
         acc[year].push(project);
         return acc;
       }, {});
-  
-      // Trier les années
+
       const sortedYears = Object.keys(byYear).sort((a, b) => 
         timelineOrder === "desc" ? b - a : a - b
       );
-  
+
       return {
         groups: sortedYears.map(year => ({
           title: year,
@@ -57,8 +51,7 @@ export default function Main() {
         }))
       };
     }
-  
-    // Mode Technologies
+
     if (viewMode === "tech") {
       if (selectedTechnos.size === 0) {
         return {
@@ -70,7 +63,7 @@ export default function Main() {
           })).filter(group => group.projects.length > 0)
         };
       }
-  
+
       return {
         groups: Array.from(selectedTechnos).map(tech => ({
           title: tech,
@@ -80,7 +73,7 @@ export default function Main() {
         })).filter(group => group.projects.length > 0)
       };
     }
-  
+
     return filtered;
   }, [viewMode, searchTerm, selectedTechnos, timelineOrder, allTechnologies]);
 
@@ -110,26 +103,26 @@ export default function Main() {
 
         {/* Controls */}
         <div className="mb-12 space-y-8">
-          {/* Global Search - Independent and prominent */}
+          {/* Search Bar */}
           <div className="relative w-full max-w-xl mx-auto">
             <input
               type="text"
               placeholder="Search projects..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-5 py-3 text-base rounded-xl border-2 dark:border-gray-700 bg-white dark:bg-[#2C2C2C]
-                       text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent
+              className="w-full px-5 py-3 text-base rounded-xl border-2 dark:border-gray-700 
+                       bg-white dark:bg-[#2C2C2C] text-gray-800 dark:text-gray-200 
+                       focus:ring-2 focus:ring-blue-500 focus:border-transparent
                        placeholder-gray-400 dark:placeholder-gray-500 shadow-sm"
             />
           </div>
 
-          {/* Main View Mode Selection */}
+          {/* View Mode Selection */}
           <div className="bg-white dark:bg-[#1A1A1A] rounded-xl shadow-sm">
             <div className="p-5 space-y-4">
               <h3 className="text-base font-medium text-gray-800 dark:text-gray-200">
                 View Projects By
               </h3>
-              
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => {
@@ -173,7 +166,7 @@ export default function Main() {
               </div>
             </div>
 
-            {/* Advanced Filters - Nested and indented */}
+            {/* Advanced Filters */}
             {(viewMode === "timeline" || viewMode === "tech") && (
               <>
                 <div className="h-px bg-gray-200 dark:bg-gray-800" />
@@ -237,66 +230,67 @@ export default function Main() {
             )}
           </div>
         </div>
-{/* Projects Display */}
-<div className="w-full">
-  {viewMode === "default" && Array.isArray(filteredAndGroupedProjects) && (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {filteredAndGroupedProjects.map((project) => (
-        <ProjectItem
-          key={project.Id}
-          title={project.Title}
-          backgroundImg={project.CardImage}
-          technologies={project.Technologies}
-          projectUrl={project.Url}
-          description={project.Description}
-          type={project.Type}
-          period={project.Period}
-          myRoles={project.MyRoles}
-          collaborators={project.Collaborators}
-        />
-      ))}
-    </div>
-  )}
 
-  {viewMode !== "default" && filteredAndGroupedProjects.groups && (
-    <div className="space-y-12">
-      {filteredAndGroupedProjects.groups.map(group => (
-        <div key={group.title} className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-[#CAC5BE] border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
-            {group.title}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {group.projects.map((project) => (
-              <ProjectItem
-                key={`${group.title}-${project.Id}`}
-                title={project.Title}
-                backgroundImg={project.CardImage}
-                technologies={project.Technologies}
-                projectUrl={project.Url}
-                description={project.Description}
-                type={project.Type}
-                period={project.Period}
-                myRoles={project.MyRoles}
-                collaborators={project.Collaborators}
-              />
-            ))}
-          </div>
+        {/* Projects Display */}
+        <div className="w-full">
+          {viewMode === "default" && Array.isArray(filteredAndGroupedProjects) && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredAndGroupedProjects.map((project) => (
+                <ProjectItem
+                  key={project.Id}
+                  title={project.Title}
+                  backgroundImg={project.CardImage}
+                  technologies={project.Technologies}
+                  projectUrl={project.Url}
+                  description={project.Description}
+                  type={project.Type}
+                  period={project.Period}
+                  myRoles={project.MyRoles}
+                  collaborators={project.Collaborators}
+                />
+              ))}
+            </div>
+          )}
+
+          {viewMode !== "default" && filteredAndGroupedProjects.groups && (
+            <div className="space-y-12">
+              {filteredAndGroupedProjects.groups.map(group => (
+                <div key={group.title} className="mb-8">
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-[#CAC5BE] border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
+                    {group.title}
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {group.projects.map((project) => (
+                      <ProjectItem
+                        key={`${group.title}-${project.Id}`}
+                        title={project.Title}
+                        backgroundImg={project.CardImage}
+                        technologies={project.Technologies}
+                        projectUrl={project.Url}
+                        description={project.Description}
+                        type={project.Type}
+                        period={project.Period}
+                        myRoles={project.MyRoles}
+                        collaborators={project.Collaborators}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      ))}
-    </div>
-  )}
-</div>
 
-{/* Empty State */}
-{(viewMode === "default" ? 
-  !filteredAndGroupedProjects?.length : 
-  !filteredAndGroupedProjects?.groups?.length) && (
-  <div className="text-center py-12">
-    <p className="text-gray-600 dark:text-gray-400 text-lg">
-      No projects found matching your criteria.
-    </p>
-  </div>
-)}
+        {/* Empty State */}
+        {(viewMode === "default" ? 
+          !filteredAndGroupedProjects?.length : 
+          !filteredAndGroupedProjects?.groups?.length) && (
+          <div className="text-center py-12">
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              No projects found matching your criteria.
+            </p>
+          </div>
+        )}
       </div>
       <ScrollToTop />
     </div>

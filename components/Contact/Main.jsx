@@ -16,7 +16,7 @@ const Contact = () => {
           <p className="text-xl tracking-wide uppercase text-[#ff9f1c] font-medium">Contact</p>
           <h2 className="py-2 text-3xl text-gray-700 dark:text-[#BDB7AF] font-light">Get In Touch</h2>
           <p className="text-gray-600 dark:text-[#B1AAA0] max-w-[600px]">
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
           </p>
         </div>
 

@@ -16,12 +16,12 @@ export default function Navbar() {
   const router = useRouter();
   const { isDark, setIsDark } = useContext(ThemeContext);
 
-  const navRefs = {
-    '/': useRef(null),
-    '/CV': useRef(null),
-    '/Projects': useRef(null),
-    '/Contact': useRef(null)
-  };
+  const navRefs = useRef({
+    '/': React.createRef(),
+    '/CV': React.createRef(),
+    '/Projects': React.createRef(),
+    '/Contact': React.createRef()
+  });
 
   useEffect(() => {
     setMounted(true);
@@ -32,8 +32,8 @@ export default function Navbar() {
   }, [router.pathname]);
 
   useEffect(() => {
-    const currentRef = navRefs[router.pathname] || 
-                     (router.pathname.includes('/Projects') ? navRefs['/Projects'] : null);
+    const currentRef = navRefs.current[router.pathname] || 
+                     (router.pathname.includes('/Projects') ? navRefs.current['/Projects'] : null);
     
     if (currentRef?.current) {
       const { offsetLeft, offsetWidth } = currentRef.current;
@@ -179,16 +179,16 @@ export default function Navbar() {
                   width: `${indicatorStyles.width}px`
                 }}
               />
-              <div ref={navRefs['/']}>
+              <div ref={navRefs.current['/']}>
                 <NavButton href="/">Home</NavButton>
               </div>
-              <div ref={navRefs['/CV']}>
+              <div ref={navRefs.current['/CV']}>
                 <NavButton href="/CV">CV</NavButton>
               </div>
-              <div ref={navRefs['/Projects']}>
+              <div ref={navRefs.current['/Projects']}>
                 <NavButton href="/Projects">Projects</NavButton>
               </div>
-              <div ref={navRefs['/Contact']}>
+              <div ref={navRefs.current['/Contact']}>
                 <NavButton href="/Contact" isContact={true}>Contact</NavButton>
               </div>
             </div>

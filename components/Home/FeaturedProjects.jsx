@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
                     {project.Description.split('.')[0]}.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.CardTechnologies.map((tech, idx) => (
+                    {project.Technologies.map((tech, idx) => (
                       <span 
                         key={idx}
                         className="text-xs px-2 py-1 bg-gray-100 dark:bg-[#2C2C2C] text-gray-600 dark:text-[#B1AAA0] rounded"

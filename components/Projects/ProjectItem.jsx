@@ -1,33 +1,103 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
-const ProjectItem = ({ title, backgroundImg, technos, projectUrl }) => {
-  const formattedTechnos = technos.join(" / "); // Sépare les technologies par un "/"
+const ProjectItem = ({ 
+  title, 
+  backgroundImg, 
+  technologies, 
+  projectUrl, 
+  description, 
+  type, 
+  period,
+  myRoles,
+  collaborators = [] 
+}) => {
+  const router = useRouter();
+  
+  // On prend les deux premières technologies pour la card
+  const mainTechnologies = technologies.slice(0, 2);
+  
+  // Formatage de la période
+  const formattedPeriod = new Date(period.start).toLocaleDateString('en-US', { 
+    month: 'short', 
+    year: 'numeric' 
+  });
+  
+  // Style du badge selon le type
+  const typeBadgeStyle = {
+    school: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+    personal: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
+    professional: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
+  };
+
+  // Calcul de la taille de l'équipe
+  const teamSize = collaborators.length + 1; // +1 pour vous-même
 
   return (
-    <div className="relative flex items-center justify-center h-full w-full dark:bg-[#1E1E1E] shadow-xl shadow-gray-400 dark:shadow-gray-800 rounded-xl p-4 group hover:bg-gradient-to-r from-[#ff9f1c] aspect-video">
-      <div className="relative w-full h-full">
+    <div 
+      onClick={() => router.push(projectUrl)}
+      className="bg-white dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow-sm
+                hover:shadow-md transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+    >
+      {/* Image Container */}
+      <div className="relative w-full aspect-video">
         <Image
-          className="relative rounded-xl group-hover:opacity-30"
           src={backgroundImg}
+          alt={title}
           layout="fill"
           objectFit="cover"
-          alt="/"
+          className="transition-transform duration-300"
         />
+        
+        {/* Type Badge */}
+        <div className={`absolute top-2 right-2 px-2 py-1 rounded-md text-xs font-medium
+                        ${typeBadgeStyle[type]}`}>
+          {type.charAt(0).toUpperCase() + type.slice(1)}
+        </div>
       </div>
-      <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <h3 className="text-2xl text-[#312f2f] dark:text-[#BDB7AF] tracking-wider text-center">
-          {title}
-        </h3>
-        <p className="pb-4 pt-2 text-[#312f2f] dark:text-[#B1AAA0] text-center">
-          {formattedTechnos}{" "}
+
+      {/* Content */}
+      <div className="p-4">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-lg font-medium text-gray-800 dark:text-[#CAC5BE] truncate">
+            {title}
+          </h3>
+          <span className="text-xs text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
+            {formattedPeriod}
+          </span>
+        </div>
+        
+        <p className="text-sm text-gray-600 dark:text-[#B1AAA0] mb-3 line-clamp-2">
+          {description.split('.')[0]}.
         </p>
-        <Link href={projectUrl}>
-          <p className="text-center py-3 rounded-lg bg-white dark:bg-[#2C2C2C] hover:bg-blue-600 text-gray-700 dark:text-[#BDB7AF] dark:hover:text-white hover:text-white hover:scale-105 font-bold text-lg cursor-pointer">
-            More Info
-          </p>
-        </Link>
+
+        {/* Technologies Tags */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {mainTechnologies.map((tech, idx) => (
+            <span 
+              key={idx}
+              className="text-xs px-2 py-1 bg-gray-100 dark:bg-[#2C2C2C] 
+                       text-gray-600 dark:text-[#B1AAA0] rounded"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Project Info */}
+        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex items-center space-x-2">
+            <span>{teamSize > 1 ? `Team of ${teamSize}` : 'Solo Project'}</span>
+          </div>
+          <div className="flex items-center">
+            {myRoles.map((role, index) => (
+              <span key={index} className="ml-2 text-blue-600 dark:text-blue-400">
+                {role}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

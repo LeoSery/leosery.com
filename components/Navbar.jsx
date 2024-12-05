@@ -149,7 +149,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="shadow-sm sticky top-0 w-full min-w-[320px] z-10 bg-white dark:bg-[#212121]">
+    <nav className="shadow-sm sticky top-0 w-full min-w-[320px] z-50 bg-white dark:bg-[#212121]">
       <div className="w-full">
         <div className="flex items-center h-20 w-full">
           {/* Version Desktop */}

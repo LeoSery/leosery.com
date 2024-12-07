@@ -1,12 +1,33 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
+import dynamic from 'next/dynamic';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { ThemeContext } from '../../context/themeContext';
 import { useTheme } from 'next-themes';
+
+// Importation des styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-const PDFviewer = () => {
+// Chargement dynamique des composants PDF
+const PDFWorker = dynamic(() => import('@react-pdf-viewer/core').then(mod => mod.Worker), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center h-[50vh]">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+    </div>
+  )
+});
+
+const PDFViewer = dynamic(() => import('@react-pdf-viewer/core').then(mod => mod.Viewer), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center h-[50vh]">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+    </div>
+  )
+});
+
+const PDFviewerComponent = () => {
   const [scale, setScale] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -184,20 +205,19 @@ const PDFviewer = () => {
           </div>
         )}
 
-        <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js">
-          <Viewer
+        <PDFWorker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js">
+          <PDFViewer
             fileUrl="/CV.pdf"
             theme={currentTheme()}
             defaultScale={scale}
             plugins={[defaultLayoutPluginInstance]}
             onDocumentLoad={() => setIsLoading(false)}
             onError={handleError}
-            aria-label="CV PDF Document"
           />
-        </Worker>
+        </PDFWorker>
       </div>
     </>
   );
 };
 
-export default PDFviewer;
+export default PDFviewerComponent;

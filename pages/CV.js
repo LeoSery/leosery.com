@@ -1,4 +1,4 @@
-import PDFviewer from "../components/PDF/PDFviewer";
+import PDFviewerComponent from "../components/PDF/PDFviewer";
 import Head from "next/head";
 import React from "react";
 
@@ -22,7 +22,7 @@ export default function CV() {
               My professional experience and education history
             </p>
           </div>
-          <PDFviewer />
+          <PDFviewerComponent />
         </div>
       </div>
     </>

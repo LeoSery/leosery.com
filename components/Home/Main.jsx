@@ -11,14 +11,14 @@ export default function Main() {
       <div className="flex-1 flex flex-col items-center px-3 sm:px-4 lg:px-6">
         <div className="max-w-[70rem] w-full flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-black dark:text-white text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-white text-center">
               Hi, I&apos;m
               <span className="text-[#ff9f1c] dark:text-[#FFA62D] ml-2 font-normal">
                 Léo
               </span>
             </h1>
             
-            <h2 className="py-2 sm:py-3 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-[#BDB7AF] text-center font-light tracking-wide w-full sm:max-w-[60%]">
+            <h2 className="py-2 sm:py-3 text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-[#BDB7AF] text-center font-light tracking-wide w-full sm:max-w-[60%]">
               A student in Game programming
             </h2>
 
@@ -73,8 +73,8 @@ function SocialButton({ href, icon, isExternal = false }) {
 
   return (
     <LinkWrapper>
-      <div className="rounded-xl shadow-sm shadow-gray-400 dark:shadow-gray-800 dark:bg-[#1E1E1E] p-3 cursor-pointer hover:scale-105 ease-in duration-200 transition-all hover:shadow-md">
-        <span className="text-black dark:text-white text-base sm:text-lg">
+      <div className="rounded-xl shadow shadow-gray-400 dark:shadow-gray-800 dark:bg-[#1E1E1E] p-3 cursor-pointer hover:scale-105 ease-in duration-200 transition-all hover:shadow-md">
+        <span className="text-gray-900 dark:text-white text-base sm:text-lg">
           {icon}
         </span>
       </div>

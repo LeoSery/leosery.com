@@ -64,7 +64,7 @@ export default function Navbar() {
 
     return (
       <MdOutlineDarkMode
-        className="text-2xl text-gray-800 cursor-pointer transition-transform hover:scale-110"
+        className="text-2xl text-gray-700 cursor-pointer transition-transform hover:scale-110"
         role="button"
         onClick={() => {
           setTheme("dark");
@@ -98,7 +98,7 @@ export default function Navbar() {
             hover:shadow-[#312f2f] 
             hover:scale-105
           ` : `
-            text-[#312f2f] 
+            text-gray-700 
             dark:text-[#CAC5BE]
             hover:text-white
             dark:hover:text-white
@@ -138,7 +138,7 @@ export default function Navbar() {
           rounded-md
           ${isActive ? 
             'bg-blue-600 dark:bg-blue-800 text-white' : 
-            'text-[#312f2f] dark:text-[#CAC5BE] hover:bg-blue-600 dark:hover:bg-blue-800 hover:text-white'
+            'text-gray-700 dark:text-[#CAC5BE] hover:bg-blue-600 dark:hover:bg-blue-800 hover:text-white'
           }
           hover:translate-x-1
         `}
@@ -149,7 +149,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="shadow-sm sticky top-0 w-full min-w-[320px] z-50 bg-white dark:bg-[#212121]">
+    <nav className="shadow-md sticky top-0 w-full min-w-[320px] z-50 bg-gray-50 dark:bg-[#212121] border-b border-gray-200 dark:border-gray-800">
       <div className="w-full">
         <div className="flex items-center h-20 w-full">
           {/* Version Desktop */}
@@ -266,7 +266,7 @@ export default function Navbar() {
             leaveFrom="transform translate-y-0 opacity-100"
             leaveTo="transform -translate-y-full opacity-0"
           >
-            <div className="absolute top-0 left-0 right-0 md:hidden bg-white dark:bg-[#212121] px-2 pt-2 pb-3 space-y-1 shadow-lg border-t dark:border-gray-800">
+            <div className="absolute top-0 left-0 right-0 md:hidden bg-gray-50 dark:bg-[#212121] px-2 pt-2 pb-3 space-y-1 shadow-lg border-t dark:border-gray-800">
               <MobileNavButton href="/">Home</MobileNavButton>
               <MobileNavButton href="/CV">Curriculum vitae</MobileNavButton>
               <MobileNavButton href="/Projects">Projects</MobileNavButton>

@@ -14,7 +14,7 @@ const Contact = () => {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center sm:text-left mb-6">
           <p className="text-xl tracking-wide uppercase text-[#ff9f1c] font-medium">Contact</p>
-          <h2 className="py-2 text-3xl text-gray-700 dark:text-[#BDB7AF] font-light">Get In Touch</h2>
+          <h2 className="py-2 text-3xl text-gray-600 dark:text-[#BDB7AF] font-light">Get In Touch</h2>
           <p className="text-gray-600 dark:text-[#B1AAA0] max-w-[600px]">
             I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
           </p>
@@ -23,7 +23,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-6">
           {/* Left Info Panel */}
           <div className="col-span-5 lg:col-span-2 h-full">
-            <div className="h-full bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-lg p-5">
+            <div className="h-full bg-gray-50 dark:bg-[#1E1E1E] rounded-2xl shadow-lg p-5">
               {/* Image */}
               <div className="relative w-full aspect-video mb-5 rounded-xl overflow-hidden">
                 <Image
@@ -37,7 +37,7 @@ const Contact = () => {
               {/* Info */}
               <div className="space-y-5">
                 <div>
-                  <h3 className="text-2xl font-medium text-gray-800 dark:text-[#BDB7AF]">Léo Séry</h3>
+                  <h3 className="text-2xl font-medium text-gray-700 dark:text-[#BDB7AF]">Léo Séry</h3>
                   <p className="text-gray-600 dark:text-[#B1AAA0]">Game Programming Student</p>
                 </div>
 
@@ -50,7 +50,7 @@ const Contact = () => {
 
                 {/* Social */}
                 <div>
-                  <p className="text-gray-800 dark:text-[#BDB7AF] font-medium mb-3">Connect With Me</p>
+                  <p className="text-gray-700 dark:text-[#BDB7AF] font-medium mb-3">Connect With Me</p>
                   <div className="flex items-center space-x-3">
                     <Link 
                       href="https://www.linkedin.com/in/leosery/"
@@ -76,7 +76,7 @@ const Contact = () => {
 
           {/* Form */}
           <div className="col-span-5 lg:col-span-3 h-full">
-            <div className="h-full bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-lg p-5">
+            <div className="h-full bg-gray-50 dark:bg-[#1E1E1E] rounded-2xl shadow-lg p-5">
               <form
                 id="contactForm"
                 method="POST"
@@ -85,7 +85,7 @@ const Contact = () => {
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <label className="font-medium text-gray-700 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
+                    <label className="font-medium text-gray-600 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
                       Name
                     </label>
                     <input
@@ -94,23 +94,23 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-2 rounded-lg border dark:border-[#363B3D] bg-transparent
                                focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent
-                               text-gray-800 dark:text-[#BDB7AF]"
+                               text-gray-700 dark:text-[#BDB7AF]"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="font-medium text-gray-700 dark:text-[#BDB7AF]">Phone Number</label>
+                    <label className="font-medium text-gray-600 dark:text-[#BDB7AF]">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
                       className="w-full px-4 py-2 rounded-lg border dark:border-[#363B3D] bg-transparent
                                focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent
-                               text-gray-800 dark:text-[#BDB7AF]"
+                               text-gray-700 dark:text-[#BDB7AF]"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-medium text-gray-700 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
+                  <label className="font-medium text-gray-600 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
                     Email
                   </label>
                   <input
@@ -119,12 +119,12 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-2 rounded-lg border dark:border-[#363B3D] bg-transparent
                              focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent
-                             text-gray-800 dark:text-[#BDB7AF]"
+                             text-gray-700 dark:text-[#BDB7AF]"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-medium text-gray-700 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
+                  <label className="font-medium text-gray-600 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
                     Subject
                   </label>
                   <input
@@ -133,12 +133,12 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-2 rounded-lg border dark:border-[#363B3D] bg-transparent
                              focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent
-                             text-gray-800 dark:text-[#BDB7AF]"
+                             text-gray-700 dark:text-[#BDB7AF]"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-medium text-gray-700 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
+                  <label className="font-medium text-gray-600 dark:text-[#BDB7AF] after:content-['*'] after:ml-0.5 after:text-red-500">
                     Message
                   </label>
                   <textarea
@@ -147,7 +147,7 @@ const Contact = () => {
                     rows="5"
                     className="w-full px-4 py-2 rounded-lg border dark:border-[#363B3D] bg-transparent
                              focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent
-                             text-gray-800 dark:text-[#BDB7AF] resize-none"
+                             text-gray-700 dark:text-[#BDB7AF] resize-none"
                   />
                 </div>
 

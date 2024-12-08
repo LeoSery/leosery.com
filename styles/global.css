@@ -13,7 +13,7 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    @apply bg-[#e7ecef] text-black tracking-wide dark:bg-[#121212] dark:text-[#B1AAA0];
+    @apply bg-[#e7ecef] text-gray-900 tracking-wide dark:bg-[#121212] dark:text-[#B1AAA0];
   }
   #__next {
     height: 100%;
@@ -43,7 +43,7 @@
 
   button,
   Link {
-    @apply cursor-pointer text-black px-3 py-2 rounded-md text-sm font-medium uppercase;
+    @apply cursor-pointer text-gray-900 px-3 py-2 rounded-md text-sm font-medium uppercase;
   }
 }
 

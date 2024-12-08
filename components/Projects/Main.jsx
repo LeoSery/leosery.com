@@ -92,7 +92,7 @@ export default function Main() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h1 className="text-4xl font-bold text-gray-700 dark:text-white mb-4">
             My <span className="text-[#ff9f1c]">Projects</span>
           </h1>
           <p className="text-gray-600 dark:text-[#B1AAA0] max-w-2xl mx-auto">
@@ -113,16 +113,16 @@ export default function Main() {
               aria-label="Search projects"
               role="searchbox"
               className="w-full px-5 py-3 text-base rounded-xl border-2 dark:border-gray-700 
-                       bg-white dark:bg-[#2C2C2C] text-gray-800 dark:text-gray-200 
+                       bg-gray-50 dark:bg-[#2C2C2C] text-gray-700 dark:text-gray-200 
                        focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                       placeholder-gray-400 dark:placeholder-gray-500 shadow-sm"
+                       placeholder-gray-400 dark:placeholder-gray-500 shadow"
             />
           </div>
 
           {/* View Mode Selection */}
-          <div className="bg-white dark:bg-[#1A1A1A] rounded-xl shadow-sm mx-4 sm:mx-0">
+          <div className="bg-gray-50 dark:bg-[#1A1A1A] rounded-xl shadow mx-4 sm:mx-0">
             <div className="p-4 sm:p-5 space-y-4">
-              <h3 className="text-base font-medium text-gray-800 dark:text-gray-200">
+              <h3 className="text-base font-medium text-gray-700 dark:text-gray-200">
                 View Projects By
               </h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -137,7 +137,7 @@ export default function Main() {
                             transition-all duration-200 ${
                               viewMode === "default"
                                 ? 'bg-blue-600 text-white shadow-md'
-                                : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#363B3D]'
+                                : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#363B3D]'
                             }`}
                 >
                   All Projects
@@ -153,7 +153,7 @@ export default function Main() {
                             transition-all duration-200 ${
                               viewMode === "timeline"
                                 ? 'bg-blue-600 text-white shadow-md'
-                                : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#363B3D]'
+                                : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#363B3D]'
                             }`}
                 >
                   By Year
@@ -169,7 +169,7 @@ export default function Main() {
                             transition-all duration-200 ${
                               viewMode === "tech"
                                 ? 'bg-blue-600 text-white shadow-md'
-                                : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#363B3D]'
+                                : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#363B3D]'
                             }`}
                 >
                   By Technology
@@ -194,8 +194,8 @@ export default function Main() {
                             aria-pressed={timelineOrder === "desc"}
                             className={`px-4 sm:px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200
                                       ${timelineOrder === "desc"
-                                        ? 'bg-[#ff9f1c] text-white shadow-sm'
-                                        : 'bg-white dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#363B3D]'
+                                        ? 'bg-[#ff9f1c] text-white shadow'
+                                        : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#363B3D]'
                                       }`}
                           >
                             Newest First
@@ -205,8 +205,8 @@ export default function Main() {
                             aria-pressed={timelineOrder === "asc"}
                             className={`px-4 sm:px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200
                                       ${timelineOrder === "asc"
-                                        ? 'bg-[#ff9f1c] text-white shadow-sm'
-                                        : 'bg-white dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#363B3D]'
+                                        ? 'bg-[#ff9f1c] text-white shadow'
+                                        : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#363B3D]'
                                       }`}
                           >
                             Oldest First
@@ -231,8 +231,8 @@ export default function Main() {
                               aria-pressed={selectedTechnos.has(tech)}
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
                                         ${selectedTechnos.has(tech)
-                                          ? 'bg-[#ff9f1c] text-white shadow-sm'
-                                          : 'bg-white dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#363B3D]'
+                                          ? 'bg-[#ff9f1c] text-white shadow'
+                                          : 'bg-gray-50 dark:bg-[#2C2C2C] text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#363B3D]'
                                         }`}
                             >
                               {tech}
@@ -273,7 +273,7 @@ export default function Main() {
             <div className="space-y-12">
               {filteredAndGroupedProjects.groups.map(group => (
                 <div key={group.title} className="mb-8">
-                  <h2 className="text-2xl font-bold text-gray-800 dark:text-[#CAC5BE] border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
+                  <h2 className="text-2xl font-bold text-gray-700 dark:text-[#CAC5BE] border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
                     {group.title}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-0">

@@ -179,7 +179,7 @@ const PDFviewerComponent = () => {
       <style jsx global>{globalStyles}</style>
 
       <div 
-        className={`w-full rounded-lg overflow-hidden ${isDark ? 'bg-[#1A1A1A]' : 'bg-white'}`}
+        className={`w-full rounded-lg overflow-hidden ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'}`}
         role="document"
         aria-label="CV PDF Viewer"
       >

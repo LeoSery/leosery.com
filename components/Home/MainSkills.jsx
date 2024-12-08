@@ -20,7 +20,7 @@ export default function MainSkills() {
           <p className="text-sm uppercase tracking-wider text-[#ff9f1c] font-medium">
             Some of my skills
           </p>
-          <h2 className="py-2 text-xl sm:text-2xl text-gray-700 dark:text-[#BDB7AF] font-light">
+          <h2 className="py-2 text-xl sm:text-2xl text-gray-600 dark:text-[#BDB7AF] font-light">
             What I Can Do
           </h2>
         </div>
@@ -58,8 +58,8 @@ export default function MainSkills() {
 // Composant de carte de compétence extrait
 function SkillCard({ image, name }) {
   return (
-    <div className="bg-white dark:bg-[#1E1E1E] p-3 sm:p-4 rounded-lg
-                    shadow-sm hover:shadow-md
+    <div className="bg-gray-50 dark:bg-[#1E1E1E] p-3 sm:p-4 rounded-lg
+                    shadow hover:shadow-md
                     transition-all duration-200 ease-in-out
                     hover:scale-[1.02] group">
       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
@@ -72,7 +72,7 @@ function SkillCard({ image, name }) {
             className="transition-transform duration-200 group-hover:scale-110"
           />
         </div>
-        <h3 className="text-sm sm:text-base font-medium text-gray-800 dark:text-[#CAC5BE] text-center sm:text-left">
+        <h3 className="text-sm sm:text-base font-medium text-gray-700 dark:text-[#CAC5BE] text-center sm:text-left">
           {name}
         </h3>
       </div>

@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
     <>
       <DarkThemeProvider>
         <ThemeProvider enableSystem={true} attribute="class">
-          <div className="flex flex-col min-h-screen bg-white dark:bg-[#121212]">
+        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-[#121212]">
             <Navbar />
             <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
             <Component {...pageProps} />

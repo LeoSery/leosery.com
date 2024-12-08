@@ -14,10 +14,10 @@ export default function FeaturedProjects() {
   return (
     <div className="w-full py-12">
       <div className="max-w-[90rem] mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="bg-gray-50 dark:bg-[#1A1A1A] rounded-3xl p-8 lg:p-12">
+      <div className="bg-gray-100 dark:bg-[#1A1A1A] rounded-3xl p-8 lg:p-12 border border-gray-200 dark:border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(0,0,0,0.3)]">
           {/* Header */}
           <div className="text-center mb-8">
-            <h2 className="text-xl sm:text-2xl text-gray-700 dark:text-[#BDB7AF] font-light mb-2">
+            <h2 className="text-xl sm:text-2xl text-gray-600 dark:text-[#BDB7AF] font-light mb-2">
               Recent Work
             </h2>
             <p className="text-sm text-gray-600 dark:text-[#B1AAA0]">

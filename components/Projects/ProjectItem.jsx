@@ -25,9 +25,9 @@ const ProjectItem = ({
   });
   
   const typeBadgeStyle = {
-    school: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
-    personal: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
-    professional: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
+    school: "bg-blue-200 text-blue-900 dark:bg-blue-900 dark:text-blue-300",
+    personal: "bg-green-200 text-green-900 dark:bg-green-900 dark:text-green-300",
+    professional: "bg-purple-200 text-purple-900 dark:bg-purple-900 dark:text-purple-300"
   };
 
   const teamSize = collaborators.length + 1;
@@ -35,7 +35,7 @@ const ProjectItem = ({
   return (
     <div 
       onClick={() => router.push(projectUrl)}
-      className="bg-white dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow-sm
+      className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow
                 hover:shadow-md transition-all duration-300 hover:scale-[1.02] cursor-pointer
                 flex flex-col h-full"
     >
@@ -59,7 +59,7 @@ const ProjectItem = ({
       {/* Content */}
       <div className="p-4 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-lg font-medium text-gray-800 dark:text-[#CAC5BE] truncate">
+          <h3 className="text-lg font-medium text-gray-700 dark:text-[#CAC5BE] truncate">
             {title}
           </h3>
           <span className="text-xs text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
@@ -76,8 +76,7 @@ const ProjectItem = ({
           {mainTechnologies.map((tech, idx) => (
             <span 
               key={idx}
-              className="text-xs px-2 py-1 bg-gray-100 dark:bg-[#2C2C2C] 
-                       text-gray-600 dark:text-[#B1AAA0] rounded"
+              className="text-xs px-2 py-1 bg-gray-200 dark:bg-[#2C2C2C] text-gray-700 dark:text-[#B1AAA0] rounded"
             >
               {tech}
             </span>

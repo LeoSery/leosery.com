@@ -84,13 +84,12 @@ const ProjectTemplate = ({ project }) => {
         {/* Contenu Principal */}
         <main className="max-w-[1240px] mx-auto px-4">
           {/* Technologies Tags - Flottant sur l'image */}
-          <section aria-label="Project technologies" className="bg-white dark:bg-[#1E1E1E] rounded-xl shadow-sm p-4 md:p-6 -mt-8 relative z-10 mb-8">
+          <section aria-label="Project technologies" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-4 md:p-6 -mt-8 relative z-10 mb-8">
             <div className="flex flex-wrap gap-2">
               {Technologies.map((tech, index) => (
                 <span 
                   key={index}
-                  className="px-2.5 py-1 text-xs bg-gray-100 dark:bg-gray-800 
-                           text-gray-700 dark:text-gray-300 rounded-full"
+                  className="px-2.5 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
                 >
                   {tech}
                 </span>
@@ -103,16 +102,16 @@ const ProjectTemplate = ({ project }) => {
             {/* Colonne Gauche - Description et Team */}
             <div className="space-y-6">
               {/* Description Card */}
-              <section aria-label="Project overview" className="bg-white dark:bg-[#1E1E1E] rounded-xl shadow-sm p-6">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4">Overview</h2>
+              <section aria-label="Project overview" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
+                <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">Overview</h2>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                   {Description}
                 </p>
               </section>
 
               {/* Team Card */}
-              <section aria-label="Project team" className="bg-white dark:bg-[#1E1E1E] rounded-xl shadow-sm p-6">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+              <section aria-label="Project team" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
+                <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4 flex items-center gap-2">
                   Team
                   <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
                     ({teamSize} {teamSize === 1 ? 'member' : 'members'})
@@ -120,18 +119,17 @@ const ProjectTemplate = ({ project }) => {
                 </h2>
 
                 <div className="space-y-4">
-                  {/* Your Role */}
+                  {/* My Role */}
                   <div className="pb-4 border-b dark:border-gray-800">
                     <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-2">
                       <FaUser className="text-sm" aria-hidden="true" />
-                      <h3 className="text-sm font-medium">Your Role</h3>
+                      <h3 className="text-sm font-medium">My Role</h3>
                     </div>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {MyRoles.map((role, index) => (
                         <span 
                           key={index}
-                          className="px-2.5 py-1 text-xs bg-blue-50 dark:bg-blue-900/30 
-                                   text-blue-700 dark:text-blue-300 rounded-full"
+                          className="px-2.5 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
                         >
                           {role}
                         </span>
@@ -142,7 +140,7 @@ const ProjectTemplate = ({ project }) => {
                   {/* Collaborators */}
                   {Collaborators.length > 0 && (
                     <div>
-                      <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 mb-3">
+                      <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300 mb-3">
                         <HiUsers className="text-sm" aria-hidden="true" />
                         <h3 className="text-sm font-medium">Collaborators</h3>
                       </div>
@@ -154,7 +152,7 @@ const ProjectTemplate = ({ project }) => {
                                      dark:bg-gray-800/50 rounded-lg"
                           >
                             <div>
-                              <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                              <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                                 {collab.firstName} {collab.lastName}
                               </p>
                               <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -186,8 +184,8 @@ const ProjectTemplate = ({ project }) => {
             <div className="space-y-6">
               {/* Project Links */}
               {Actions && Actions.length > 0 && (
-                <section aria-label="Project links" className="bg-white dark:bg-[#1E1E1E] rounded-xl shadow-sm p-6">
-                  <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4">
+                <section aria-label="Project links" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
+                  <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
                     Project Links
                   </h2>
                   <div className="space-y-2">
@@ -199,11 +197,11 @@ const ProjectTemplate = ({ project }) => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-between w-full p-2.5 
                                  bg-gray-50 dark:bg-gray-800/50 rounded-lg
-                                 hover:bg-gray-100 dark:hover:bg-gray-800 
+                                 hover:bg-gray-200 dark:hover:bg-gray-800 
                                  group transition-all duration-200"
                         aria-label={`${action.label} (opens in new tab)`}
                       >
-                        <span className="text-sm text-gray-700 dark:text-gray-300">
+                        <span className="text-sm text-gray-600 dark:text-gray-300">
                           {action.label}
                         </span>
                         {action.url.includes('github.com') ? (
@@ -223,16 +221,15 @@ const ProjectTemplate = ({ project }) => {
 
               {/* Keywords/Tags */}
               {Keywords.length > 0 && (
-                <section aria-label="Project keywords" className="bg-white dark:bg-[#1E1E1E] rounded-xl shadow-sm p-6">
-                  <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4">
+                <section aria-label="Project keywords" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
+                  <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
                     Keywords
                   </h2>
                   <div className="flex flex-wrap gap-2">
                     {Keywords.map((keyword, index) => (
                       <span 
                         key={index}
-                        className="px-2.5 py-1 text-xs bg-gray-100 dark:bg-gray-800 
-                                 text-gray-600 dark:text-gray-400 rounded-full"
+                        className="px-2.5 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-400 rounded-full"
                       >
                         {keyword}
                       </span>

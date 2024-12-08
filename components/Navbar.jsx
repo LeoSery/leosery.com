@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import ProfilPicture from "../public/assets/profilePicture.webp";
+import ProfilPicture from "../public/assets/images/NavBar/profilePicture.webp";
 import LoadingSkeleton from 'components/Common/LoadingSkeleton';
 import Spinner from 'components/Common/Spinner';
 

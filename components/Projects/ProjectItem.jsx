@@ -2,7 +2,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { HiUsers } from 'react-icons/hi';
 import { FaUser } from 'react-icons/fa';
-import React from "react";
+import React, { useState } from "react";
+import LoadingSkeleton from "../Common/LoadingSkeleton";
+import Spinner from "../Common/Spinner";
 
 const ProjectItem = ({ 
   title, 
@@ -16,6 +18,7 @@ const ProjectItem = ({
   collaborators = [] 
 }) => {
   const router = useRouter();
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   const mainTechnologies = technologies.slice(0, 2);
   
@@ -41,12 +44,22 @@ const ProjectItem = ({
     >
       {/* Image Container */}
       <div className="relative w-full aspect-video">
+        {!imageLoaded && (
+          <>
+            <LoadingSkeleton variant="card" className="absolute inset-0" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Spinner size="md" />
+            </div>
+          </>
+        )}
         <Image
           src={backgroundImg}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-300"
+          fill
+          className={`object-cover transition-transform duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setImageLoaded(true)}
         />
         
         {/* Type Badge */}

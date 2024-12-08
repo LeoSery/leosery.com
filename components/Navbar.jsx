@@ -6,7 +6,9 @@ import { useTheme } from "next-themes";
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import ProfilPicture from "../public/assets/profilePicture2.png";
+import ProfilPicture from "../public/assets/profilePicture.webp";
+import LoadingSkeleton from 'components/Common/LoadingSkeleton';
+import Spinner from 'components/Common/Spinner';
 
 export default function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -15,6 +17,7 @@ export default function Navbar() {
   const [indicatorStyles, setIndicatorStyles] = useState({ left: 0, width: 0 });
   const router = useRouter();
   const { isDark, setIsDark } = useContext(ThemeContext);
+  const [profileLoaded, setProfileLoaded] = useState(false);
 
   const navRefs = useRef({
     '/': React.createRef(),
@@ -155,17 +158,28 @@ export default function Navbar() {
           {/* Version Desktop */}
           <div className="hidden md:flex items-center justify-between w-full px-4 lg:px-20">
             <div className="flex items-center flex-shrink-0">
-              <button 
-                onClick={() => router.push("/")}
-                className="relative w-[75px] h-[75px] rounded-full overflow-hidden transition-transform hover:scale-105"
-              >
-                <Image
-                  src={ProfilPicture}
-                  alt="Profile picture"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </button>
+            <button 
+              onClick={() => router.push("/")}
+              className="relative w-[75px] h-[75px] rounded-full overflow-hidden transition-transform hover:scale-105"
+            >
+              {!profileLoaded && (
+                <>
+                  <LoadingSkeleton variant="circle" className="absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Spinner size="sm" />
+                  </div>
+                </>
+              )}
+              <Image
+                src={ProfilPicture}
+                alt="Profile picture"
+                fill
+                className={`object-cover ${
+                  profileLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                onLoad={() => setProfileLoaded(true)}
+              />
+            </button>
               <div className="websiteThemeMode cursor-pointer ml-4">
                 {renderThemeChanger()}
               </div>
@@ -203,8 +217,8 @@ export default function Navbar() {
               <Image
                 src={ProfilPicture}
                 alt="Profile picture"
-                layout="fill"
-                objectFit="cover"
+                fill
+                className="object-cover"
               />
             </button>
 

@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { ThemeContext } from '../../context/themeContext';
 import { useTheme } from 'next-themes';
+import Spinner from "../Common/Spinner";
+import LoadingSkeleton from '../Common/LoadingSkeleton';
 
 // Importation des styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
@@ -185,7 +187,8 @@ const PDFviewerComponent = () => {
       >
         {isLoading && (
           <div className="flex justify-center items-center h-[50vh]" role="alert" aria-label="Loading PDF">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+            <LoadingSkeleton variant="rect" className="w-full h-full absolute" />
+            <Spinner size="lg" />
           </div>
         )}
 

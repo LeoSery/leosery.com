@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 import Link from 'next/link';
 import Image from 'next/image';
+import LoadingSkeleton from 'components/Common/LoadingSkeleton';
+import Spinner from 'components/Common/Spinner';
 
 const Contact = () => {
+  const [contactImageLoaded, setContactImageLoaded] = useState(false);
+
   useEffect(() => {
     document.getElementById("contactForm")?.reset();
   }, []);
@@ -26,11 +30,22 @@ const Contact = () => {
             <div className="h-full bg-gray-50 dark:bg-[#1E1E1E] rounded-2xl shadow-lg p-5">
               {/* Image */}
               <div className="relative w-full aspect-video mb-5 rounded-xl overflow-hidden">
+                {!contactImageLoaded && (
+                  <>
+                    <LoadingSkeleton variant="rect" className="absolute inset-0 rounded-xl" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Spinner size="md" />
+                    </div>
+                  </>
+                )}
                 <Image
-                  src="/assets/images/Contact/Contact-image.jpg"
+                  src="/assets/images/Contact/Contact-image.webp"
                   alt="Profile"
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  className={`object-cover transition-transform duration-300 hover:scale-105 ${
+                    contactImageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setContactImageLoaded(true)}
                 />
               </div>
 

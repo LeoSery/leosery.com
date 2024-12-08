@@ -1,14 +1,16 @@
-import VisualStudio from "../../public/assets/images/Home/skills/visual-studio.png";
-import UnityLogo from "../../public/assets/images/Home/skills/unity.png";
-import CSharp from "../../public/assets/images/Home/skills/c-sharp.png";
-import GitHub from "../../public/assets/images/Home/skills/github.png";
-import cpluplus from "../../public/assets/images/Home/skills/c-plusplus.png";
-import unreal5 from "../../public/assets/images/Home/skills/Unreal-engine-5.png";
-import plastic from "../../public/assets/images/Home/skills/plastic-scm.png";
-import rider from "../../public/assets/images/Home/skills/rider.png";
+import VisualStudio from "../../public/assets/images/Home/skills/visual-studio.webp";
+import UnityLogo from "../../public/assets/images/Home/skills/unity.webp";
+import CSharp from "../../public/assets/images/Home/skills/c-sharp.webp";
+import GitHub from "../../public/assets/images/Home/skills/github.webp";
+import cpluplus from "../../public/assets/images/Home/skills/c-plusplus.webp";
+import unreal5 from "../../public/assets/images/Home/skills/Unreal-engine-5.webp";
+import plastic from "../../public/assets/images/Home/skills/plastic-scm.webp";
+import rider from "../../public/assets/images/Home/skills/rider.webp";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from 'react';
+import Spinner from "../Common/Spinner";
+import LoadingSkeleton from '../Common/LoadingSkeleton';
 
 export default function MainSkills() {
   const router = useRouter();
@@ -55,8 +57,9 @@ export default function MainSkills() {
   );
 }
 
-// Composant de carte de compétence extrait
 function SkillCard({ image, name }) {
+  const [iconLoaded, setIconLoaded] = useState(false);
+
   return (
     <div className="bg-gray-50 dark:bg-[#1E1E1E] p-3 sm:p-4 rounded-lg
                     shadow hover:shadow-md
@@ -64,12 +67,22 @@ function SkillCard({ image, name }) {
                     hover:scale-[1.02] group">
       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
         <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
+          {!iconLoaded && (
+            <>
+              <LoadingSkeleton variant="rect" className="absolute inset-0 rounded-lg" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Spinner size="sm" />
+              </div>
+            </>
+          )}
           <Image
             src={image}
             alt={name}
-            layout="fill"
-            objectFit="contain"
-            className="transition-transform duration-200 group-hover:scale-110"
+            fill
+            className={`object-contain transition-transform duration-200 group-hover:scale-110 ${
+              iconLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setIconLoaded(true)}
           />
         </div>
         <h3 className="text-sm sm:text-base font-medium text-gray-700 dark:text-[#CAC5BE] text-center sm:text-left">

@@ -78,6 +78,47 @@ export default function Navbar() {
     );
   };
 
+  // const NavButton = ({ href, children, isContact = false }) => {
+  //   return (
+  //     <button
+  //       onClick={() => router.push(href)}
+  //       className={`
+  //         relative
+  //         cursor-pointer
+  //         px-3 py-2
+  //         text-sm font-medium
+  //         capitalize
+  //         transition-all
+  //         duration-200
+  //         ${isContact ? `
+  //           bg-blue-600 
+  //           dark:bg-blue-800 
+  //           text-white
+  //           hover:bg-[#ff9f1c] 
+  //           dark:hover:bg-[#BB6C00]
+  //           rounded-md
+  //           hover:shadow-lg 
+  //           hover:shadow-[#312f2f] 
+  //           hover:scale-105
+  //         ` : `
+  //           text-gray-700 
+  //           dark:text-[#CAC5BE]
+  //           hover:text-white
+  //           dark:hover:text-white
+  //           rounded-md
+  //           hover:bg-blue-600
+  //           dark:hover:bg-blue-800
+  //           hover:shadow-lg 
+  //           hover:shadow-[#312f2f]
+  //           hover:scale-105
+  //         `}
+  //       `}
+  //     >
+  //       {children}
+  //     </button>
+  //   );
+  // };
+
   const NavButton = ({ href, children, isContact = false }) => {
     return (
       <button
@@ -103,13 +144,7 @@ export default function Navbar() {
           ` : `
             text-gray-700 
             dark:text-[#CAC5BE]
-            hover:text-white
-            dark:hover:text-white
             rounded-md
-            hover:bg-blue-600
-            dark:hover:bg-blue-800
-            hover:shadow-lg 
-            hover:shadow-[#312f2f]
             hover:scale-105
           `}
         `}

@@ -117,3 +117,43 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Cursor typewriter effect */
+
+@keyframes cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cursorIdle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@layer components {
+  .animate-cursor {
+    animation: cursor 0.8s ease-in-out infinite;
+  }
+  
+  .animate-cursor-idle {
+    animation: cursorIdle 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes terminal-cursor {
+  0%, 49% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50%, 100% { 
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+@layer components {
+  .animate-terminal-cursor {
+    animation: terminal-cursor 1s step-end infinite;
+    transform-origin: center;
+  }
+}

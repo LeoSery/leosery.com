@@ -18,6 +18,7 @@ portfolio-website
     │   └── PDFviewer.jsx
 │   └── Projects
         ├── Main.jsx
+        ├── MainWithFilter.jsx
         ├── ProjectItem.jsx
         ├── ProjectTemplate.jsx
         └── ProjectsData.js

@@ -146,30 +146,44 @@ const ProjectTemplate = ({ project }) => {
                       </div>
                       <div className="space-y-2">
                         {Collaborators.map((collab, index) => (
-                          <div 
-                            key={index} 
-                            className="flex justify-between items-center p-2.5 bg-gray-50 
-                                     dark:bg-gray-800/50 rounded-lg"
-                          >
-                            <div>
-                              <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                                {collab.firstName} {collab.lastName}
-                              </p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400">
-                                {collab.roles.join(', ')}
-                              </p>
-                            </div>
-                            {collab.portfolio && (
+                          <div key={index}>
+                            {collab.portfolio ? (
                               <a
                                 href={collab.portfolio}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-1.5 text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 
-                                         transition-colors"
+                                className="flex justify-between items-center p-2.5 bg-gray-50 
+                                          dark:bg-gray-800/50 rounded-lg
+                                          hover:bg-gray-100 dark:hover:bg-gray-800
+                                          transition-colors group cursor-pointer"
                                 aria-label={`Visit ${collab.firstName}'s portfolio`}
                               >
-                                <FaExternalLinkAlt className="text-sm" aria-hidden="true" />
+                                <div>
+                                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                                    {collab.firstName} {collab.lastName}
+                                  </p>
+                                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                                    {collab.roles.join(', ')}
+                                  </p>
+                                </div>
+                                <FaExternalLinkAlt 
+                                  className="text-sm text-gray-400 group-hover:text-blue-500 
+                                            dark:group-hover:text-blue-400 transition-colors" 
+                                  aria-hidden="true" 
+                                />
                               </a>
+                            ) : (
+                              <div className="flex justify-between items-center p-2.5 bg-gray-50 
+                                            dark:bg-gray-800/50 rounded-lg">
+                                <div>
+                                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                                    {collab.firstName} {collab.lastName}
+                                  </p>
+                                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                                    {collab.roles.join(', ')}
+                                  </p>
+                                </div>
+                              </div>
                             )}
                           </div>
                         ))}

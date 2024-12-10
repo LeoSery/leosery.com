@@ -160,7 +160,7 @@ export default function Navbar() {
             <div className="flex items-center flex-shrink-0">
             <button 
               onClick={() => router.push("/")}
-              className="relative w-[75px] h-[75px] rounded-full overflow-hidden transition-transform hover:scale-105"
+              className="relative w-20 h-20 my-auto rounded-full overflow-hidden transition-transform hover:scale-105 flex-shrink-0"
             >
               {!profileLoaded && (
                 <>
@@ -170,15 +170,17 @@ export default function Navbar() {
                   </div>
                 </>
               )}
-              <Image
-                src={ProfilPicture}
-                alt="Profile picture"
-                fill
-                className={`object-cover ${
-                  profileLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                onLoad={() => setProfileLoaded(true)}
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={ProfilPicture}
+                  alt="Profile picture"
+                  fill
+                  className={`object-cover rounded-full ${
+                    profileLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setProfileLoaded(true)}
+                  />
+              </div>
             </button>
               <div className="websiteThemeMode cursor-pointer ml-4">
                 {renderThemeChanger()}
@@ -187,7 +189,7 @@ export default function Navbar() {
             
             <div className="flex items-baseline gap-2 lg:gap-4 relative">
               <div 
-                className="absolute bottom-0 h-1 bg-[#E5E7EB] dark:bg-[#363B3D] rounded-t-md transition-all duration-500 ease-in-out"
+                className="absolute bottom-0 h-1 bg-[#E5E7EB] dark:bg-[#363B3D] rounded-t-md transition-all duration-300 ease-in-out"
                 style={{
                   left: `${indicatorStyles.left}px`,
                   width: `${indicatorStyles.width}px`
@@ -273,10 +275,10 @@ export default function Navbar() {
         <div className="relative min-w-[320px]">
           <Transition
             show={isOpen}
-            enter="transition-all duration-500 ease-out"
+            enter="transition-all duration-300 ease-out"
             enterFrom="transform -translate-y-full opacity-0"
             enterTo="transform translate-y-0 opacity-100"
-            leave="transition-all duration-500 ease-in"
+            leave="transition-all duration-300 ease-in"
             leaveFrom="transform translate-y-0 opacity-100"
             leaveTo="transform -translate-y-full opacity-0"
           >

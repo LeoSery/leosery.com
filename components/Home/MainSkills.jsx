@@ -19,10 +19,10 @@ export default function MainSkills() {
     <div className="w-full py-6 sm:py-8 lg:py-12">
       <div className="max-w-[90rem] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="text-center md:text-left mb-6 lg:mb-8">
-          <p className="text-sm uppercase tracking-wider text-[#ff9f1c] font-medium">
+          <p className="text-xl uppercase tracking-wider text-[#ff9f1c] font-medium">
             Some of my skills
           </p>
-          <h2 className="py-2 text-xl sm:text-2xl text-gray-600 dark:text-[#BDB7AF] font-light">
+          <h2 className="py-2 text-lg sm:text-2xl text-gray-600 dark:text-[#BDB7AF] font-light">
             What I Can Do
           </h2>
         </div>

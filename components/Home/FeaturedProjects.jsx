@@ -6,10 +6,17 @@ import React from "react";
 export default function FeaturedProjects() {
   const router = useRouter();
   
-  // On prend les deux projets les plus récents
-  const featuredProjects = projectsData
-    .sort((a, b) => new Date(b.Period.start) - new Date(a.Period.start))
-    .slice(0, 2);
+  const featuredProjectIds = [13, 12]; // 13: Poladroïd, 12: Frost Engine
+
+  // Take the two most recent projects
+  // const featuredProjects = projectsData
+  //   .sort((a, b) => new Date(b.Period.start) - new Date(a.Period.start))
+  //   .slice(0, 2);
+
+  // We use find to retrieve each project in the desired order
+  const featuredProjects = featuredProjectIds
+    .map(id => projectsData.find(project => project.Id === id))
+    .filter(Boolean);
 
   return (
     <div className="w-full py-12">

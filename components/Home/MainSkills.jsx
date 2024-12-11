@@ -42,7 +42,7 @@ export default function MainSkills() {
         {/* Bouton */}
         <div className="flex justify-center md:justify-start">
           <button
-            onClick={() => router.push("/CV")}
+            onClick={() => router.push("/cv")}
             className="px-6 md:px-4 py-2.5 md:py-2 text-sm font-medium text-white
                      bg-blue-600 dark:bg-blue-800 rounded-lg
                      transition-all duration-200 ease-in-out

@@ -54,7 +54,7 @@ export default function Main() {
               isExternal={true}
             />
             <SocialButton 
-              href="/Contact" 
+              href="/contact" 
               icon={<AiOutlineMail />} 
             />
           </div>

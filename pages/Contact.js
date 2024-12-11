@@ -6,8 +6,8 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Leo Séry - Contact</title>
-        <meta name="Leo Séry - Portfolio" content="Contact"></meta>
+        <title>Leo Séry - contact</title>
+        <meta name="Leo Séry - Portfolio" content="contact"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">

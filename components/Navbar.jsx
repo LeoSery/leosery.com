@@ -21,9 +21,9 @@ export default function Navbar() {
 
   const navRefs = useRef({
     '/': React.createRef(),
-    '/CV': React.createRef(),
-    '/Projects': React.createRef(),
-    '/Contact': React.createRef()
+    '/cv': React.createRef(),
+    '/projects': React.createRef(),
+    '/contact': React.createRef()
   });
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const currentRef = navRefs.current[router.pathname] || 
-                     (router.pathname.includes('/Projects') ? navRefs.current['/Projects'] : null);
+                     (router.pathname.includes('/projects') ? navRefs.current['/projects'] : null);
     
     if (currentRef?.current) {
       const { offsetLeft, offsetWidth } = currentRef.current;
@@ -78,47 +78,6 @@ export default function Navbar() {
     );
   };
 
-  // const NavButton = ({ href, children, isContact = false }) => {
-  //   return (
-  //     <button
-  //       onClick={() => router.push(href)}
-  //       className={`
-  //         relative
-  //         cursor-pointer
-  //         px-3 py-2
-  //         text-sm font-medium
-  //         capitalize
-  //         transition-all
-  //         duration-200
-  //         ${isContact ? `
-  //           bg-blue-600 
-  //           dark:bg-blue-800 
-  //           text-white
-  //           hover:bg-[#ff9f1c] 
-  //           dark:hover:bg-[#BB6C00]
-  //           rounded-md
-  //           hover:shadow-lg 
-  //           hover:shadow-[#312f2f] 
-  //           hover:scale-105
-  //         ` : `
-  //           text-gray-700 
-  //           dark:text-[#CAC5BE]
-  //           hover:text-white
-  //           dark:hover:text-white
-  //           rounded-md
-  //           hover:bg-blue-600
-  //           dark:hover:bg-blue-800
-  //           hover:shadow-lg 
-  //           hover:shadow-[#312f2f]
-  //           hover:scale-105
-  //         `}
-  //       `}
-  //     >
-  //       {children}
-  //     </button>
-  //   );
-  // };
-
   const NavButton = ({ href, children, isContact = false }) => {
     return (
       <button
@@ -156,7 +115,7 @@ export default function Navbar() {
 
   const MobileNavButton = ({ href, children }) => {
     const isActive = router.pathname === href || 
-      (href === "/Projects" && router.pathname.includes("/Projects"));
+      (href === "/projects" && router.pathname.includes("/projects"));
       
     return (
       <button
@@ -233,14 +192,14 @@ export default function Navbar() {
               <div ref={navRefs.current['/']}>
                 <NavButton href="/">Home</NavButton>
               </div>
-              <div ref={navRefs.current['/CV']}>
-                <NavButton href="/CV">CV</NavButton>
+              <div ref={navRefs.current['/cv']}>
+                <NavButton href="/cv">CV</NavButton>
               </div>
-              <div ref={navRefs.current['/Projects']}>
-                <NavButton href="/Projects">Projects</NavButton>
+              <div ref={navRefs.current['/projects']}>
+                <NavButton href="/projects">Projects</NavButton>
               </div>
-              <div ref={navRefs.current['/Contact']}>
-                <NavButton href="/Contact" isContact={true}>Contact</NavButton>
+              <div ref={navRefs.current['/contact']}>
+                <NavButton href="/contact" isContact={true}>Contact</NavButton>
               </div>
             </div>
           </div>
@@ -319,9 +278,9 @@ export default function Navbar() {
           >
             <div className="absolute top-0 left-0 right-0 md:hidden bg-gray-50 dark:bg-[#212121] px-2 pt-2 pb-3 space-y-1 shadow-lg border-t dark:border-gray-800">
               <MobileNavButton href="/">Home</MobileNavButton>
-              <MobileNavButton href="/CV">Curriculum vitae</MobileNavButton>
-              <MobileNavButton href="/Projects">Projects</MobileNavButton>
-              <MobileNavButton href="/Contact">Contact</MobileNavButton>
+              <MobileNavButton href="/cv">Curriculum vitae</MobileNavButton>
+              <MobileNavButton href="/projects">Projects</MobileNavButton>
+              <MobileNavButton href="/contact">Contact</MobileNavButton>
             </div>
           </Transition>
         </div>

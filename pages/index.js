@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Leo Séry - Home</title>
-        <meta name="Leo Séry - Portfolio" content="Home"></meta>
+        <title>Leo Séry - home</title>
+        <meta name="Leo Séry - Portfolio" content="home"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative">

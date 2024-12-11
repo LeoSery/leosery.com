@@ -6,7 +6,7 @@ export default function CV() {
   return (
     <>
       <Head>
-        <title>Leo Séry - CV</title>
+        <title>Leo Séry - cv</title>
         <meta name="description" content="Curriculum Vitae of Leo Séry - Game Programming Student" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
           {/* View All Button */}
           <div className="flex justify-center">
             <button
-              onClick={() => router.push("/Projects")}
+              onClick={() => router.push("/projects")}
               className="px-6 py-2.5 bg-blue-600 dark:bg-blue-800 text-white rounded-lg text-sm font-medium
                        hover:bg-[#ff9f1c] transition-all duration-200 hover:shadow-md
                        hover:scale-105"

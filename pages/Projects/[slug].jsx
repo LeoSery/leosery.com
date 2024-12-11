@@ -9,8 +9,8 @@ export default function ProjectPage() {
 
   // Fonction pour trouver le projet correspondant au slug
   const findProject = (slug) => {
-    // Convertir le slug en URL format (/Projects/project-name)
-    const projectUrl = `/Projects/${slug}`;
+    // Convertir le slug en URL format (/projects/project-name)
+    const projectUrl = `/projects/${slug}`;
     return projectsData.find(project => project.Url === projectUrl);
   };
 
@@ -25,7 +25,7 @@ export default function ProjectPage() {
   // Si le projet n'existe pas, rediriger vers la page projets
   if (!project) {
     if (typeof window !== 'undefined') {
-      router.push('/Projects');
+      router.push('/projects');
     }
     return <div>Project not found</div>;
   }

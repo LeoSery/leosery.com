@@ -8,6 +8,8 @@ import SEO from "../components/Common/SEO";
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function App({ Component, pageProps }) {
 
@@ -61,6 +63,9 @@ export default function App({ Component, pageProps }) {
           </div>
         </ThemeProvider>
       </DarkThemeProvider>
+
+      <Analytics />
+      <SpeedInsights />
 
       <Script
         strategy="afterInteractive"

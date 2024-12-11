@@ -5,6 +5,7 @@ import Head from "next/head";
 import { HiUsers } from 'react-icons/hi';
 import { FaUser, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { IoArrowBack } from "react-icons/io5";
+import * as gtag from '../../lib/gtag';
 
 const ProjectTemplate = ({ project }) => {
   const {
@@ -25,12 +26,15 @@ const ProjectTemplate = ({ project }) => {
       params: {
         project_name: Title,
         link_type: actionType,
-        url: project.url
+        url: project.url,
+        project_type: project.type
       }
     });
   };
   
   const handleCollaboratorClick = (collaborator) => {
+    if (!collaborator?.portfolio) return;
+    
     gtag.event({
       action: 'collaborator_portfolio_click',
       params: {

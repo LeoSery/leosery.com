@@ -54,13 +54,13 @@ class FileTreeGenerator:
             f.write(f"{self.root_name}\n")
             
             root_items = []
-            for dir in ['components', 'context', 'pages', 'public', 'styles']:
+            for dir in ['components', 'context', 'lib', 'pages', 'public', 'styles']:
                 if os.path.exists(dir):
                     root_items.append(dir)
             
             root_files = [f for f in os.listdir('.')
                          if os.path.isfile(f) and 
-                         any(f.endswith(ext) for ext in ['.js', '.json', '.md', '.css']) and
+                         any(f.endswith(ext) for ext in ['.js', '.json', '.md', '.css', '.txt']) and
                          not any(excluded in f for excluded in self.EXCLUDED_PATHS)]
             root_items.extend(sorted(root_files))
             

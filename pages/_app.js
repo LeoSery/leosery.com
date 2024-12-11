@@ -5,8 +5,25 @@ import Footer from "../components/Footer";
 import "../styles/global.css";
 import Script from "next/script";
 import SEO from "../components/Common/SEO";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import * as gtag from '../lib/gtag';
 
 export default function App({ Component, pageProps }) {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <SEO
@@ -46,20 +63,23 @@ export default function App({ Component, pageProps }) {
       </DarkThemeProvider>
 
       <Script
-        id="googletagmanager"
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-NXQP4L74YT"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
-      <Script id="analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-NXQP4L74YT', {
-          page_path: window.location.pathname,
-          });
-      `}
-      </Script>
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
     </>
   );
 }

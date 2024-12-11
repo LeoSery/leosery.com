@@ -5,6 +5,7 @@ import { FaUser } from 'react-icons/fa';
 import React, { useState } from "react";
 import LoadingSkeleton from "../Common/LoadingSkeleton";
 import Spinner from "../Common/Spinner";
+import * as gtag from '../../lib/gtag';
 
 const ProjectItem = ({ 
   title, 
@@ -19,6 +20,16 @@ const ProjectItem = ({
 }) => {
   const router = useRouter();
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleProjectClick = () => {
+    gtag.event({
+      action: 'project_click',
+      params: {
+        project_name: title
+      }
+    });
+    router.push(projectUrl);
+  };
   
   const mainTechnologies = technologies.slice(0, 2);
   
@@ -36,8 +47,7 @@ const ProjectItem = ({
   const teamSize = collaborators.length + 1;
 
   return (
-    <div 
-      onClick={() => router.push(projectUrl)}
+    <div onClick={handleProjectClick}
       className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow
                 hover:shadow-md transition-all duration-300 hover:scale-[1.02] cursor-pointer
                 flex flex-col h-full"

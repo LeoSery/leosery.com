@@ -9,6 +9,16 @@ import Spinner from 'components/Common/Spinner';
 const Contact = () => {
   const [contactImageLoaded, setContactImageLoaded] = useState(false);
 
+  const handleFormSubmit = (e) => {
+    gtag.event({
+      action: 'contact_form_submit',
+      params: {
+        source: 'contact_page',
+        time: new Date().toISOString()
+      }
+    });
+  };
+
   useEffect(() => {
     document.getElementById("contactForm")?.reset();
   }, []);
@@ -97,6 +107,7 @@ const Contact = () => {
                 method="POST"
                 action="https://getform.io/f/48553dcc-187b-402d-bb91-6202bf37afa1"
                 className="space-y-5"
+                onSubmit={handleFormSubmit}
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">

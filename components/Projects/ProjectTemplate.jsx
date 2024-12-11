@@ -19,6 +19,30 @@ const ProjectTemplate = ({ project }) => {
     Keywords = []
   } = project;
 
+  const handleActionClick = (actionType, project) => {
+    gtag.event({
+      action: 'project_link_click',
+      params: {
+        project_name: Title,
+        link_type: actionType,
+        url: project.url
+      }
+    });
+  };
+  
+  const handleCollaboratorClick = (collaborator) => {
+    gtag.event({
+      action: 'collaborator_portfolio_click',
+      params: {
+        project_name: Title,
+        collaborator_name: `${collaborator.firstName} ${collaborator.lastName}`,
+        portfolio_type: collaborator.portfolio.includes('github.com') ? 'github' : 
+                       collaborator.portfolio.includes('linkedin.com') ? 'linkedin' : 
+                       collaborator.portfolio.includes('artstation.com') ? 'artstation' : 'other'
+      }
+    });
+  };
+
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', { 
       month: 'long', 
@@ -149,9 +173,11 @@ const ProjectTemplate = ({ project }) => {
                           <div key={index}>
                             {collab.portfolio ? (
                               <a
+                                key={index}
                                 href={collab.portfolio}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => handleCollaboratorClick(collab)}
                                 className="flex justify-between items-center p-2.5 bg-gray-50 
                                           dark:bg-gray-800/50 rounded-lg
                                           hover:bg-gray-100 dark:hover:bg-gray-800
@@ -209,6 +235,7 @@ const ProjectTemplate = ({ project }) => {
                         href={action.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => handleActionClick(action.label, action)}
                         className="flex items-center justify-between w-full p-2.5 
                                  bg-gray-50 dark:bg-gray-800/50 rounded-lg
                                  hover:bg-gray-200 dark:hover:bg-gray-800 

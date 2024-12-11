@@ -7,6 +7,17 @@ import Link from "next/link";
 import React from "react";
 
 export default function Main() {
+
+  const handleSocialClick = (platform) => {
+    gtag.event({
+      action: 'social_link_click',
+      params: {
+        platform: platform,
+        location: 'home_hero'
+      }
+    });
+  };
+
   return (
     <div className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col">
       <div className="flex-1 flex flex-col items-center justify-center">
@@ -45,17 +56,20 @@ export default function Main() {
           <div className="flex items-center justify-center gap-3 w-full max-w-[280px] mt-4">
             <SocialButton 
               href="https://www.linkedin.com/in/leosery/" 
-              icon={<FaLinkedin />} 
+              icon={<FaLinkedin />}
+              platform="linkedin"
               isExternal={true}
             />
             <SocialButton 
               href="https://github.com/LeoSery" 
-              icon={<FaGithub />} 
+              icon={<FaGithub />}
+              platform="github"
               isExternal={true}
             />
             <SocialButton 
               href="/contact" 
-              icon={<AiOutlineMail />} 
+              icon={<AiOutlineMail />}
+              platform="contact"
             />
           </div>
         </div>
@@ -68,10 +82,11 @@ export default function Main() {
   );
 }
 
-function SocialButton({ href, icon, isExternal = false }) {
+function SocialButton({ href, icon, platform, isExternal = false }) {
   const LinkWrapper = ({ children }) => (
     <Link 
       href={href} 
+      onClick={() => handleSocialClick(platform)}
       {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
     >
       {children}

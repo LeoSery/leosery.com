@@ -4,7 +4,8 @@ portfolio-website
     │   ├── LoadingSkeleton.jsx
     │   ├── ScrollIndicator.jsx
     │   ├── ScrollToTop.jsx
-    │   └── Spinner.jsx
+    │   ├── Spinner.jsx
+    │   └── TypeWriter.jsx
 │   ├── Contact
     │   └── Main.jsx
 │   ├── Footer.jsx
@@ -25,13 +26,13 @@ portfolio-website
 ├── context
 │   └── themeContext.js
 ├── pages
-│   ├── CV.js
-│   ├── Contact.js
-│   ├── Projects
-    │   └── [slug].jsx
-│   ├── Projects.js
 │   ├── _app.js
-│   └── index.js
+│   ├── contact.js
+│   ├── cv.js
+│   ├── index.js
+│   ├── projects
+    │   └── [slug].jsx
+│   └── projects.js
 ├── public
 │   ├── CV.pdf
 │   ├── assets

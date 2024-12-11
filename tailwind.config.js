@@ -6,7 +6,26 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        scrollBounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(8px)' }
+        },
+        slideIn: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' }
+        }
+      },
+      fadeIn: {
+        '0%': { opacity: '0', transform: 'scale(0.95)' },
+        '100%': { opacity: '1', transform: 'scale(1)' }
+      },
+      animation: {
+        scrollBounce: 'scrollBounce 1.5s ease-in-out infinite',
+        slideIn: 'slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards'
+      }
+    },
   },
   plugins: [],
 };

@@ -1,51 +1,55 @@
-import { useRouter } from "next/router";
-import React from "react";
+import React, { useState  } from 'react';
+import Image from "next/image";
+import LoadingSkeleton from '../Common/LoadingSkeleton';
+import Spinner from '../Common/Spinner';
 
 export default function About() {
-  const router = useRouter();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <>
-      <div className="w-full md:h-screen p-2 flex items-end py-20 mb-32">
-        <div className="max-w-[1500px] md:grid grid-cols-3 gap-8 m-left ml-5 mr-5 mb-2">
-          <div id="home/about" className="col-span-2">
-            <p className="uppercase text-xl tracking-widest text-[#ff9f1c]">
+    <div className="w-full py-8 lg:py-12">
+      <div className="max-w-[90rem] md:grid grid-cols-5 gap-6 lg:gap-8 mx-auto px-3 sm:px-6 lg:px-8">
+        {/* Contenu textuel */}
+        <div id="home/about" className="col-span-3">
+          <div className="flex flex-col items-start">
+            <p className="text-xl uppercase tracking-wider text-[#ff9f1c] font-medium">
               About me
             </p>
-            <h2 className="py-4 text-gray-700 dark:text-[#BDB7AF]">Who I Am</h2>
-            <p className="text-justify text-gray-600 dark:text-[#B1AAA0]">
-              I am Léo Séry, I discovered computer science very young and I
-              quickly knew that it was the field towards which I wanted to go.
-              The development sector caught my attention during my childhood. A
-              family environment and more particularly uncles working in the
-              field of video games have allowed me for several years to
-              consolidate my choice of orientation. It is obvious that I
-              continue my studies in the development&apos;s ground.
+            <h2 className="py-2 text-lg sm:text-2xl text-gray-600 dark:text-[#BDB7AF] font-light">
+              Who I Am
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] text-justify leading-relaxed max-w-[90ch]">
+              Immersed in the video game universe from an early age thanks to a family environment connected to the industry, I 
+              naturally directed my path towards development. Currently in my fifth year of game programming studies at Ynov Campus 
+              Bordeaux, I develop in C++ and C# with Unity3D and Unreal Engine 5 as a hobby. Engine programming and tools development 
+              are the game programming fields that particularly appeal to me and where I aim to work professionally.
             </p>
-            <div className="flex justify-center space-x-10 py-3">
-              <button
-                onClick={() => router.push("/Projects")}
-                className="cursor-pointer bg-blue-600 dark:bg-blue-800 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium text-justify"
-              >
-                Check out my projects
-              </button>
-              <button
-                onClick={() => router.push("/CV")}
-                className="cursor-pointer bg-blue-600 dark:bg-blue-800 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] rounded-md text-sm font-medium text-justify"
-              >
-                Check out my CV
-              </button>
-            </div>
           </div>
-          <div className="w-full h-auto m-auto shadow-xl dark:bg-[#1E1E1E] shadow-gray-400 dark:shadow-gray-800 rounded-xl flex items-center justify-center p-4">
-            <img
-              className="rounded-md"
-              src="/../assets/images/Home/About-me-image.jpg"
-              alt="/"
-            ></img>
+        </div>
+
+        {/* Image container */}
+        <div className="col-span-2 w-full h-auto mt-6 md:mt-0">
+              <div className="relative w-full h-0 pb-[70%] bg-[#1E1E1E]/5 dark:bg-[#1E1E1E] rounded-xl overflow-hidden">
+            {!imageLoaded && (
+              <>
+                <LoadingSkeleton variant="rect" className="absolute inset-0 rounded-xl" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Spinner size="md" />
+                </div>
+              </>
+            )}
+            <Image
+              src="/assets/images/Home/About-me-image.webp"
+              alt="About me"
+              fill
+              className={`object-cover rounded-xl transition-transform duration-300 hover:scale-105 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+            />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

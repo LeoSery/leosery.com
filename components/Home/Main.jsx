@@ -1,55 +1,105 @@
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
+import ScrollIndicator from "../Common/ScrollIndicator";
+import TypeWriter from "../Common/TypeWriter";
 import Link from "next/link";
 import React from "react";
 
 export default function Main() {
+
+  const handleSocialClick = (platform) => {
+    gtag.event({
+      action: 'social_link_click',
+      params: {
+        platform: platform,
+        location: 'home_hero'
+      }
+    });
+  };
+
   return (
-    <div className="w-full pt-20 text-center mt-20">
-      <div className="max-w[1240px] w-full mx-auto p-2 flex justify-center items-center">
-        <div>
-          <h1 className="text-black dark:text-white">
-            Hi, I&apos;m
-            <span className="text-[#ff9f1c] dark:text-[#FFA62D] cursor-auto">
-              {" "}
-              Léo
-            </span>
-          </h1>
-          <h2 className="py-4 text-gray-700 dark:text-[#BDB7AF] max-w-[70%] m-auto cursor-auto">
+    <div className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center w-full">
+          {/* Conteneur pour maintenir l'espace */}
+          <div className="h-[80px] sm:h-[96px] md:h-[120px] relative w-full">
+            {/* Texte animé en position absolue */}
+            <div className="inset-0 flex items-center justify-center">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 dark:text-white text-center">
+              <TypeWriter 
+                textParts={[
+                  {
+                    text: "Hi, I'm ",
+                    className: "text-gray-900 dark:text-white font-light"
+                  },
+                  {
+                    text: "Léo",
+                    className: "text-[#ff9f1c] dark:text-[#FFA62D] font-normal"
+                  }
+                ]}
+                speed={100}
+                showCursor={true}
+                keepCursor={true}
+                cursorTimeout={3000}
+              />
+            </h1>
+            </div>
+          </div>
+          
+          {/* Sous-titre avec espacement réduit */}
+          <h2 className="pt-2 sm:pt-3 md:pt-4 text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-[#BDB7AF] text-center font-light tracking-wide">
             A student in Game programming
           </h2>
-          <p className="py-4 text-gray-600 dark:text-[#B1AAA0] max-w-[62%] m-auto text-justify cursor-auto">
-            I&apos;m 5th-year game programming student at Bordeaux Ynov Campus,
-            located in the city of Bordeaux in south-west France. I&apos;m
-            passionate about video game development, especially in virtual
-            reality. I like object languages like C# and C++, and I develop
-            games on Unity3D and Unreal Engine 5 as a hobby.
-          </p>
-          <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
-            <Link href="https://www.linkedin.com/in/leosery/" target="_blank" rel="noreferrer">
-              <div className="rounded-[20px] shadow-lg shadow-gray-400 dark:shadow-md dark:shadow-gray-800 dark:bg-[#1E1E1E] p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <FaLinkedin className="text-black dark:text-white" />
-              </div>
-            </Link>
-            <Link href="https://github.com/LeoSery" target="_blank" rel="noreferrer">
-              <div className="rounded-[20px] shadow-lg shadow-gray-400 dark:shadow-md dark:shadow-gray-800 dark:bg-[#1E1E1E] p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <FaGithub className="text-black dark:text-white" />
-              </div>
-            </Link>
-            <Link href="/Contact">
-              <div className="rounded-[20px] shadow-lg shadow-gray-400 dark:shadow-md dark:shadow-gray-800 dark:bg-[#1E1E1E] p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <AiOutlineMail className="text-black dark:text-white" />
-              </div>
-            </Link>
-            <Link href="#home/about">
-              <div className="rounded-[20px] shadow-lg shadow-gray-400 dark:shadow-md dark:shadow-gray-800 dark:bg-[#1E1E1E] p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <BsFillPersonLinesFill className="text-black dark:text-white" />
-              </div>
-            </Link>
+
+          {/* Social Buttons - garde le même espacement */}
+          <div className="flex items-center justify-center gap-3 w-full max-w-[280px] mt-4">
+            <SocialButton 
+              href="https://www.linkedin.com/in/leosery/" 
+              icon={<FaLinkedin />}
+              platform="linkedin"
+              isExternal={true}
+            />
+            <SocialButton 
+              href="https://github.com/LeoSery" 
+              icon={<FaGithub />}
+              platform="github"
+              isExternal={true}
+            />
+            <SocialButton 
+              href="/contact" 
+              icon={<AiOutlineMail />}
+              platform="contact"
+            />
           </div>
         </div>
       </div>
+      
+      <div className="absolute bottom-16 w-full flex justify-center">
+        <ScrollIndicator />
+      </div>
     </div>
+  );
+}
+
+function SocialButton({ href, icon, platform, isExternal = false }) {
+  const LinkWrapper = ({ children }) => (
+    <Link 
+      href={href} 
+      onClick={() => handleSocialClick(platform)}
+      {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+    >
+      {children}
+    </Link>
+  );
+
+  return (
+    <LinkWrapper>
+      <div className="rounded-xl shadow shadow-gray-400 dark:shadow-gray-800 dark:bg-[#1E1E1E] p-3 cursor-pointer hover:scale-105 ease-in duration-200 transition-all hover:shadow-md">
+        <span className="text-gray-900 dark:text-white text-base sm:text-lg">
+          {icon}
+        </span>
+      </div>
+    </LinkWrapper>
   );
 }

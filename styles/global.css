@@ -13,7 +13,7 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    @apply bg-[#e7ecef] text-black tracking-wide dark:bg-[#121212] dark:text-[#B1AAA0];
+    @apply bg-[#e7ecef] text-gray-900 tracking-wide dark:bg-[#121212] dark:text-[#B1AAA0];
   }
   #__next {
     height: 100%;
@@ -43,39 +43,117 @@
 
   button,
   Link {
-    @apply cursor-pointer text-black px-3 py-2 rounded-md text-sm font-medium uppercase;
+    @apply cursor-pointer text-gray-900 px-3 py-2 rounded-md text-sm font-medium uppercase;
   }
 }
 
-/* special css for displaying markdown in blog part */
-.PostBody > h4 {
-  @apply text-gray-700 dark:text-[#B1AAA0] m-5 text-center;
-}
-
-.PostBody > p {
-  @apply text-gray-700 dark:text-[#B1AAA0] m-5 text-justify;
-}
-
-.PostBody > li,
-ul,
-ol {
-  @apply text-gray-700 dark:text-[#B1AAA0] m-5 text-left;
-}
-
-.PostBody > a {
-  @apply text-blue-600 visited:text-purple-600;
-}
-
 /* custom scrollbar */
+/* Modern scrollbar styling */
+:root {
+  --scrollbar-width: 8px;
+  --scrollbar-height: 8px;
+  --scrollbar-thumb-color: rgba(156, 163, 175, 0.5);
+  --scrollbar-thumb-hover-color: rgba(156, 163, 175, 0.7);
+  --scrollbar-track-color: transparent;
+}
+
+/* Dark theme variables */
+[data-theme='dark'] {
+  --scrollbar-thumb-color: rgba(75, 85, 99, 0.5);
+  --scrollbar-thumb-hover-color: rgba(75, 85, 99, 0.7);
+}
+
+/* Webkit browsers */
 ::-webkit-scrollbar {
-  width: 0.5em;
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-height);
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(202, 20%, 92%);
+  background: var(--scrollbar-track-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(210, 5%, 53%);
-  border-radius: 100vw;
+  background: var(--scrollbar-thumb-color);
+  border-radius: var(--scrollbar-width);
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
+
+/* Edge and other browsers */
+* {
+  -ms-overflow-style: auto;
+}
+
+/* Hide scrollbar while maintaining functionality */
+@media (max-width: 640px) {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Optional: Custom scrollbar for specific containers */
+.custom-scrollbar {
+  scrollbar-gutter: stable;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Optional: Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cursor typewriter effect */
+
+@keyframes cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cursorIdle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@layer components {
+  .animate-cursor {
+    animation: cursor 0.8s ease-in-out infinite;
+  }
+  
+  .animate-cursor-idle {
+    animation: cursorIdle 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes terminal-cursor {
+  0%, 49% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50%, 100% { 
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+@layer components {
+  .animate-terminal-cursor {
+    animation: terminal-cursor 1s step-end infinite;
+    transform-origin: center;
+  }
 }

@@ -1,24 +1,51 @@
-import ProfilPicture from "../public/assets/profilePicture2.png";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { ThemeContext } from "../context/themeContext";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { Transition } from "@headlessui/react";
-import { useRouter } from "next/router";
 import { BsSun } from "react-icons/bs";
 import { useTheme } from "next-themes";
+import { Transition } from "@headlessui/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import ProfilPicture from "../public/assets/images/NavBar/profilePicture.webp";
+import LoadingSkeleton from 'components/Common/LoadingSkeleton';
+import Spinner from 'components/Common/Spinner';
 
 export default function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [indicatorStyles, setIndicatorStyles] = useState({ left: 0, width: 0 });
   const router = useRouter();
-
   const { isDark, setIsDark } = useContext(ThemeContext);
+  const [profileLoaded, setProfileLoaded] = useState(false);
+
+  const navRefs = useRef({
+    '/': React.createRef(),
+    '/cv': React.createRef(),
+    '/projects': React.createRef(),
+    '/contact': React.createRef()
+  });
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [router.pathname]);
+
+  useEffect(() => {
+    const currentRef = navRefs.current[router.pathname] || 
+                     (router.pathname.includes('/projects') ? navRefs.current['/projects'] : null);
+    
+    if (currentRef?.current) {
+      const { offsetLeft, offsetWidth } = currentRef.current;
+      setIndicatorStyles({
+        left: offsetLeft,
+        width: offsetWidth
+      });
+    }
+  }, [router.pathname]);
 
   const renderThemeChanger = () => {
     if (!mounted) return null;
@@ -27,213 +54,237 @@ export default function Navbar() {
     if (currentTheme === "dark") {
       return (
         <BsSun
-          className="cursor-pointer text-2xl text-white"
+          className="text-2xl text-white cursor-pointer transition-transform hover:scale-110"
           role="button"
           onClick={() => {
             setTheme("light");
-            setIsDark(!isDark);
+            setIsDark(false);
           }}
-          alt="Switch to light theme"
-        />
-      );
-    } else {
-      return (
-        <MdOutlineDarkMode
-          className="cursor-pointer text-2xl"
-          role="button"
-          onClick={() => {
-            setTheme("dark");
-            setIsDark(!isDark);
-          }}
-          alt="Switch to dark theme"
+          aria-label="Switch to light theme"
         />
       );
     }
+
+    return (
+      <MdOutlineDarkMode
+        className="text-2xl text-gray-700 cursor-pointer transition-transform hover:scale-110"
+        role="button"
+        onClick={() => {
+          setTheme("dark");
+          setIsDark(true);
+        }}
+        aria-label="Switch to dark theme"
+      />
+    );
+  };
+
+  const NavButton = ({ href, children, isContact = false }) => {
+    return (
+      <button
+        onClick={() => router.push(href)}
+        className={`
+          relative
+          cursor-pointer
+          px-3 py-2
+          text-sm font-medium
+          capitalize
+          transition-all
+          duration-200
+          ${isContact ? `
+            bg-blue-600 
+            dark:bg-blue-800 
+            text-white
+            hover:bg-[#ff9f1c] 
+            dark:hover:bg-[#BB6C00]
+            rounded-md
+            hover:shadow-lg 
+            hover:shadow-[#312f2f] 
+            hover:scale-105
+          ` : `
+            text-gray-700 
+            dark:text-[#CAC5BE]
+            rounded-md
+            hover:scale-105
+          `}
+        `}
+      >
+        {children}
+      </button>
+    );
+  };
+
+  const MobileNavButton = ({ href, children }) => {
+    const isActive = router.pathname === href || 
+      (href === "/projects" && router.pathname.includes("/projects"));
+      
+    return (
+      <button
+        onClick={() => {
+          router.push(href);
+          setIsOpen(false);
+        }}
+        className={`
+          w-full
+          text-left
+          cursor-pointer
+          px-3 py-3
+          text-sm font-medium
+          capitalize
+          transition-all
+          duration-200
+          rounded-md
+          ${isActive ? 
+            'bg-blue-600 dark:bg-blue-800 text-white' : 
+            'text-gray-700 dark:text-[#CAC5BE] hover:bg-blue-600 dark:hover:bg-blue-800 hover:text-white'
+          }
+          hover:translate-x-1
+        `}
+      >
+        {children}
+      </button>
+    );
   };
 
   return (
-    <>
-      <nav className="shadow-sm sticky bg-white top-0 w-full z-10 dark:bg-[#212121]">
-        <div className="w-full">
-          <div className="flex items-center h-20 w-full">
-            <div className="flex items items-center mx-20 justify-between w-full">
-              <div className="flex justify-center items-center flex-shrink-0">
-                <button onClick={() => router.push("/")}>
-                  <Image
-                    src={ProfilPicture}
-                    alt="profile piccture"
-                    width="75"
-                    height="75"
-                    className="rounded-full"
+    <nav className="shadow-md sticky top-0 w-full min-w-[320px] z-50 bg-gray-50 dark:bg-[#212121] border-b border-gray-200 dark:border-gray-800">
+      <div className="w-full">
+        <div className="flex items-center h-20 w-full">
+          {/* Version Desktop */}
+          <div className="hidden md:flex items-center justify-between w-full px-4 lg:px-20">
+            <div className="flex items-center flex-shrink-0">
+            <button 
+              onClick={() => router.push("/")}
+              className="relative w-20 h-20 my-auto rounded-full overflow-hidden transition-transform hover:scale-105 flex-shrink-0"
+            >
+              {!profileLoaded && (
+                <>
+                  <LoadingSkeleton variant="circle" className="absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Spinner size="sm" />
+                  </div>
+                </>
+              )}
+              <div className="relative w-full h-full">
+                <Image
+                  src={ProfilPicture}
+                  alt="Profile picture"
+                  fill
+                  className={`object-cover rounded-full ${
+                    profileLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setProfileLoaded(true)}
                   />
-                </button>
-                <div className="websiteThemeMode cursor-pointer">
-                  <button>{renderThemeChanger()}</button>
-                </div>
               </div>
-              <div className=" hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <button
-                    onClick={() => router.push("/")}
-                    to="home"
-                    offset={50}
-                    className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
-                      " ",
-                      router.pathname == "/"
-                        ? "border-b-4 border-[#E5E7EB] hover:border-blue-600 dark:border-[#363B3D] dark:hover:border-blue-800"
-                        : "border-b-4 border-white hover:border-blue-600 dark:border-[#212121] dark:hover:border-blue-800"
-                    )}
-                  >
-                    Home
-                  </button>
-                  <button
-                    onClick={() => router.push("/CV")}
-                    to="cv"
-                    offset={50}
-                    className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
-                      " ",
-                      router.pathname == "/CV"
-                        ? "border-b-4 border-[#E5E7EB] hover:border-blue-600 dark:border-[#363B3D] dark:hover:border-blue-800"
-                        : "border-b-4 border-white hover:border-blue-600 dark:border-[#212121] dark:hover:border-blue-800"
-                    )}
-                  >
-                    Curriculum vitae
-                  </button>
-                  <button
-                    onClick={() => router.push("/Projects")}
-                    to="projects"
-                    offset={50}
-                    className={"cursor-pointer hover:bg-blue-600 text-[#312f2f] dark:text-[#CAC5BE] dark:hover:text-white hover:shadow-lg hover:shadow-[#312f2f] hover:text-white hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize".concat(
-                      " ",
-                      router.pathname.includes("/Projects")
-                        ? "border-b-4 border-[#E5E7EB] hover:border-blue-600 dark:border-[#363B3D] dark:hover:border-blue-800"
-                        : "border-b-4 border-white hover:border-blue-600 dark:border-[#212121] dark:hover:border-blue-800"
-                    )}
-                  >
-                    Projects
-                  </button>
-                  <button
-                    onClick={() => router.push("/Contact")}
-                    to="contact"
-                    offset={50}
-                    className="cursor-pointer bg-blue-600 dark:bg-blue-800 text-white hover:shadow-lg hover:shadow-[#312f2f] hover:scale-105 px-3 py-2 hover:bg-[#ff9f1c] dark:hover:bg-[#BB6C00] rounded-md text-sm font-medium capitalize"
-                  >
-                    Contact
-                  </button>
-                </div>
+            </button>
+              <div className="websiteThemeMode cursor-pointer ml-4">
+                {renderThemeChanger()}
               </div>
             </div>
-            <div className="mr-10 flex md:hidden">
+            
+            <div className="flex items-baseline gap-2 lg:gap-4 relative">
+              <div 
+                className="absolute bottom-0 h-1 bg-[#E5E7EB] dark:bg-[#363B3D] rounded-t-md transition-all duration-300 ease-in-out"
+                style={{
+                  left: `${indicatorStyles.left}px`,
+                  width: `${indicatorStyles.width}px`
+                }}
+              />
+              <div ref={navRefs.current['/']}>
+                <NavButton href="/">Home</NavButton>
+              </div>
+              <div ref={navRefs.current['/cv']}>
+                <NavButton href="/cv">CV</NavButton>
+              </div>
+              <div ref={navRefs.current['/projects']}>
+                <NavButton href="/projects">Projects</NavButton>
+              </div>
+              <div ref={navRefs.current['/contact']}>
+                <NavButton href="/contact" isContact={true}>Contact</NavButton>
+              </div>
+            </div>
+          </div>
+
+          {/* Version Mobile */}
+          <div className="flex md:hidden items-center justify-between w-full px-4 min-w-[320px]">
+            <button 
+              onClick={() => router.push("/")}
+              className="relative w-12 h-12 rounded-full overflow-hidden transition-transform hover:scale-105 flex-shrink-0"
+            >
+              <Image
+                src={ProfilPicture}
+                alt="Profile picture"
+                fill
+                className="object-cover"
+              />
+            </button>
+
+            <div className="flex items-center gap-4">
+              <div className="flex items-center">
+                {renderThemeChanger()}
+              </div>
+              
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-white dark:text-[#CAC5BE] focus:outline-none focus:ring-offset-2 focus-ring-blue-800 focus:ring-white capitalize"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
+                className="w-10 h-10 flex items-center justify-center rounded-md focus:outline-none bg-transparent flex-shrink-0"
+                aria-expanded={isOpen}
               >
-                {!isOpen ? (
+                <div className="relative w-6 h-6">
                   <svg
-                    className="block h-6 w-6"
-                    xmlns="http:www.w3.org/2000/svg"
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-700 transform ${
+                      isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
+                    }`}
+                    stroke={theme === "light" ? "#212121" : "#FDFDFD"}
                     fill="none"
-                    color={theme === "light" ? "#212121" : "#FDFDFD"}
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="2"
+                      strokeWidth={2}
                       d="M4 6h16M4 12h16M4 18h16"
                     />
                   </svg>
-                ) : (
                   <svg
-                    className="block h-6 w-6"
-                    xmlns="http:www.w3.org/2000/svg"
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-700 transform ${
+                      isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0"
+                    }`}
+                    stroke={theme === "light" ? "#212121" : "#FDFDFD"}
                     fill="none"
-                    color={theme === "light" ? "#212121" : "#FDFDFD"}
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="2"
+                      strokeWidth={2}
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
-                )}
+                </div>
               </button>
             </div>
           </div>
         </div>
-        <Transition
-          show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          {(ref) => (
-            <div className="md:hidden id=mobile-menu">
-              <div
-                ref={ref}
-                className="bg-white dark:bg-[#212121] px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col"
-              >
-                <button
-                  onClick={() => {
-                    router.push("/");
-                    setIsOpen(!isOpen);
-                  }}
-                  to="home"
-                  offset={50}
-                  className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
-                >
-                  Home
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/CV");
-                    setIsOpen(!isOpen);
-                  }}
-                  to="cv"
-                  offset={50}
-                  className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
-                >
-                  Curriculum vitae
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/Projects");
-                    setIsOpen(!isOpen);
-                  }}
-                  to="projects"
-                  offset={50}
-                  className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
-                >
-                  Projects
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/Contact");
-                    setIsOpen(!isOpen);
-                  }}
-                  to="contact"
-                  offset={50}
-                  className="cursor-pointer hover:bg-blue-600 dark:bg-[#212121] text-[#312f2f] hover:text-white dark:text-[#CAC5BE] hover:scale-105 px-3 py-2 rounded-md text-sm font-medium capitalize"
-                >
-                  Contact
-                </button>
-              </div>
+
+        {/* Menu Mobile Déroulant */}
+        <div className="relative min-w-[320px]">
+          <Transition
+            show={isOpen}
+            enter="transition-all duration-300 ease-out"
+            enterFrom="transform -translate-y-full opacity-0"
+            enterTo="transform translate-y-0 opacity-100"
+            leave="transition-all duration-300 ease-in"
+            leaveFrom="transform translate-y-0 opacity-100"
+            leaveTo="transform -translate-y-full opacity-0"
+          >
+            <div className="absolute top-0 left-0 right-0 md:hidden bg-gray-50 dark:bg-[#212121] px-2 pt-2 pb-3 space-y-1 shadow-lg border-t dark:border-gray-800">
+              <MobileNavButton href="/">Home</MobileNavButton>
+              <MobileNavButton href="/cv">Curriculum vitae</MobileNavButton>
+              <MobileNavButton href="/projects">Projects</MobileNavButton>
+              <MobileNavButton href="/contact">Contact</MobileNavButton>
             </div>
-          )}
-        </Transition>
-      </nav>
-    </>
+          </Transition>
+        </div>
+      </div>
+    </nav>
   );
 }

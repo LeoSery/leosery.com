@@ -1,33 +1,151 @@
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import { HiUsers } from 'react-icons/hi';
+import { FaUser } from 'react-icons/fa';
+import React, { useState } from "react";
+import LoadingSkeleton from "../Common/LoadingSkeleton";
+import Spinner from "../Common/Spinner";
+import * as gtag from '../../lib/gtag';
 
-const ProjectItem = ({ title, backgroundImg, technos, projectUrl }) => {
-  const formattedTechnos = technos.join(" / "); // Sépare les technologies par un "/"
+const ProjectItem = ({ 
+  title, 
+  backgroundImg, 
+  technologies, 
+  projectUrl, 
+  description, 
+  type, 
+  period,
+  myRoles,
+  collaborators = [] 
+}) => {
+  const router = useRouter();
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleProjectClick = () => {
+    gtag.event({
+      action: 'project_click',
+      params: {
+        project_name: title
+      }
+    });
+    router.push(projectUrl);
+  };
+  
+  const mainTechnologies = technologies.slice(0, 2);
+  
+  const formattedPeriod = new Date(period.start).toLocaleDateString('en-US', { 
+    month: 'short', 
+    year: 'numeric' 
+  });
+  
+  const typeBadgeStyle = {
+    school: "bg-blue-200 text-blue-900 dark:bg-blue-900 dark:text-blue-300",
+    personal: "bg-green-200 text-green-900 dark:bg-green-900 dark:text-green-300",
+    professional: "bg-purple-200 text-purple-900 dark:bg-purple-900 dark:text-purple-300"
+  };
+
+  const teamSize = collaborators.length + 1;
 
   return (
-    <div className="relative flex items-center justify-center h-full w-full dark:bg-[#1E1E1E] shadow-xl shadow-gray-400 dark:shadow-gray-800 rounded-xl p-4 group hover:bg-gradient-to-r from-[#ff9f1c] aspect-video">
-      <div className="relative w-full h-full">
+    <div onClick={handleProjectClick}
+      className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow
+                hover:shadow-md transition-all duration-300 hover:scale-[1.02] cursor-pointer
+                flex flex-col h-full"
+    >
+      {/* Image Container */}
+      <div className="relative w-full aspect-video">
+        {!imageLoaded && (
+          <>
+            <LoadingSkeleton variant="card" className="absolute inset-0" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Spinner size="md" />
+            </div>
+          </>
+        )}
         <Image
-          className="relative rounded-xl group-hover:opacity-30"
           src={backgroundImg}
-          layout="fill"
-          objectFit="cover"
-          alt="/"
+          alt={title}
+          fill
+          className={`object-cover transition-transform duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setImageLoaded(true)}
         />
+        
+        {/* Type Badge */}
+        <div className={`absolute top-2 right-2 px-2 py-1 rounded-md text-xs font-medium
+                        ${typeBadgeStyle[type]}`}>
+          {type.charAt(0).toUpperCase() + type.slice(1)}
+        </div>
       </div>
-      <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <h3 className="text-2xl text-[#312f2f] dark:text-[#BDB7AF] tracking-wider text-center">
-          {title}
-        </h3>
-        <p className="pb-4 pt-2 text-[#312f2f] dark:text-[#B1AAA0] text-center">
-          {formattedTechnos}{" "}
+
+      {/* Content */}
+      <div className="p-4 flex flex-col flex-1">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-lg font-medium text-gray-700 dark:text-[#CAC5BE] truncate">
+            {title}
+          </h3>
+          <span className="text-xs text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
+            {formattedPeriod}
+          </span>
+        </div>
+        
+        <p className="text-sm text-gray-600 dark:text-[#B1AAA0] mb-3 line-clamp-2">
+          {description.split('.')[0]}.
         </p>
-        <Link href={projectUrl}>
-          <p className="text-center py-3 rounded-lg bg-white dark:bg-[#2C2C2C] hover:bg-blue-600 text-gray-700 dark:text-[#BDB7AF] dark:hover:text-white hover:text-white hover:scale-105 font-bold text-lg cursor-pointer">
-            More Info
-          </p>
-        </Link>
+
+        {/* Technologies Tags */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {mainTechnologies.map((tech, idx) => (
+            <span 
+              key={idx}
+              className="text-xs px-2 py-1 bg-gray-200 dark:bg-[#2C2C2C] text-gray-700 dark:text-[#B1AAA0] rounded"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Project Info */}
+<div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mt-auto pt-2">
+  <div className="flex items-center gap-1.5 group relative">
+    {teamSize === 1 ? (
+      <>
+        <FaUser className="w-3.5 h-3.5" />
+        <span>Solo Project</span>
+      </>
+    ) : (
+      <>
+        <div className="flex -space-x-1.5">
+          <HiUsers className="w-4 h-4" />
+        </div>
+        <span>{teamSize} members</span>
+        
+        {/* Tooltip pour afficher les rôles au hover */}
+        <div className="absolute left-0 bottom-full mb-2 hidden group-hover:block">
+          <div className="bg-gray-800 dark:bg-gray-900 text-white px-3 py-2 rounded-lg shadow-lg text-xs min-w-max">
+            <ul className="space-y-1">
+              <li className="text-blue-400">You: {myRoles.join(', ')}</li>
+              {collaborators.map((collab, idx) => (
+                <li key={idx}>
+                  {collab.firstName} {collab.lastName}: {collab.roles.join(', ')}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+
+  <div className="flex items-center">
+    {myRoles.map((role, index) => (
+      <span key={index} className="ml-2 text-blue-600 dark:text-blue-400">
+        {role}
+      </span>
+    ))}
+  </div>
+</div>
       </div>
     </div>
   );

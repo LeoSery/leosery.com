@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.leosery.com/sitemap.xml
+
+# Désactiver l'indexation des fichiers système et répertoires
+Disallow: /.next/
+Disallow: /node_modules/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$

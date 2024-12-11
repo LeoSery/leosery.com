@@ -1,0 +1,30 @@
+{
+    "name": "Leo Séry - Game Programming Portfolio",
+    "short_name": "Leo Séry",
+    "description": "Game Programming portfolio showcasing Unity3D and Unreal Engine projects",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#ff9f1c",
+    "icons": [
+      {
+        "src": "/icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ],
+    "screenshots": [
+    {
+      "src": "/assets/images/Common/DefaultMediaImage.png",
+      "type": "image/png",
+      "sizes": "1200x630"
+    }
+  ]
+  }

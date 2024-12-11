@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import Head from "next/head";
 import ProjectTemplate from "../../components/Projects/ProjectTemplate";
 import { projectsData } from "../../components/Projects/ProjectsData";
+import SEO from '../../components/Common/SEO';
 
 export default function ProjectPage() {
   const router = useRouter();
@@ -32,11 +32,18 @@ export default function ProjectPage() {
 
   return (
     <>
-      <Head>
-        <title>Leo Séry - {project.Title}</title>
-        <meta name="Leo Séry - Portfolio" content={project.Title}></meta>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title={project.Title}
+        description={project.Description.slice(0, 155)} // On limite à ~155 caractères
+        keywords={[
+          ...project.Keywords,
+          'Game Development',
+          'Portfolio Project',
+          project.Technologies.join(', ')
+        ].join(', ')}
+        ogImage={project.BannerImage}
+        ogType="article"
+      />
       <ProjectTemplate project={project} />
     </>
   );

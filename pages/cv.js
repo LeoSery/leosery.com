@@ -1,17 +1,16 @@
 import PDFviewerComponent from "../components/PDF/PDFviewer";
-import Head from "next/head";
+import SEO from '../components/Common/SEO';
 import React from "react";
 
 export default function CV() {
   return (
     <>
-      <Head>
-        <title>Leo Séry - cv</title>
-        <meta name="description" content="Curriculum Vitae of Leo Séry - Game Programming Student" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <SEO
+        title="Curriculum Vitae"
+        description="Explore Leo Séry's professional journey in game development. View my education, skills, and experience with Unity3D, Unreal Engine, and game programming."
+        keywords="CV, Resume, Game Development, Unity Developer, Unreal Engine Developer, C++, C#, Game Programming Skills"
+        ogImage="/assets/images/Common/DefaultMediaImage.png"
+      />
       <div className="flex-1 w-full dark:bg-[#121212] min-h-screen">
         <div className="max-w-6xl mx-auto px-2 sm:px-4 py-4">
           <div className="mb-4">

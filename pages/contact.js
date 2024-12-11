@@ -1,15 +1,16 @@
 import Main from "../components/Contact/Main";
-import Head from "next/head";
+import SEO from '../components/Common/SEO';
 import React from "react";
 
 export default function Contact() {
   return (
     <>
-      <Head>
-        <title>Leo Séry - contact</title>
-        <meta name="Leo Séry - Portfolio" content="contact"></meta>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title="Contact"
+        description="Get in touch with Leo Séry for game development opportunities, project collaborations, or questions about game programming and engine development."
+        keywords="Contact Leo Séry, Game Developer Contact, Unity Developer, Unreal Engine Developer, Game Programming"
+        ogImage="/assets/images/Common/DefaultMediaImage.png"
+      />
       <div className="relative">
         <Main />
       </div>

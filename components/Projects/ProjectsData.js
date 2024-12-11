@@ -617,7 +617,7 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub", 
-        url: "https://github.com/LeoSery/Robot-3rd-person--Unity3D-2021"
+        url: "https://github.com/LeoSery/RobotGame--Unity3D-2020"
       },
       {
         label: "Download", 

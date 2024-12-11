@@ -93,7 +93,7 @@ const ProjectTemplate = ({ project }) => {
           <div className="absolute inset-0 flex flex-col justify-center">
             <div className="max-w-[1240px] mx-auto px-4 w-full">
               <Link 
-                href="/Projects"
+                href="/projects"
                 className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white 
                          transition-colors mb-6"
                 aria-label="Return to projects list"

@@ -30,15 +30,17 @@ export default function App({ Component, pageProps }) {
     <>
       <SEO
         title="Game Programming Portfolio"
-        description="Game programming portfolio of Leo Séry, showcasing projects in Unity3D, Unreal Engine, and game engine development."
-        keywords="Game Programming, Game Development, Unity3D, Unreal Engine, Portfolio, Leo Séry"
+        description="Game programming portfolio of Léo Séry, showcasing projects in Unity3D, Unreal Engine, and game engine development."
+        keywords="Game Programming, Game Development, Unity3D, Unreal Engine, Portfolio, Léo Séry"
       >
         {/* Métadonnées globales additionnelles */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+        {/* Theme color pour mobile */}
+        <meta name="theme-color" content="#212121" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#e7ecef" media="(prefers-color-scheme: light)" />
-        <meta name="author" content="Leo Séry" />
+        <meta name="theme-color" content="#ff9f1c" media="(prefers-scheme: no-preference)" />
+        <meta name="author" content="Léo Séry" />
 
         {/* Favicon et icônes */}
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png" />
@@ -47,10 +49,10 @@ export default function App({ Component, pageProps }) {
         
         {/* PWA tags */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="application-name" content="Leo Séry Portfolio" />
+        <meta name="application-name" content="Léo Séry Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Leo Séry Portfolio" />
+        <meta name="apple-mobile-web-app-title" content="Léo Séry Portfolio" />
         <meta name="mobile-web-app-capable" content="yes" />
       </SEO>
       <DarkThemeProvider>

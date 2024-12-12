@@ -60,19 +60,19 @@ const ProjectTemplate = ({ project }) => {
   return (
     <>
       <Head>
-        <title>{`Leo Séry - ${Title}`}</title>
+        <title>{`Léo Séry - ${Title}`}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="keywords" content={[...Technologies, ...Keywords, 'Leo Séry', 'Portfolio', 'Game Development'].join(', ')} />
+        <meta name="keywords" content={[...Technologies, ...Keywords, 'Léo Séry', 'Portfolio', 'Game Development'].join(', ')} />
         
         {/* Open Graph */}
-        <meta property="og:title" content={`Leo Séry - ${Title}`} />
+        <meta property="og:title" content={`Léo Séry - ${Title}`} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={BannerImage} />
         <meta property="og:type" content="article" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Leo Séry - ${Title}`} />
+        <meta name="twitter:title" content={`Léo Séry - ${Title}`} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={BannerImage} />
       </Head>

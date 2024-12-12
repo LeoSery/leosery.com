@@ -10,9 +10,10 @@ import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { useTheme } from "next-themes";
 
 export default function App({ Component, pageProps }) {
-
+  const { theme } = useTheme();
   const router = useRouter();
 
   useEffect(() => {
@@ -37,9 +38,8 @@ export default function App({ Component, pageProps }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Theme color pour mobile */}
-        <meta name="theme-color" content="#ff9f1c" media="(prefers-color-scheme: no-preference)" />
-        <meta name="theme-color" content="#212121" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#e7ecef" media="(prefers-color-scheme: light)" />
+        <meta property="og:theme-color" content="#ff9f1c" />
+        <meta name="theme-color" content={theme === 'dark' ? '#121212' : '#e7ecef'} />
         <meta name="author" content="Léo Séry" />
 
         {/* Favicon et icônes */}

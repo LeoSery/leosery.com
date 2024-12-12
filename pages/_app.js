@@ -38,9 +38,10 @@ export default function App({ Component, pageProps }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Theme color pour mobile */}
+        {/* Theme color mobile (gardons le dark mode) */}
+        <meta name="theme-color" content="#121212" />
+        <meta property="theme-color" content="#ff9f1c" />
         <meta property="og:theme-color" content="#ff9f1c" />
-        <meta name="theme-color" content={theme === 'dark' ? '#121212' : '#e7ecef'} />
-        <meta name="author" content="Léo Séry" />
 
         {/* Favicon et icônes */}
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png" />

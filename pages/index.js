@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <SEO
         title="Home"
-        description="Game Programming student portfolio of Leo Séry. Specializing in Unity3D, Unreal Engine, and game engine development. Discover my projects and experience in game development."
-        keywords="Game Programming, Unity3D, Unreal Engine, C++, C#, Game Development, Portfolio, Leo Séry"
+        description="Game Programming student portfolio of Léo Séry. Specializing in Unity3D, Unreal Engine, and game engine development. Discover my projects and experience in game development."
+        keywords="Game Programming, Unity3D, Unreal Engine, C++, C#, Game Development, Portfolio, Léo Séry"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />
       <div className="relative">

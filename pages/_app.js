@@ -10,9 +10,10 @@ import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { useTheme } from "next-themes";
 
 export default function App({ Component, pageProps }) {
-
+  const { theme } = useTheme();
   const router = useRouter();
 
   useEffect(() => {
@@ -30,14 +31,17 @@ export default function App({ Component, pageProps }) {
     <>
       <SEO
         title="Game Programming Portfolio"
-        description="Game programming portfolio of Leo Séry, showcasing projects in Unity3D, Unreal Engine, and game engine development."
-        keywords="Game Programming, Game Development, Unity3D, Unreal Engine, Portfolio, Leo Séry"
+        description="Game programming portfolio of Léo Séry, showcasing projects in Unity3D, Unreal Engine, and game engine development."
+        keywords="Game Programming, Game Development, Unity3D, Unreal Engine, Portfolio, Léo Séry"
       >
         {/* Métadonnées globales additionnelles */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ff9f1c" />
-        <meta name="author" content="Leo Séry" />
+        {/* Theme color pour mobile */}
+        {/* Theme color mobile (gardons le dark mode) */}
+        <meta name="theme-color" content="#121212" />
+        <meta property="theme-color" content="#ff9f1c" />
+        <meta property="og:theme-color" content="#ff9f1c" />
 
         {/* Favicon et icônes */}
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png" />
@@ -46,10 +50,10 @@ export default function App({ Component, pageProps }) {
         
         {/* PWA tags */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="application-name" content="Leo Séry Portfolio" />
+        <meta name="application-name" content="Léo Séry Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Leo Séry Portfolio" />
+        <meta name="apple-mobile-web-app-title" content="Léo Séry Portfolio" />
         <meta name="mobile-web-app-capable" content="yes" />
       </SEO>
       <DarkThemeProvider>

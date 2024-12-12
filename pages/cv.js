@@ -7,7 +7,7 @@ export default function CV() {
     <>
       <SEO
         title="Curriculum Vitae"
-        description="Explore Leo Séry's professional journey in game development. View my education, skills, and experience with Unity3D, Unreal Engine, and game programming."
+        description="Explore Léo Séry's professional journey in game development. View my education, skills, and experience with Unity3D, Unreal Engine, and game programming."
         keywords="CV, Resume, Game Development, Unity Developer, Unreal Engine Developer, C++, C#, Game Programming Skills"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />

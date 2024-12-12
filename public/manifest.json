@@ -4,8 +4,8 @@
     "description": "Game Programming portfolio showcasing Unity3D and Unreal Engine projects",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#121212",
-    "theme_color": "#121212",
+    "background_color": "#e7ecef",
+    "theme_color": "#212121",
     "icons": [
       {
         "src": "/icons/icon-192x192.png",

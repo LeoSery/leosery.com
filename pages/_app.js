@@ -36,7 +36,8 @@ export default function App({ Component, pageProps }) {
         {/* Métadonnées globales additionnelles */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ff9f1c" />
+        <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#e7ecef" media="(prefers-color-scheme: light)" />
         <meta name="author" content="Leo Séry" />
 
         {/* Favicon et icônes */}

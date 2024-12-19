@@ -4,7 +4,6 @@ const ScrollIndicator = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  // Gestion de l'apparition initiale
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -13,7 +12,6 @@ const ScrollIndicator = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Gestion du scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -31,14 +29,13 @@ const ScrollIndicator = () => {
     aboutSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Logique d'animation améliorée
   const animationClasses = isInitialLoad
     ? isVisible
-      ? 'opacity-100 translate-y-0'  // Animation d'entrée depuis le bas
+      ? 'opacity-100 translate-y-0'
       : 'opacity-0 translate-y-16'
     : isVisible
-      ? 'opacity-100 translate-y-0'  // État normal
-      : 'opacity-0 -translate-y-16';  // Animation de sortie vers le haut
+      ? 'opacity-100 translate-y-0'
+      : 'opacity-0 -translate-y-16';
 
   return (
     <div 

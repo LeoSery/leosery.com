@@ -13,7 +13,6 @@ export default function FeaturedProjects() {
   //   .sort((a, b) => new Date(b.Period.start) - new Date(a.Period.start))
   //   .slice(0, 2);
 
-  // We use find to retrieve each project in the desired order
   const featuredProjects = featuredProjectIds
     .map(id => projectsData.find(project => project.Id === id))
     .filter(Boolean);

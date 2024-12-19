@@ -3,7 +3,6 @@ import Main from "../components/Projects/Main";
 import SEO from '../components/Common/SEO';
 
 export default function Projects() {
-  // Update page title when filters change
   useEffect(() => {
     document.title = "Léo Séry - Projects";
   }, []);

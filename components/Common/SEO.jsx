@@ -8,10 +8,8 @@ const SEO = ({
   ogType = 'website',
   children 
 }) => {
-  // Construit le titre complet avec le nom
   const fullTitle = title ? `Léo Séry - ${title}` : 'Léo Séry - Game Programming Portfolio';
   
-  // URL de base du site (à remplacer par votre domaine en production)
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.leosery.com';
   
   return (
@@ -43,7 +41,6 @@ const SEO = ({
       {/* Canonical URL */}
       <link rel="canonical" href={baseUrl} />
 
-      {/* Permet d'ajouter des meta tags supplémentaires spécifiques à certaines pages */}
       {children}
     </Head>
   );

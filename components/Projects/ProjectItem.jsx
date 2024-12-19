@@ -121,7 +121,6 @@ const ProjectItem = ({
         </div>
         <span>{teamSize} members</span>
         
-        {/* Tooltip pour afficher les rôles au hover */}
         <div className="absolute left-0 bottom-full mb-2 hidden group-hover:block">
           <div className="bg-gray-800 dark:bg-gray-900 text-white px-3 py-2 rounded-lg shadow-lg text-xs min-w-max">
             <ul className="space-y-1">

@@ -6,11 +6,9 @@ import { useTheme } from 'next-themes';
 import Spinner from "../Common/Spinner";
 import LoadingSkeleton from '../Common/LoadingSkeleton';
 
-// Importation des styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-// Chargement dynamique des composants PDF
 const PDFWorker = dynamic(() => import('@react-pdf-viewer/core').then(mod => mod.Worker), {
   ssr: false,
   loading: () => (

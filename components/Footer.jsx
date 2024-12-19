@@ -16,7 +16,7 @@ export default function Footer() {
             Léo<span className="text-blue-600"> Séry</span>
           </h2>
           <p className="text-gray-500 dark:text-[#B1AAA0] text-sm mt-2">
-            {currentYear}
+            © {currentYear} All rights reserved.
           </p>
         </div>
           <div className="min-w-0">

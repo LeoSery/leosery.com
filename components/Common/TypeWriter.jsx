@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const TypeWriter = ({ 
-  textParts = [], // Array of {text: string, color: string}
+  textParts = [],
   speed = 100,
   showCursor = true,
   keepCursor = false,
@@ -12,7 +12,6 @@ const TypeWriter = ({
   const [animationComplete, setAnimationComplete] = useState(false);
   const [shouldShowCursor, setShouldShowCursor] = useState(true);
 
-  // Calcule le texte total
   const fullText = textParts.map(part => part.text).join('');
 
   useEffect(() => {
@@ -40,10 +39,8 @@ const TypeWriter = ({
     return () => clearInterval(typingInterval);
   }, [fullText, speed, cursorTimeout]);
 
-  // Détermine si le curseur doit être affiché
   const displayCursor = showCursor && shouldShowCursor && (isTyping || (keepCursor && animationComplete));
 
-  // Rendu du texte avec coloration
   const renderText = () => {
     let renderedText = [];
     let currentPosition = 0;

@@ -4,7 +4,6 @@ import ProjectItem from "./ProjectItem";
 import ScrollToTop from "../Common/ScrollToTop";
 
 export default function Main() {
-  // Trie les projets par date une seule fois au montage du composant
   const sortedProjects = useMemo(() => {
     return [...projectsData].sort((a, b) => 
       new Date(b.Period.start) - new Date(a.Period.start)

@@ -109,9 +109,8 @@ const ProjectTemplate = ({ project }) => {
           </div>
         </header>
 
-        {/* Contenu Principal */}
+        {/* Main Content */}
         <main className="max-w-[1240px] mx-auto px-4">
-          {/* Technologies Tags - Flottant sur l'image */}
           <section aria-label="Project technologies" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-4 md:p-6 -mt-8 relative z-10 mb-8">
             <div className="flex flex-wrap gap-2">
               {Technologies.map((tech, index) => (
@@ -125,9 +124,7 @@ const ProjectTemplate = ({ project }) => {
             </div>
           </section>
 
-          {/* Grid Layout pour le Contenu */}
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Colonne Gauche - Description et Team */}
             <div className="space-y-6">
               {/* Description Card */}
               <section aria-label="Project overview" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
@@ -224,9 +221,8 @@ const ProjectTemplate = ({ project }) => {
               </section>
             </div>
 
-            {/* Colonne Droite - Links et Keywords */}
+            {/* Links */}
             <div className="space-y-6">
-              {/* Project Links */}
               {Actions && Actions.length > 0 && (
                 <section aria-label="Project links" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
                   <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">

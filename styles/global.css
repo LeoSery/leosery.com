@@ -48,7 +48,6 @@
 }
 
 /* custom scrollbar */
-/* Modern scrollbar styling */
 :root {
   --scrollbar-width: 8px;
   --scrollbar-height: 8px;
@@ -94,7 +93,6 @@
   -ms-overflow-style: auto;
 }
 
-/* Hide scrollbar while maintaining functionality */
 @media (max-width: 640px) {
   .scrollbar-hidden {
     scrollbar-width: none;
@@ -106,20 +104,17 @@
   }
 }
 
-/* Optional: Custom scrollbar for specific containers */
 .custom-scrollbar {
   scrollbar-gutter: stable;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* Optional: Smooth scrolling for the whole page */
 html {
   scroll-behavior: smooth;
 }
 
 /* Cursor typewriter effect */
-
 @keyframes cursor {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }

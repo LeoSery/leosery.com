@@ -149,7 +149,7 @@ export default function Navbar() {
     <nav className="shadow-md sticky top-0 w-full min-w-[320px] z-50 bg-gray-50 dark:bg-[#212121] border-b border-gray-200 dark:border-gray-800">
       <div className="w-full">
         <div className="flex items-center h-20 w-full">
-          {/* Version Desktop */}
+          {/* Desktop version */}
           <div className="hidden md:flex items-center justify-between w-full px-4 lg:px-20">
             <div className="flex items-center flex-shrink-0">
             <button 
@@ -204,7 +204,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Version Mobile */}
+          {/* Mobile version */}
           <div className="flex md:hidden items-center justify-between w-full px-4 min-w-[320px]">
             <button 
               onClick={() => router.push("/")}
@@ -265,7 +265,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Menu Mobile Déroulant */}
         <div className="relative min-w-[320px]">
           <Transition
             show={isOpen}

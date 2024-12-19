@@ -34,21 +34,16 @@ export default function App({ Component, pageProps }) {
         description="Game programming portfolio of Léo Séry, showcasing projects in Unity3D, Unreal Engine, and game engine development."
         keywords="Game Programming, Game Development, Unity3D, Unreal Engine, Portfolio, Léo Séry"
       >
-        {/* Métadonnées globales additionnelles */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Theme color pour mobile */}
-        {/* Theme color mobile (gardons le dark mode) */}
         <meta name="theme-color" content="#121212" />
         <meta property="theme-color" content="#ff9f1c" />
         <meta property="og:theme-color" content="#ff9f1c" />
 
-        {/* Favicon et icônes */}
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-192x192.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
         
-        {/* PWA tags */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="application-name" content="Léo Séry Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

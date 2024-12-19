@@ -6,17 +6,14 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { theme } = useTheme();
 
-  // Optimisation avec useCallback pour éviter des re-renders inutiles
   const handleScroll = useCallback(() => {
     const scrollThreshold = 300;
     setIsVisible(window.scrollY > scrollThreshold);
   }, []);
 
   useEffect(() => {
-    // Vérifier la position initiale du scroll
     handleScroll();
     
-    // Throttle l'événement de scroll pour de meilleures performances
     let timeoutId = null;
     const throttledScroll = () => {
       if (timeoutId) return;

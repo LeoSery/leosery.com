@@ -4,6 +4,47 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [
   {
+    Id: 14,
+    Title: "Procedura Terrain Generation",
+    Type: ProjectTypes.SCHOOL,
+    Period: {
+      start: "2024-12",
+      end: "2025-01"
+    },
+    Technologies: ["Unreal Engine 5", "C++", "Blueprint"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [
+      {
+          ...ProjectCollaborators.THIBAUT_LE_PERF,
+          roles: [ProjectRoles.DEVELOPER]
+      },
+    ],
+    Keywords: [
+      "procedural",
+      "terrain",
+      "3D",
+      "student project",
+      "master degree",
+      "game development",
+      "perlin",
+      "noise"
+    ],
+    Description: "This project is a student project implementing Procedural Terrain Generation with chunk system, realized in C++ with Unreal Engine 5 for our Master's 2 degree in game development. It generates an infinite terrain using Perlin noise, with dynamic chunk loading/unloading based on player position, and features a triplanar material system for realistic terrain texturing.",
+    CardImage: "/assets/images/projects/ProceduralTerrainGeneration_2.webp",
+    BannerImage: "/assets/images/projects/ProceduralTerrainGeneration.webp",
+    Url: "/projects/procedural-terrain-generation",
+    Actions: [
+      {
+        label: "Download demo",
+        url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024/releases/download/V1.0/v1.0_win64.zip"
+      },
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024"
+      }
+    ]
+  },
+  {
     Id: 13,
     Title: "Poladroïd",
     Type: ProjectTypes.SCHOOL,

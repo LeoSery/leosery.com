@@ -94,4 +94,9 @@ export const ProjectCollaborators = {
     lastName: "Ingremeau",
     portfolio: "https://github.com/Tractorou24"
   },
+  THIBAUT_LE_PERF: {
+    firstName: "Thibaut", 
+    lastName: "Le Perf",
+    portfolio: "https://github.com/pepsithib"
+  },
  };

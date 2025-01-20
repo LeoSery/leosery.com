@@ -35,12 +35,12 @@ export const projectsData = [
     Url: "/projects/procedural-terrain-generation",
     Actions: [
       {
-        label: "Download demo",
-        url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024/releases/download/V1.0/v1.0_win64.zip"
-      },
-      {
         label: "View on GitHub",
         url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024"
+      },
+      {
+        label: "Download",
+        url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024/releases/download/V1.0/v1.0_win64.zip"
       }
     ]
   },
@@ -102,12 +102,12 @@ export const projectsData = [
     Url: "/projects/poladroid",
     Actions: [
       {
-        label: "See game on itch.io",
-        url: "https://leosery.itch.io/poladroid"
-      },
-      {
         label: "View on GitHub",
         url: "https://github.com/LeoSery/Project-Poladroide--UnrealEngine5-2024"
+      },
+      {
+        label: "See game on itch.io",
+        url: "https://leosery.itch.io/poladroid"
       }
     ]
   },
@@ -183,7 +183,11 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity3D-2024"
+        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024"
+      },
+      {
+        label: "Download",
+        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024/releases/download/v0.20/GameOfLife3D_v0.20_win64.zip"
       }
     ]
   },

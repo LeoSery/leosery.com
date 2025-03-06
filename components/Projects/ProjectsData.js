@@ -176,7 +176,7 @@ export const projectsData = [
       "optimization",
       "interactive",
     ],
-    Description: "This project is a 3D implementation of Conway's Game of Life, realized in C# with Unity. It's a cellular automaton simulation where cells evolve in a 3D space according to simple rules, generating patterns over the course of iterations. The user can interact with the grid in real time, adding or deleting cells, adjusting simulation speed and exploring 3D space with a free-form camera. The project focuses on performance and optimization.",
+    Description: "This project is a 3D implementation of Conway's Game of Life, realized in C# with Unity 6. It's a cellular automaton simulation where cells evolve in a 3D space according to simple rules, generating patterns over the course of iterations. The user can interact with the grid in real time, adding or deleting cells, adjusting simulation speed and exploring 3D space with a free-form camera. The project focuses on performance and optimization.",
     CardImage: "/assets/images/projects/GameOfLife3D.webp",
     BannerImage: "/assets/images/projects/GameOfLife3D.webp",
     Url: "/projects/game-of-life-3d",
@@ -187,7 +187,7 @@ export const projectsData = [
       },
       {
         label: "Download",
-        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024/releases/download/v0.20/GameOfLife3D_v0.20_win64.zip"
+        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024/releases/download/v1.30/GameOfLife3D_v1.30_win64.zip"
       }
     ]
   },

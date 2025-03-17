@@ -99,4 +99,69 @@ export const ProjectCollaborators = {
     lastName: "Le Perf",
     portfolio: "https://github.com/pepsithib"
   },
+  MATHIS_DESWARTE: {
+    firstName: "Mathis", 
+    lastName: "Deswarte",
+    portfolio: "https://github.com/SyMbolzz"
+  },
+  JENNY_DESSELIER: {
+    firstName: "Jenny", 
+    lastName: "Desselier",
+    portfolio: "https://www.linkedin.com/in/jennifer-desselier-9852602aa/"
+  },
+  MACELIE_FOUCHIER: {
+    firstName: "Macélie", 
+    lastName: "Fouchier",
+    portfolio: "https://www.linkedin.com/in/maceliefouchier/"
+  },
+  THOMAS_BOUFRIOUA: {
+    firstName: "Thomas", 
+    lastName: "Boufrioua",
+    portfolio: "https://www.linkedin.com/in/thomas-boufrioua-983b3322a/"
+  },
+  YVAN_ALVAREZ: {
+    firstName: "Yvan", 
+    lastName: "Alvarez",
+    portfolio: "https://www.linkedin.com/in/yvan-alvarez-420b50193/"
+  },
+  ELIOTT: {
+    firstName: "Eliott", 
+    lastName: null,
+    portfolio: null
+  },
+  ARTHUR: {
+    firstName: "Arthur", 
+    lastName: null,
+    portfolio: null
+  },
+  DORIANE: {
+    firstName: "Doriane", 
+    lastName: null,
+    portfolio: null
+  },
+  LOLA: {
+    firstName: "Lola", 
+    lastName: null,
+    portfolio: null
+  },
+  PABLITO: {
+    firstName: "Pablito", 
+    lastName: null,
+    portfolio: null
+  },
+  SARAH: {
+    firstName: "Sarah", 
+    lastName: null,
+    portfolio: null
+  },
+  TUHANA: {
+    firstName: "Thana", 
+    lastName: null,
+    portfolio: null
+  },
+  VICTOR: {
+    firstName: "Victor", 
+    lastName: null,
+    portfolio: null
+  },
  };

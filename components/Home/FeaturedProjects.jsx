@@ -6,7 +6,7 @@ import React from "react";
 export default function FeaturedProjects() {
   const router = useRouter();
   
-  const featuredProjectIds = [13, 12]; // 13: Poladroïd, 12: Frost Engine
+  const featuredProjectIds = [20, 16, 15]; // 19: Becorn, 16: Poladroïd, 12: Frost Engine
 
   // Take the two most recent projects
   // const featuredProjects = projectsData
@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
             {featuredProjects.map((project) => (
               <ProjectItem
                 key={project.Id}

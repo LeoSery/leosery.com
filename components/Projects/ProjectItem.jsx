@@ -33,10 +33,9 @@ const ProjectItem = ({
   
   const mainTechnologies = technologies.slice(0, 2);
   
-  const formattedPeriod = new Date(period.start).toLocaleDateString('en-US', { 
-    month: 'short', 
-    year: 'numeric' 
-  });
+  const formattedPeriod = period.end === null 
+  ? `${new Date(period.start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - Ongoing`
+  : new Date(period.start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   
   const typeBadgeStyle = {
     school: "bg-blue-200 text-blue-900 dark:bg-blue-900 dark:text-blue-300",

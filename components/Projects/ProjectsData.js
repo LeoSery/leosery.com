@@ -4,7 +4,159 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [
   {
-    Id: 15,
+    Id: 20,
+    Title: "Becorn project",
+    Type: ProjectTypes.SCHOOL,
+    Period: {
+      start: "2024-09",
+      end: null
+    },
+    Technologies: ["Unreal Engine 5", "C++", "Blueprint"],
+    MyRoles: [ProjectRoles.LEAD_DEV],
+    Collaborators: [
+      {
+        ...ProjectCollaborators.THIBAUT_LE_PERF,
+        roles: [ProjectRoles.DEVELOPER]
+      },
+      {
+        ...ProjectCollaborators.LOUIS_MERLDAUD,
+        roles: [ProjectRoles.DEVELOPER]
+      },
+      {
+        ...ProjectCollaborators.MATHIS_DESWARTE,
+        roles: [ProjectRoles.DEVELOPER]
+      },
+      {
+        ...ProjectCollaborators.SACHA_PESSIN,
+        roles: [ProjectRoles.LEAD_GAME_DESIGNER, ProjectRoles.LEAD_PROJECT]
+      },
+      {
+        ...ProjectCollaborators.JENNY_DESSELIER,
+        roles: [ProjectRoles.GAME_DESIGNER]
+      },
+      {
+        ...ProjectCollaborators.MATHIS_DESAGE,
+        roles: [ProjectRoles.LEAD_ARTIST]
+      },
+      {
+        ...ProjectCollaborators.MACELIE_FOUCHIER,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.THOMAS_BOUFRIOUA,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.LOIC_DUBAR,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.ARTHUR_FERNANDEZ,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.YVAN_ALVAREZ,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.ELIOTT,
+        roles: [ProjectRoles.CONCEPT_ARTIST]
+      },
+      {
+        ...ProjectCollaborators.LOLA,
+        roles: [ProjectRoles.CONCEPT_ARTIST]
+      },
+      {
+        ...ProjectCollaborators.DORIANE,
+        roles: [ProjectRoles.CONCEPT_ARTIST]
+      },
+      {
+        ...ProjectCollaborators.SARAH,
+        roles: [ProjectRoles.CONCEPT_ARTIST]
+      },
+      {
+        ...ProjectCollaborators.TUHANA,
+        roles: [ProjectRoles.CONCEPT_ARTIST]
+      },
+      {
+        ...ProjectCollaborators.ARTHUR,
+        roles: [ProjectRoles.SOUND_DESIGNER]
+      },
+      {
+        ...ProjectCollaborators.PABLITO,
+        roles: [ProjectRoles.SOUND_DESIGNER]
+      },
+      {
+        ...ProjectCollaborators.VICTOR,
+        roles: [ProjectRoles.SOUND_DESIGNER]
+      },
+    ],
+    Keywords: [
+      "cozy game",
+      "cooperative",
+      "crafting",
+      "master degree",
+      "nature",
+      "mini-games",
+      "miniature world",
+      "3D",
+      "game development",
+      "student project",
+    ],
+    Description: "Becorn is a Master's degree final project in game development. This cozy cooperative game invites two players to embody small forest creatures made entirely of vegetation. In this miniature world seen at a macro scale, each leaf becomes a blanket and every twig a precious tool. Together, players manage a crafting workshop in a village of Becorns, responding to the various needs of its inhabitants by creating furniture, tools, and useful objects. Cooperation is at the heart of every aspect of the game: players must explore the surroundings to collect raw resources, then transform them into usable materials using various machines that require two pairs of hands to function efficiently. Each machine offers a unique cooperative mini-game: synchronized wood sawing, leaf sewing, and more. Coordination between players is essential, as the Becorns can accomplish much more together than separately. As orders are fulfilled, players progress through different levels, discovering new resources, machines, and recipes. The relaxed and positive atmosphere encourages teamwork rather than rushing, offering a soothing gaming experience where every small victory is shared. Developed with Unreal Engine 5, this final project represents the culmination of our education and features a unique artistic direction inspired by the works of David M. Bird, creating an enchanting miniature universe where nature becomes the playground for your cooperative adventures.",
+    CardImage: "/assets/images/projects/BecornGame.webp",
+    BannerImage: "/assets/images/projects/BecornGame.webp",
+    Url: "/projects/becorn-project",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024"
+      },
+      {
+        label: "Download latest build (Beta)",
+        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024/releases/download/BCR_Alpha_0.4/BCR_Alpha_0.4_2024-03-13_win64.zip"
+      },
+      {
+        label: "See the project inspiration",
+        url: "https://www.instagram.com/davidmbird/"
+      },
+    ]
+  },
+  {
+    Id: 19,
+    Title: "GameDev Experiments",
+    Type: ProjectTypes.SCHOOL,
+    Period: {
+      start: "2024-09",
+      end: null
+    },
+    Technologies: ["C++", "Vulkan", "GLSL"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [],
+    Keywords: [
+      "Pool",
+      "Multithreading",
+      "Data-oriented design",
+      "GLSL shaders",
+      "Optimization",
+      "Concurrent programming",
+      "C++",
+      "SIMD operations",
+      "Game engine"
+    ],
+    Description: "This project gathers various small-scale game development experiments and tests that are too small to have their own dedicated repository but are valuable for learning purposes. It serves as a centralized space to collect my different C++ learning tests and technical discoveries made during the year 2024-2025.",
+    CardImage: "/assets/images/projects/GameDevExperimentsProject.webp",
+    BannerImage: "/assets/images/projects/GameDevExperimentsProject.webp",
+    Url: "/projects/game-dev-experiments",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/GameDev-Experiments--Cpp-2025"
+      }
+    ]
+  },
+  {
+    Id: 18,
     Title: "Mario Galaxy Gravity",
     Type: ProjectTypes.SCHOOL,
     Period: {
@@ -31,17 +183,17 @@ export const projectsData = [
     Description: "This project is an implementation of the gravity system from Super Mario Galaxy, created in C++ with Unreal Engine 5. It reproduces the specific gravity mechanism for each planet, allowing the player to walk on surfaces of different geometric shapes, with gravity always oriented perpendicular to the surface.",
     CardImage: "/assets/images/projects/MarioGalaxyGravity.webp",
     BannerImage: "/assets/images/projects/MarioGalaxyGravity.webp",
-    Url: "/projects/mario-glaaxy-gravity",
+    Url: "/projects/mario-galaxy-gravity",
     Actions: [
       {
         label: "View on GitHub",
         url: "https://github.com/LeoSery/MarioGalaxyGravity--UnrealEngine5-2025"
-      },
+      }
     ]
   },
   {
-    Id: 14,
-    Title: "Procedura Terrain Generation",
+    Id: 17,
+    Title: "Procedural Terrain Generation",
     Type: ProjectTypes.SCHOOL,
     Period: {
       start: "2024-12",
@@ -81,7 +233,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 13,
+    Id: 16,
     Title: "Poladroïd",
     Type: ProjectTypes.SCHOOL,
     Period: {
@@ -93,7 +245,7 @@ export const projectsData = [
     Collaborators: [
       {
           ...ProjectCollaborators.SACHA_PESSIN,
-          roles: [ProjectRoles.DESIGNER, ProjectRoles.PROJECT_LEAD]
+          roles: [ProjectRoles.GAME_DESIGNER, ProjectRoles.LEAD_PROJECT]
       },
       {
           ...ProjectCollaborators.LOUIS_MERLDAUD,
@@ -148,7 +300,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 12,
+    Id: 15,
     Title: "Frost Engine",
     Type: ProjectTypes.SCHOOL,
     Period: {
@@ -194,7 +346,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 11,
+    Id: 14,
     Title: "Game of Life 3D",
     Type: ProjectTypes.PERSONAL,
     Period: {
@@ -228,7 +380,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 10,
+    Id: 13,
     Title: "A-star Pathfinding",
     Type: ProjectTypes.SCHOOL,
     Period: {
@@ -260,7 +412,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 9,
+    Id: 12,
     Title: "ArLab",
     Type: ProjectTypes.PROFESSIONAL,
     Period: {
@@ -307,7 +459,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 8,
+    Id: 11,
     Title: "The Probably Enchanted Cavern",
     Type: ProjectTypes.SCHOOL,
     Period: {
@@ -367,7 +519,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 7,
+    Id: 10,
     Title: "AR Control Tool",
     Type: ProjectTypes.PROFESSIONAL,
     Period: {
@@ -401,7 +553,7 @@ export const projectsData = [
     ]
   },
   {
-    Id: 8,
+    Id: 9,
     Title: "Sokoban",
     Type: ProjectTypes.SCHOOL,
     Period: {

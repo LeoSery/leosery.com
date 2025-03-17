@@ -4,6 +4,42 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [
   {
+    Id: 15,
+    Title: "Mario Galaxy Gravity",
+    Type: ProjectTypes.SCHOOL,
+    Period: {
+      start: "2025-01",
+      end: "2025-03"
+    },
+    Technologies: ["Unreal Engine 5", "C++"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [
+      {
+          ...ProjectCollaborators.THIBAUT_LE_PERF,
+          roles: [ProjectRoles.DEVELOPER]
+      },
+    ],
+    Keywords: [
+      "gravity system",
+      "mario",
+      "3D",
+      "student project",
+      "master degree",
+      "game development",
+      "Physics simulation"
+    ],
+    Description: "This project is an implementation of the gravity system from Super Mario Galaxy, created in C++ with Unreal Engine 5. It reproduces the specific gravity mechanism for each planet, allowing the player to walk on surfaces of different geometric shapes, with gravity always oriented perpendicular to the surface.",
+    CardImage: "/assets/images/projects/MarioGalaxyGravity.webp",
+    BannerImage: "/assets/images/projects/MarioGalaxyGravity.webp",
+    Url: "/projects/mario-glaaxy-gravity",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/MarioGalaxyGravity--UnrealEngine5-2025"
+      },
+    ]
+  },
+  {
     Id: 14,
     Title: "Procedura Terrain Generation",
     Type: ProjectTypes.SCHOOL,

@@ -3,105 +3,133 @@
   <!-- Pages principales -->
   <url>
     <loc>https://leosery.com/</loc>
-    <lastmod>2024-03-21</lastmod>
+    <lastmod>2025-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://leosery.com/cv</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-04-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://leosery.com/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Pages de projets individuels -->
   <url>
+  <loc>https://leosery.com/projects/boids</loc>
+  <lastmod>2025-04-09</lastmod>
+  <changefreq>never</changefreq>
+  <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leosery.com/projects/becorn-project</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leosery.com/projects/game-dev-experiments</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leosery.com/projects/mario-galaxy-gravity</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leosery.com/projects/procedural-terrain-generation</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://leosery.com/projects/poladroid</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/frost-engine</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/game-of-life-3d</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/a-star-pathfinding</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/arlab</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/the-probably-enchanted-cavern</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/ar-control-tool</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/sokoban</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/ar-target-indicator</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/flappy-bird</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/flight-simulator</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/earth-saver</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/snake</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/overcooked</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/pong</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/robot</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

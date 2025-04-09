@@ -4,7 +4,7 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [
   {
-    Id: 20,
+    Id: 21,
     Title: "Becorn project",
     Type: ProjectTypes.SCHOOL,
     Period: {
@@ -120,6 +120,52 @@ export const projectsData = [
         label: "See the project inspiration",
         url: "https://www.instagram.com/davidmbird/"
       },
+    ]
+  },
+  {
+    Id: 20,
+    Title: "Boids",
+    Type: ProjectTypes.SCHOOL,
+    Period: {
+      start: "2025-02",
+      end: "2025-04"
+    },
+    Technologies: ["Unreal Engine 5", "C++"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [],
+    Keywords: [
+      "boids",
+      "simulation",
+      "flocking behavior",
+      "swarm intelligence",
+      "algorithm",
+      "multithreading",
+      "optimization",
+      "3D",
+      "AI",
+      "student project",
+      "master degree",
+      "game development"
+    ],
+    Description: "A highly optimized flocking behavior simulation system implemented in Unreal Engine 5 using C++. This project recreates the classic Boids algorithm by Craig Reynolds with significant optimizations to support thousands of autonomous agents in real-time, built on principles from his paper: Steering Behaviors For Autonomous Characters.",
+    References: [
+      {
+        text: "Steering Behaviors For Autonomous Characters",
+        url: "https://www.red3d.com/cwr/steer/gdc99/"
+      }
+    ],
+    CardImage: "/assets/images/projects/Boids.webp",
+    BannerImage: "/assets/images/projects/Boids.webp",
+    Url: "/projects/boids",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/Boids--UnrealEngine5-2025"
+      },
+      {
+        label: "Download",
+        url: "https://github.com/LeoSery/Boids--UnrealEngine5-2025/releases/download/V1.0/Boids-V1.0_win64.rar"
+      }
     ]
   },
   {

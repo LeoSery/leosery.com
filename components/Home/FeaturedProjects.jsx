@@ -6,7 +6,7 @@ import React from "react";
 export default function FeaturedProjects() {
   const router = useRouter();
   
-  const featuredProjectIds = [20, 16, 15]; // 19: Becorn, 16: Poladroïd, 12: Frost Engine
+  const featuredProjectIds = [21, 16, 15]; // 21: Becorn, 16: Poladroïd, 12: Frost Engine
 
   // Take the two most recent projects
   // const featuredProjects = projectsData

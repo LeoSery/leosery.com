@@ -132,6 +132,25 @@ const ProjectTemplate = ({ project }) => {
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                   {Description}
                 </p>
+                {project.References && project.References.length > 0 && (
+                  <div className="mt-3">
+                    <h3 className="text-sm font-medium text-gray-700 dark:text-white mb-1">References:</h3>
+                    <ul className="list-disc pl-5">
+                      {project.References.map((ref, index) => (
+                        <li key={index}>
+                          <a 
+                            href={ref.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline text-sm"
+                          >
+                            {ref.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </section>
 
               {/* Team Card */}

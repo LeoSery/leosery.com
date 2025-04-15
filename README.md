@@ -63,7 +63,7 @@ This website serves as my professional portfolio, highlighting my game developme
 
 ## Copyright and Usage Notice
 
-Copyright (©) 2024 Léo Séry. All rights reserved.
+Copyright (©) 2025 Léo Séry. All rights reserved.
 
 This repository contains the source code of my personal portfolio website.
 No license is granted for its use, modification, or distribution.

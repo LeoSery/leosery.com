@@ -28,107 +28,127 @@
   <!-- Pages de projets individuels -->
   <url>
   <loc>https://leosery.com/projects/boids</loc>
-  <lastmod>2025-04-09</lastmod>
+  <lastmod>2025-04-13</lastmod>
   <changefreq>never</changefreq>
   <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/becorn-project</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/game-dev-experiments</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/mario-galaxy-gravity</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/procedural-terrain-generation</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/poladroid</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/frost-engine</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/game-of-life-3d</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/a-star-pathfinding</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/arlab</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/the-probably-enchanted-cavern</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/ar-control-tool</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/sokoban</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/ar-target-indicator</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/flappy-bird</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/flight-simulator</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/earth-saver</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/snake</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/overcooked</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/pong</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects/robot</loc>
+    <lastmod>2025-04-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>

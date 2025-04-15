@@ -6,6 +6,7 @@ import { HiUsers } from 'react-icons/hi';
 import { FaUser, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { IoArrowBack } from "react-icons/io5";
 import * as gtag from '../../lib/gtag';
+import GitHubReadme from '../Common/GitHubReadme';
 
 const ProjectTemplate = ({ project }) => {
   const {
@@ -19,6 +20,28 @@ const ProjectTemplate = ({ project }) => {
     Collaborators = [],
     Keywords = []
   } = project;
+
+  const extractRepoInfo = (url) => {
+    if (!url || !url.includes('github.com')) return null;
+    
+    try {
+      const parts = url.split('github.com/')[1].split('/');
+      return {
+        username: parts[0],
+        repo: parts[1]
+      };
+    } catch (error) {
+      console.error("Error extracting repo info:", error);
+      return null;
+    }
+  };
+
+  const githubAction = Actions?.find(action => 
+    action.url?.includes('github.com') && 
+    action.label?.toLowerCase().includes('github')
+  );
+  
+  const repoInfo = githubAction ? extractRepoInfo(githubAction.url) : null;
 
   const handleActionClick = (actionType, project) => {
     gtag.event({
@@ -299,6 +322,19 @@ const ProjectTemplate = ({ project }) => {
               )}
             </div>
           </div>
+
+          {/* GitHub README */}
+          {repoInfo && (
+            <section className="mt-8 bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
+              <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
+                Project README
+              </h2>
+              <GitHubReadme 
+                username={repoInfo.username} 
+                repo={repoInfo.repo}
+              />
+            </section>
+          )}
         </main>
       </article>
     </>

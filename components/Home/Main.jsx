@@ -1,5 +1,6 @@
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineMail } from "react-icons/ai";
 import ScrollIndicator from "../Common/ScrollIndicator";
 import TypeWriter from "../Common/TypeWriter";
@@ -50,7 +51,7 @@ export default function Main() {
           </h2>
 
           {/* Social Buttons */}
-          <div className="flex items-center justify-center gap-3 w-full max-w-[280px] mt-4">
+          <div className="flex items-center justify-center gap-3 w-full max-w-[380px] mt-4">
             <SocialButton 
               href="https://www.linkedin.com/in/leosery/" 
               icon={<FaLinkedin />}
@@ -61,6 +62,18 @@ export default function Main() {
               href="https://github.com/LeoSery" 
               icon={<FaGithub />}
               platform="github"
+              isExternal={true}
+            />
+            <SocialButton 
+              href="https://www.youtube.com/@leosery"
+              icon={<FaYoutube />}
+              platform="youtube"
+              isExternal={true}
+            />
+            <SocialButton 
+              href="https://x.com/leo_sery"
+              icon={<FaXTwitter />}
+              platform="twitter"
               isExternal={true}
             />
             <SocialButton 

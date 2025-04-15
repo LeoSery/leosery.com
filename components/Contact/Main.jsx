@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { HiMail } from 'react-icons/hi';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -76,7 +77,7 @@ const Contact = () => {
                 {/* Social */}
                 <div>
                   <p className="text-gray-700 dark:text-[#BDB7AF] font-medium mb-3">Connect With Me</p>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 flex-wrap gap-y-2">
                     <Link 
                       href="https://www.linkedin.com/in/leosery/"
                       className="p-2.5 bg-gray-50 dark:bg-[#2C2C2C] rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
@@ -92,6 +93,22 @@ const Contact = () => {
                       rel="noreferrer"
                     >
                       <FaGithub className="text-xl text-gray-600 dark:text-[#B1AAA0] group-hover:text-white" />
+                    </Link>
+                    <Link 
+                      href="https://www.youtube.com/@leosery"
+                      className="p-2.5 bg-gray-50 dark:bg-[#2C2C2C] rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaYoutube className="text-xl text-gray-600 dark:text-[#B1AAA0] group-hover:text-white" />
+                    </Link>
+                    <Link 
+                      href="https://x.com/leo_sery"
+                      className="p-2.5 bg-gray-50 dark:bg-[#2C2C2C] rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaXTwitter className="text-xl text-gray-600 dark:text-[#B1AAA0] group-hover:text-white" />
                     </Link>
                   </div>
                 </div>

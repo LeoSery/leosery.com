@@ -123,7 +123,7 @@ const ProjectItem = ({
         <div className="absolute left-0 bottom-full mb-2 hidden group-hover:block">
           <div className="bg-gray-800 dark:bg-gray-900 text-white px-3 py-2 rounded-lg shadow-lg text-xs min-w-max">
             <ul className="space-y-1">
-              <li className="text-blue-400">You: {myRoles.join(', ')}</li>
+              <li className="text-blue-400">Léo Séry (Me): {myRoles.join(', ')}</li>
               {collaborators.map((collab, idx) => (
                 <li key={idx}>
                   {collab.firstName} {collab.lastName}: {collab.roles.join(', ')}

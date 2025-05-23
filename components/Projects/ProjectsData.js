@@ -113,8 +113,8 @@ export const projectsData = [
         url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024"
       },
       {
-        label: "Download latest build (Beta)",
-        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024/releases/download/BCR_Alpha_0.4/BCR_Alpha_0.4_2024-03-13_win64.zip"
+        label: "Download latest build (Alpha 0.6)",
+        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024/releases/download/BCR_Beta_0.6/BCR_Beta_0.6_2025-05-16_win64.zip"
       },
       {
         label: "See the project inspiration",

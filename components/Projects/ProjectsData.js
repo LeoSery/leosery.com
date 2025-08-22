@@ -5,11 +5,11 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 export const projectsData = [
   {
     Id: 21,
-    Title: "Becorn project",
+    Title: "Oakfolks project",
     Type: ProjectTypes.SCHOOL,
     Period: {
       start: "2024-09",
-      end: null
+      end: "2025-07"
     },
     Technologies: ["Unreal Engine 5", "C++", "Blueprint"],
     MyRoles: [ProjectRoles.LEAD_DEV],
@@ -103,22 +103,26 @@ export const projectsData = [
       "game development",
       "student project",
     ],
-    Description: "Becorn is a Master's degree final project in game development. This cozy cooperative game invites two players to embody small forest creatures made entirely of vegetation. In this miniature world seen at a macro scale, each leaf becomes a blanket and every twig a precious tool. Together, players manage a crafting workshop in a village of Becorns, responding to the various needs of its inhabitants by creating furniture, tools, and useful objects. Cooperation is at the heart of every aspect of the game: players must explore the surroundings to collect raw resources, then transform them into usable materials using various machines that require two pairs of hands to function efficiently. Each machine offers a unique cooperative mini-game: synchronized wood sawing, leaf sewing, and more. Coordination between players is essential, as the Becorns can accomplish much more together than separately. As orders are fulfilled, players progress through different levels, discovering new resources, machines, and recipes. The relaxed and positive atmosphere encourages teamwork rather than rushing, offering a soothing gaming experience where every small victory is shared. Developed with Unreal Engine 5, this final project represents the culmination of our education and features a unique artistic direction inspired by the works of David M. Bird, creating an enchanting miniature universe where nature becomes the playground for your cooperative adventures.",
-    CardImage: "/assets/images/projects/BecornGame.webp",
-    BannerImage: "/assets/images/projects/BecornGame.webp",
-    Url: "/projects/becorn-project",
+    Description: "Oakfolks is our master's degree final project, led by a team of 19 people. This innovative local cooperative game makes collaboration technically mandatory: impossible to play solo, it requires constant synchronization between two players. In this miniature universe inspired by the photographic creations of David M. Bird, players embody small forest creatures made entirely of vegetation. In this macro world where every leaf becomes a blanket and every twig a precious tool, they work together to run a craft workshop serving a village of Becorns. Cooperation is expressed through unique synchronized mini-games: rhythmic tree sawing, collaborative log transport, and machines that require four hands to operate. Players explore to gather resources, transform them using specialized machines, and then assemble the creations requested by the inhabitants. Progress gradually unlocks new resources, machines, and recipes in a relaxing and positive atmosphere. Developed with Unreal Engine 5, this project features a unique art direction with a tilt-shift effect creating the illusion of a living model, where photographic realism meets the wonder of a miniature world. A cooperative experience where every small victory is shared and where unity literally makes strength.",
+    CardImage: "/assets/images/projects/OakfolksGame.webp",
+    BannerImage: "/assets/images/projects/OakfolksGame.webp",
+    Url: "/projects/oakfolks-project",
     Actions: [
       {
         label: "View on GitHub",
         url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024"
       },
       {
-        label: "Download latest build (Beta)",
-        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024/releases/download/BCR_Alpha_0.4/BCR_Alpha_0.4_2024-03-13_win64.zip"
+        label: "Download latest build (Gold)",
+        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024/releases/download/BCR_Gold_1.14/BCR_Gold_1.14_2025-07-03_win64.zip"
       },
       {
         label: "See the project inspiration",
         url: "https://www.instagram.com/davidmbird/"
+      },
+      {
+        label: "View project documentation",
+        url: "https://leosery.github.io/Project-Becorn--UnrealEngine5-2024/"
       },
     ]
   },
@@ -174,7 +178,7 @@ export const projectsData = [
     Type: ProjectTypes.SCHOOL,
     Period: {
       start: "2024-09",
-      end: null
+      end: "2025-07"
     },
     Technologies: ["C++", "Vulkan", "GLSL"],
     MyRoles: [ProjectRoles.DEVELOPER],

@@ -8,7 +8,7 @@ export default function Main() {
     return [...projectsData].sort((a, b) => {
       if (a.Period.end === null && b.Period.end !== null) return -1;
       if (a.Period.end !== null && b.Period.end === null) return 1;
-      return new Date(b.Period.start) - new Date(a.Period.start);
+      return new Date(b.Period.end) - new Date(a.Period.end);
     });
   }, []);
 

@@ -33,9 +33,28 @@ const ProjectItem = ({
   
   const mainTechnologies = technologies.slice(0, 2);
   
-  const formattedPeriod = period.end === null 
-  ? `${new Date(period.start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - Ongoing`
-  : new Date(period.start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+const formatDate = (dateString) => {
+  return new Date(dateString).toLocaleDateString('en-US', { 
+    month: 'short', 
+    year: 'numeric' 
+  });
+};
+
+const formattedPeriod = (() => {
+  if (period.end === null) {
+    return `${formatDate(period.start)} - Ongoing`;
+  }
+  
+  const startDate = new Date(period.start);
+  const endDate = new Date(period.end);
+  
+  if (startDate.getMonth() === endDate.getMonth() && 
+      startDate.getFullYear() === endDate.getFullYear()) {
+    return formatDate(period.start);
+  }
+  
+  return `${formatDate(period.start)} - ${formatDate(period.end)}`;
+})();
   
   const typeBadgeStyle = {
     school: "bg-blue-200 text-blue-900 dark:bg-blue-900 dark:text-blue-300",

@@ -59,23 +59,23 @@ export const projectsData = [
         roles: [ProjectRoles.ARTIST]
       },
       {
-        ...ProjectCollaborators.ELIOTT,
+        ...ProjectCollaborators.ELIOTT_FIENGO,
         roles: [ProjectRoles.CONCEPT_ARTIST]
       },
       {
-        ...ProjectCollaborators.LOLA,
+        ...ProjectCollaborators.LOLA_PIMENTEL,
         roles: [ProjectRoles.CONCEPT_ARTIST]
       },
       {
-        ...ProjectCollaborators.DORIANE,
+        ...ProjectCollaborators.DORIANE_DESSEVRE,
         roles: [ProjectRoles.CONCEPT_ARTIST]
       },
       {
-        ...ProjectCollaborators.SARAH,
+        ...ProjectCollaborators.SARAH_FALLOUS,
         roles: [ProjectRoles.CONCEPT_ARTIST]
       },
       {
-        ...ProjectCollaborators.TUHANA,
+        ...ProjectCollaborators.TUHANA_PEA,
         roles: [ProjectRoles.CONCEPT_ARTIST]
       },
       {

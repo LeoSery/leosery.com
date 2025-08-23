@@ -124,40 +124,40 @@ export const ProjectCollaborators = {
     lastName: "Alvarez",
     portfolio: "https://www.linkedin.com/in/yvan-alvarez-420b50193/"
   },
-  ELIOTT: {
+  ELIOTT_FIENGO: {
     firstName: "Eliott", 
-    lastName: null,
-    portfolio: null
+    lastName: "Fiengo",
+    portfolio: "https://www.artstation.com/fiengo-eliott"
   },
   ARTHUR: {
     firstName: "Arthur", 
     lastName: null,
     portfolio: null
   },
-  DORIANE: {
+  DORIANE_DESSEVRE: {
     firstName: "Doriane", 
-    lastName: null,
-    portfolio: null
+    lastName: "Dessevre",
+    portfolio: "https://www.artstation.com/doriane-dessevre"
   },
-  LOLA: {
+  LOLA_PIMENTEL: {
     firstName: "Lola", 
-    lastName: null,
-    portfolio: null
+    lastName: "Pimentel",
+    portfolio: "https://www.artstation.com/lola_pimentel"
   },
   PABLITO: {
     firstName: "Pablito", 
     lastName: null,
     portfolio: null
   },
-  SARAH: {
+  SARAH_FALLOUS: {
     firstName: "Sarah", 
-    lastName: null,
-    portfolio: null
+    lastName: "Fallous",
+    portfolio: "https://www.artstation.com/sarah_fallous"
   },
-  TUHANA: {
+  TUHANA_PEA: {
     firstName: "Thana", 
-    lastName: null,
-    portfolio: null
+    lastName: "Pea",
+    portfolio: "https://www.artstation.com/tuhana"
   },
   VICTOR: {
     firstName: "Victor", 

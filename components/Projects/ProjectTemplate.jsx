@@ -5,8 +5,6 @@ import Head from "next/head";
 import { IoArrowBack } from "react-icons/io5";
 import * as gtag from '../../lib/gtag';
 import GitHubReadme from '../Common/GitHubReadme';
-
-// Import des composants de sections
 import OverviewSection from './Sections/OverviewSection';
 import ProjectLinksSection from './Sections/ProjectLinksSection';
 import KeywordsSection from './Sections/KeywordsSection';
@@ -25,27 +23,34 @@ const ProjectTemplate = ({ project }) => {
     Keywords = []
   } = project;
 
-  const extractRepoInfo = (url) => {
-    if (!url || !url.includes('github.com')) return null;
-    
-    try {
-      const parts = url.split('github.com/')[1].split('/');
-      return {
-        username: parts[0],
-        repo: parts[1]
-      };
-    } catch (error) {
-      console.error("Error extracting repo info:", error);
-      return null;
-    }
-  };
-
-  const githubAction = Actions?.find(action => 
-    action.url?.includes('github.com') && 
-    action.label?.toLowerCase().includes('github')
-  );
+const extractRepoInfo = (url) => {
+  if (!url || !url.includes('github.com')) return null;
   
-  const repoInfo = githubAction ? extractRepoInfo(githubAction.url) : null;
+  try {
+    const parts = url.split('github.com/')[1].split('/');
+    return {
+      username: parts[0],
+      repo: parts[1]
+    };
+  } catch (error) {
+    console.error("Error extracting repo info:", error);
+    return null;
+  }
+};
+
+const getReadmeInfo = () => {
+  if (!Actions) return null;
+  
+  const readmeAction = Actions.find(action => action.showReadme === true);
+  
+  if (readmeAction && readmeAction.url) {
+    return extractRepoInfo(readmeAction.url);
+  }
+  
+  return null;
+};
+
+const repoInfo = getReadmeInfo();
 
   const handleActionClick = (actionType, actionData) => {
     gtag.event({
@@ -153,16 +158,13 @@ const ProjectTemplate = ({ project }) => {
 
           {/* Sections Grid Layout */}
           <div className="space-y-6">
-            {/* 1. Overview - Toujours en double largeur */}
             <OverviewSection 
               description={Description}
               references={project.References}
               size="double"
             />
 
-            {/* Layout conditionnel selon la taille de l'équipe */}
             {teamSize > 4 ? (
-              // Grosse équipe : Team en double (seule sur sa ligne)
               <>
                 <div className="grid md:grid-cols-2 gap-6">
                   <ProjectLinksSection 
@@ -188,7 +190,6 @@ const ProjectTemplate = ({ project }) => {
                 />
               </>
             ) : (
-              // Petite équipe : Project Links + Keywords + Team dans une grille 3 colonnes
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <ProjectLinksSection 
                   actions={Actions}

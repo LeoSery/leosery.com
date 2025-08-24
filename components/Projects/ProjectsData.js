@@ -110,7 +110,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024"
+        url: "https://github.com/LeoSery/Project-Becorn--UnrealEngine5-2024",
+        showReadme: true
       },
       {
         label: "Download latest build (Gold)",
@@ -164,7 +165,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Boids--UnrealEngine5-2025"
+        url: "https://github.com/LeoSery/Boids--UnrealEngine5-2025",
+        showReadme: true
       },
       {
         label: "Download",
@@ -201,7 +203,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/GameDev-Experiments--Cpp-2025"
+        url: "https://github.com/LeoSery/GameDev-Experiments--Cpp-2025",
+        showReadme: true
       }
     ]
   },
@@ -237,7 +240,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/MarioGalaxyGravity--UnrealEngine5-2025"
+        url: "https://github.com/LeoSery/MarioGalaxyGravity--UnrealEngine5-2025",
+        showReadme: true
       }
     ]
   },
@@ -274,7 +278,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024"
+        url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024",
+        showReadme: true
       },
       {
         label: "Download",
@@ -341,7 +346,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Project-Poladroide--UnrealEngine5-2024"
+        url: "https://github.com/LeoSery/Project-Poladroide--UnrealEngine5-2024",
+        showReadme: true
       },
       {
         label: "See game on itch.io",
@@ -387,7 +393,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/FrostEngine--OpenGL-2024"
+        url: "https://github.com/LeoSery/FrostEngine--OpenGL-2024",
+        showReadme: true
       },
       {
         label: "View engine documentation",
@@ -421,7 +428,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024"
+        url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024",
+        showReadme: true
       },
       {
         label: "Download",
@@ -457,7 +465,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/AStar-PathFinding--UnrealEngine5-2024"
+        url: "https://github.com/LeoSery/AStar-PathFinding--UnrealEngine5-2024",
+        showReadme: true
       }
     ]
   },
@@ -560,7 +569,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/TheProbablyEnchantedCavern--UnrealEngine5-2023"
+        url: "https://github.com/LeoSery/TheProbablyEnchantedCavern--UnrealEngine5-2023",
+        showReadme: true
       },
       {
         label: "Download",
@@ -594,7 +604,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/AR-Object-Control-Tool--Unity3DTool"
+        url: "https://github.com/LeoSery/AR-Object-Control-Tool--Unity3DTool",
+        showReadme: true
       },
       {
         label: "Download",
@@ -628,7 +639,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Sokoban--Unity3D-2022"
+        url: "https://github.com/LeoSery/Sokoban--Unity3D-2022",
+        showReadme: true
       }
     ]
   },
@@ -661,7 +673,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/AR-Target-Indicator-Tool--Unity3DTool"
+        url: "https://github.com/LeoSery/AR-Target-Indicator-Tool--Unity3DTool",
+        showReadme: true
       }
     ]
   },
@@ -690,7 +703,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/FlappyBird--Unity3D-2022"
+        url: "https://github.com/LeoSery/FlappyBird--Unity3D-2022",
+        showReadme: true
       },
       {
         label: "Download",
@@ -736,7 +750,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Flight-Simulator-Unity3D"
+        url: "https://github.com/LeoSery/Flight-Simulator-Unity3D",
+        showReadme: true
       }
     ]
   },
@@ -765,7 +780,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/EarthSaver--Unity3D-2019"
+        url: "https://github.com/LeoSery/EarthSaver--Unity3D-2019",
+        showReadme: true
       }
     ]
   },
@@ -796,7 +812,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/SnakeGame--Qt-2022"
+        url: "https://github.com/LeoSery/SnakeGame--Qt-2022",
+        showReadme: true
       },
       {
         label: "Download",
@@ -829,7 +846,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Overcooked--Unity3D-2022"
+        url: "https://github.com/LeoSery/Overcooked--Unity3D-2022",
+        showReadme: true
       },
       {
         label: "Download",
@@ -871,7 +889,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub",
-        url: "https://github.com/LeoSery/Pong-Game-on-an-STM32"
+        url: "https://github.com/LeoSery/Pong-Game-on-an-STM32",
+        showReadme: true
       }
     ]
   },
@@ -900,7 +919,8 @@ export const projectsData = [
     Actions: [
       {
         label: "View on GitHub", 
-        url: "https://github.com/LeoSery/RobotGame--Unity3D-2020"
+        url: "https://github.com/LeoSery/RobotGame--Unity3D-2020",
+        showReadme: true
       },
       {
         label: "Download", 

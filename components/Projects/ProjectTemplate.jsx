@@ -2,11 +2,16 @@ import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import { HiUsers } from 'react-icons/hi';
-import { FaUser, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { IoArrowBack } from "react-icons/io5";
 import * as gtag from '../../lib/gtag';
 import GitHubReadme from '../Common/GitHubReadme';
+import OverviewSection from './Sections/OverviewSection';
+import ProjectLinksSection from './Sections/ProjectLinksSection';
+import KeywordsSection from './Sections/KeywordsSection';
+import TeamSection from './Sections/TeamSection';
+import PDFDocumentsSection from './Sections/FileSection';
+import PDFModal from '../Common/PDFViewer';
+import { useState } from 'react';
 
 const ProjectTemplate = ({ project }) => {
   const {
@@ -18,8 +23,44 @@ const ProjectTemplate = ({ project }) => {
     Period,
     MyRoles,
     Collaborators = [],
-    Keywords = []
+    Keywords = [],
+    PDFDocuments  = []
   } = project;
+
+  const [pdfModalData, setPdfModalData] = useState(null);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+
+  const handlePDFClick = (pdfTitle, pdfData) => {
+    setPdfModalData({
+      title: pdfTitle,
+      filename: pdfData.filename,
+      description: pdfData.description,
+      project_name: pdfData.project_name
+    });
+    setIsPdfModalOpen(true);
+
+    // Analytics event
+    gtag.event({
+      action: 'pdf_document_open',
+      params: {
+        project_name: pdfData.project_name,
+        pdf_title: pdfTitle,
+        filename: pdfData.filename
+      }
+    });
+  };
+
+  const closePDFModal = () => {
+    setIsPdfModalOpen(false);
+    setPdfModalData(null);
+  };
+
+  const handlePDFAnalyticsEvent = (eventAction, eventData) => {
+    gtag.event({
+      action: eventAction,
+      params: eventData
+    });
+  };
 
   const extractRepoInfo = (url) => {
     if (!url || !url.includes('github.com')) return null;
@@ -36,32 +77,38 @@ const ProjectTemplate = ({ project }) => {
     }
   };
 
-  const githubAction = Actions?.find(action => 
-    action.url?.includes('github.com') && 
-    action.label?.toLowerCase().includes('github')
-  );
-  
-  const repoInfo = githubAction ? extractRepoInfo(githubAction.url) : null;
-
-  const handleActionClick = (actionType, project) => {
-    gtag.event({
-      action: 'project_link_click',
-      params: {
-        project_name: Title,
-        link_type: actionType,
-        url: project.url,
-        project_type: project.type
-      }
-    });
+  const getReadmeInfo = () => {
+    if (!Actions) return null;
+    
+    const readmeAction = Actions.find(action => action.showReadme === true);
+    
+    if (readmeAction && readmeAction.url) {
+      return extractRepoInfo(readmeAction.url);
+    }
+    
+    return null;
   };
+
+  const repoInfo = getReadmeInfo();
+
+    const handleActionClick = (actionType, actionData) => {
+      gtag.event({
+        action: 'project_link_click',
+        params: {
+          project_name: actionData.project_name,
+          link_type: actionType,
+          url: actionData.url
+        }
+      });
+    };
   
-  const handleCollaboratorClick = (collaborator) => {
+  const handleCollaboratorClick = (collaborator, projectTitle) => {
     if (!collaborator?.portfolio) return;
     
     gtag.event({
       action: 'collaborator_portfolio_click',
       params: {
-        project_name: Title,
+        project_name: projectTitle,
         collaborator_name: `${collaborator.firstName} ${collaborator.lastName}`,
         portfolio_type: collaborator.portfolio.includes('github.com') ? 'github' : 
                        collaborator.portfolio.includes('linkedin.com') ? 'linkedin' : 
@@ -102,7 +149,7 @@ const ProjectTemplate = ({ project }) => {
 
       <article className="w-full pb-16">
         {/* Hero Section */}
-        <header className="relative w-full h-[45vh]">
+        <header className="relative w-full h-[45vh] rounded-b-xl overflow-hidden">
           <Image
             src={BannerImage}
             alt={`${Title} - Project Banner`}
@@ -134,6 +181,7 @@ const ProjectTemplate = ({ project }) => {
 
         {/* Main Content */}
         <main className="max-w-[1240px] mx-auto px-4">
+          {/* Technologies Tags */}
           <section aria-label="Project technologies" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-4 md:p-6 -mt-8 relative z-10 mb-8">
             <div className="flex flex-wrap gap-2">
               {Technologies.map((tech, index) => (
@@ -147,183 +195,80 @@ const ProjectTemplate = ({ project }) => {
             </div>
           </section>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-6">
-              {/* Description Card */}
-              <section aria-label="Project overview" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
-                <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">Overview</h2>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {Description}
-                </p>
-                {project.References && project.References.length > 0 && (
-                  <div className="mt-3">
-                    <h3 className="text-sm font-medium text-gray-700 dark:text-white mb-1">References:</h3>
-                    <ul className="list-disc pl-5">
-                      {project.References.map((ref, index) => (
-                        <li key={index}>
-                          <a 
-                            href={ref.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-blue-600 hover:underline text-sm"
-                          >
-                            {ref.text}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </section>
+          {/* Sections Grid Layout */}
+          <div className="space-y-6">
+            <OverviewSection 
+              description={Description}
+              references={project.References}
+              size="double"
+            />
 
-              {/* Team Card */}
-              <section aria-label="Project team" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
-                <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4 flex items-center gap-2">
-                  Team
-                  <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
-                    ({teamSize} {teamSize === 1 ? 'member' : 'members'})
-                  </span>
-                </h2>
-
-                <div className="space-y-4">
-                  {/* My Role */}
-                  <div className="pb-4 border-b dark:border-gray-800">
-                    <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-2">
-                      <FaUser className="text-sm" aria-hidden="true" />
-                      <h3 className="text-sm font-medium">My Role</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {MyRoles.map((role, index) => (
-                        <span 
-                          key={index}
-                          className="px-2.5 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
-                        >
-                          {role}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Collaborators */}
-                  {Collaborators.length > 0 && (
-                    <div>
-                      <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300 mb-3">
-                        <HiUsers className="text-sm" aria-hidden="true" />
-                        <h3 className="text-sm font-medium">Collaborators</h3>
-                      </div>
-                      <div className="space-y-2">
-                        {Collaborators.map((collab, index) => (
-                          <div key={index}>
-                            {collab.portfolio ? (
-                              <a
-                                key={index}
-                                href={collab.portfolio}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => handleCollaboratorClick(collab)}
-                                className="flex justify-between items-center p-2.5 bg-gray-50 
-                                          dark:bg-gray-800/50 rounded-lg
-                                          hover:bg-gray-100 dark:hover:bg-gray-800
-                                          transition-colors group cursor-pointer"
-                                aria-label={`Visit ${collab.firstName}'s portfolio`}
-                              >
-                                <div>
-                                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                                    {collab.firstName} {collab.lastName}
-                                  </p>
-                                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                                    {collab.roles.join(', ')}
-                                  </p>
-                                </div>
-                                <FaExternalLinkAlt 
-                                  className="text-sm text-gray-400 group-hover:text-blue-500 
-                                            dark:group-hover:text-blue-400 transition-colors" 
-                                  aria-hidden="true" 
-                                />
-                              </a>
-                            ) : (
-                              <div className="flex justify-between items-center p-2.5 bg-gray-50 
-                                            dark:bg-gray-800/50 rounded-lg">
-                                <div>
-                                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                                    {collab.firstName} {collab.lastName}
-                                  </p>
-                                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                                    {collab.roles.join(', ')}
-                                  </p>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+            {teamSize > 4 ? (
+              <>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <ProjectLinksSection 
+                    actions={Actions}
+                    onActionClick={handleActionClick}
+                    projectTitle={Title}
+                    size="single"
+                  />
+                  
+                  <KeywordsSection 
+                    keywords={Keywords}
+                    size="single"
+                  />
                 </div>
-              </section>
-            </div>
 
-            {/* Links */}
-            <div className="space-y-6">
-              {Actions && Actions.length > 0 && (
-                <section aria-label="Project links" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
-                  <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
-                    Project Links
-                  </h2>
-                  <div className="space-y-2">
-                    {Actions.map((action, index) => (
-                      <a
-                        key={index}
-                        href={action.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => handleActionClick(action.label, action)}
-                        className="flex items-center justify-between w-full p-2.5 
-                                 bg-gray-50 dark:bg-gray-800/50 rounded-lg
-                                 hover:bg-gray-200 dark:hover:bg-gray-800 
-                                 group transition-all duration-200"
-                        aria-label={`${action.label} (opens in new tab)`}
-                      >
-                        <span className="text-sm text-gray-600 dark:text-gray-300">
-                          {action.label}
-                        </span>
-                        {action.url.includes('github.com') ? (
-                          <FaGithub className="text-sm text-gray-400 group-hover:text-blue-500 
-                                             dark:group-hover:text-blue-400 transition-colors" 
-                                   aria-hidden="true" />
-                        ) : (
-                          <FaExternalLinkAlt className="text-sm text-gray-400 group-hover:text-blue-500 
-                                                      dark:group-hover:text-blue-400 transition-colors" 
-                                           aria-hidden="true" />
-                        )}
-                      </a>
-                    ))}
-                  </div>
-                </section>
-              )}
+                <PDFDocumentsSection 
+                  pdfDocuments={PDFDocuments}
+                  onPDFClick={handlePDFClick}
+                  projectTitle={Title}
+                  size="single"
+                />
 
-              {/* Keywords/Tags */}
-              {Keywords.length > 0 && (
-                <section aria-label="Project keywords" className="bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
-                  <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
-                    Keywords
-                  </h2>
-                  <div className="flex flex-wrap gap-2">
-                    {Keywords.map((keyword, index) => (
-                      <span 
-                        key={index}
-                        className="px-2.5 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-400 rounded-full"
-                      >
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
-                </section>
-              )}
-            </div>
+                <TeamSection 
+                  myRoles={MyRoles}
+                  collaborators={Collaborators}
+                  onCollaboratorClick={handleCollaboratorClick}
+                  projectTitle={Title}
+                  size="double"
+                  membersLimit={8}
+                />
+              </>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ProjectLinksSection 
+                  actions={Actions}
+                  onActionClick={handleActionClick}
+                  projectTitle={Title}
+                  size="single"
+                />
+                
+                <KeywordsSection 
+                  keywords={Keywords}
+                  size="single"
+                />
+
+                <PDFDocumentsSection 
+                  pdfDocuments={PDFDocuments}
+                  onPDFClick={handlePDFClick}
+                  projectTitle={Title}
+                  size="single"
+                />
+
+                <TeamSection 
+                  myRoles={MyRoles}
+                  collaborators={Collaborators}
+                  onCollaboratorClick={handleCollaboratorClick}
+                  projectTitle={Title}
+                  size="single"
+                  membersLimit={8}
+                />
+              </div>
+            )}
           </div>
 
-          {/* GitHub README */}
+          {/* GitHub README - Section finale pleine largeur */}
           {repoInfo && (
             <section className="mt-8 bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
               <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
@@ -337,6 +282,12 @@ const ProjectTemplate = ({ project }) => {
           )}
         </main>
       </article>
+      <PDFModal
+      isOpen={isPdfModalOpen}
+      onClose={closePDFModal}
+      pdfData={pdfModalData}
+      onAnalyticsEvent={handlePDFAnalyticsEvent}
+    />
     </>
   );
 };

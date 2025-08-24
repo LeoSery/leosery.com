@@ -155,7 +155,7 @@ export const ProjectCollaborators = {
     portfolio: "https://www.artstation.com/sarah_fallous"
   },
   TUHANA_PEA: {
-    firstName: "Thana", 
+    firstName: "Tuhana", 
     lastName: "Pea",
     portfolio: "https://www.artstation.com/tuhana"
   },

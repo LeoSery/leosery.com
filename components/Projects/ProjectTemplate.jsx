@@ -9,6 +9,9 @@ import OverviewSection from './Sections/OverviewSection';
 import ProjectLinksSection from './Sections/ProjectLinksSection';
 import KeywordsSection from './Sections/KeywordsSection';
 import TeamSection from './Sections/TeamSection';
+import PDFDocumentsSection from './Sections/FileSection';
+import PDFModal from '../Common/PDFViewer';
+import { useState } from 'react';
 
 const ProjectTemplate = ({ project }) => {
   const {
@@ -20,48 +23,84 @@ const ProjectTemplate = ({ project }) => {
     Period,
     MyRoles,
     Collaborators = [],
-    Keywords = []
+    Keywords = [],
+    PDFDocuments  = []
   } = project;
 
-const extractRepoInfo = (url) => {
-  if (!url || !url.includes('github.com')) return null;
-  
-  try {
-    const parts = url.split('github.com/')[1].split('/');
-    return {
-      username: parts[0],
-      repo: parts[1]
-    };
-  } catch (error) {
-    console.error("Error extracting repo info:", error);
-    return null;
-  }
-};
+  const [pdfModalData, setPdfModalData] = useState(null);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
-const getReadmeInfo = () => {
-  if (!Actions) return null;
-  
-  const readmeAction = Actions.find(action => action.showReadme === true);
-  
-  if (readmeAction && readmeAction.url) {
-    return extractRepoInfo(readmeAction.url);
-  }
-  
-  return null;
-};
+  const handlePDFClick = (pdfTitle, pdfData) => {
+    setPdfModalData({
+      title: pdfTitle,
+      filename: pdfData.filename,
+      description: pdfData.description,
+      project_name: pdfData.project_name
+    });
+    setIsPdfModalOpen(true);
 
-const repoInfo = getReadmeInfo();
-
-  const handleActionClick = (actionType, actionData) => {
+    // Analytics event
     gtag.event({
-      action: 'project_link_click',
+      action: 'pdf_document_open',
       params: {
-        project_name: actionData.project_name,
-        link_type: actionType,
-        url: actionData.url
+        project_name: pdfData.project_name,
+        pdf_title: pdfTitle,
+        filename: pdfData.filename
       }
     });
   };
+
+  const closePDFModal = () => {
+    setIsPdfModalOpen(false);
+    setPdfModalData(null);
+  };
+
+  const handlePDFAnalyticsEvent = (eventAction, eventData) => {
+    gtag.event({
+      action: eventAction,
+      params: eventData
+    });
+  };
+
+  const extractRepoInfo = (url) => {
+    if (!url || !url.includes('github.com')) return null;
+    
+    try {
+      const parts = url.split('github.com/')[1].split('/');
+      return {
+        username: parts[0],
+        repo: parts[1]
+      };
+    } catch (error) {
+      console.error("Error extracting repo info:", error);
+      return null;
+    }
+  };
+
+  const getReadmeInfo = () => {
+    if (!Actions) return null;
+    
+    const readmeAction = Actions.find(action => action.showReadme === true);
+    
+    if (readmeAction && readmeAction.url) {
+      return extractRepoInfo(readmeAction.url);
+    }
+    
+    return null;
+  };
+
+  const repoInfo = getReadmeInfo();
+
+    const handleActionClick = (actionType, actionData) => {
+      gtag.event({
+        action: 'project_link_click',
+        params: {
+          project_name: actionData.project_name,
+          link_type: actionType,
+          url: actionData.url
+        }
+      });
+    };
   
   const handleCollaboratorClick = (collaborator, projectTitle) => {
     if (!collaborator?.portfolio) return;
@@ -110,7 +149,7 @@ const repoInfo = getReadmeInfo();
 
       <article className="w-full pb-16">
         {/* Hero Section */}
-        <header className="relative w-full h-[45vh]">
+        <header className="relative w-full h-[45vh] rounded-b-xl overflow-hidden">
           <Image
             src={BannerImage}
             alt={`${Title} - Project Banner`}
@@ -180,6 +219,13 @@ const repoInfo = getReadmeInfo();
                   />
                 </div>
 
+                <PDFDocumentsSection 
+                  pdfDocuments={PDFDocuments}
+                  onPDFClick={handlePDFClick}
+                  projectTitle={Title}
+                  size="single"
+                />
+
                 <TeamSection 
                   myRoles={MyRoles}
                   collaborators={Collaborators}
@@ -200,6 +246,13 @@ const repoInfo = getReadmeInfo();
                 
                 <KeywordsSection 
                   keywords={Keywords}
+                  size="single"
+                />
+
+                <PDFDocumentsSection 
+                  pdfDocuments={PDFDocuments}
+                  onPDFClick={handlePDFClick}
+                  projectTitle={Title}
                   size="single"
                 />
 
@@ -229,6 +282,12 @@ const repoInfo = getReadmeInfo();
           )}
         </main>
       </article>
+      <PDFModal
+      isOpen={isPdfModalOpen}
+      onClose={closePDFModal}
+      pdfData={pdfModalData}
+      onAnalyticsEvent={handlePDFAnalyticsEvent}
+    />
     </>
   );
 };

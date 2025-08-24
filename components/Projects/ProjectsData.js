@@ -89,7 +89,7 @@ export const projectsData = [
       {
         ...ProjectCollaborators.VICTOR,
         roles: [ProjectRoles.SOUND_DESIGNER]
-      },
+      }
     ],
     Keywords: [
       "cozy game",
@@ -125,7 +125,25 @@ export const projectsData = [
         label: "View project documentation",
         url: "https://leosery.github.io/Project-Becorn--UnrealEngine5-2024/"
       },
-    ]
+      {
+        label: "View on Instagram",
+        url: "https://www.instagram.com/oakfolks_game/"
+      }
+    ],
+    PDFDocuments: [
+    {
+      title: "Final thesis - Designing and developing software applications",
+      filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_2_Léo_Séry.pdf",
+      description: "Thesis for my Level 7 RNCP qualification on how we designed the Oakfolks project, our master's degree final project.",
+      visible: false
+    },
+    {
+      title: "final thesis - Keeping the software application in operational condition",
+      filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_4_Léo_Séry.pdf",
+      description: "Thesis for my Level 7 RNCP qualification on how we managed and maintained our master's degree final project.",
+      visible: false
+    }
+  ]
   },
   {
     Id: 20,
@@ -329,7 +347,7 @@ export const projectsData = [
       {
         ...ProjectCollaborators.LOIC_DUBAR,
         roles: [ProjectRoles.ARTIST]
-      },
+      }
     ],
     Keywords: [
       "game",

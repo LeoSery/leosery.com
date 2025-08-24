@@ -104,8 +104,8 @@ export const ProjectCollaborators = {
     lastName: "Deswarte",
     portfolio: "https://github.com/SyMbolzz"
   },
-  JENNY_DESSELIER: {
-    firstName: "Jenny", 
+  JENNIFER_DESSELIER: {
+    firstName: "Jennifer", 
     lastName: "Desselier",
     portfolio: "https://www.linkedin.com/in/jennifer-desselier-9852602aa/"
   },

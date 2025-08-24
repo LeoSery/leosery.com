@@ -5,7 +5,7 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 export const projectsData = [
   {
     Id: 21,
-    Title: "Oakfolks project",
+    Title: "Oakfolks",
     Type: ProjectTypes.SCHOOL,
     Period: {
       start: "2024-09",
@@ -31,7 +31,7 @@ export const projectsData = [
         roles: [ProjectRoles.LEAD_GAME_DESIGNER, ProjectRoles.LEAD_PROJECT]
       },
       {
-        ...ProjectCollaborators.JENNY_DESSELIER,
+        ...ProjectCollaborators. JENNIFER_DESSELIER,
         roles: [ProjectRoles.GAME_DESIGNER]
       },
       {

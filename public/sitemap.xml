@@ -9,13 +9,13 @@
   </url>
   <url>
     <loc>https://leosery.com/cv</loc>
-    <lastmod>2025-04-23</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects</loc>
-    <lastmod>2025-04-09</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,14 +27,26 @@
 
   <!-- Pages de projets individuels -->
   <url>
+    <loc>https://leosery.com/projects/collection-aide-soignante</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leosery.com/projects/collection-infirmiere</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
   <loc>https://leosery.com/projects/boids</loc>
   <lastmod>2025-04-13</lastmod>
   <changefreq>never</changefreq>
   <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://leosery.com/projects/becorn-project</loc>
-    <lastmod>2025-04-13</lastmod>
+    <loc>https://leosery.com/projects/oakfolks-project</loc>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>

@@ -164,4 +164,54 @@ export const ProjectCollaborators = {
     lastName: null,
     portfolio: null
   },
+  KEVIN_BLANC: {
+    firstName: "Kevin",
+    lastName: "Blanc",
+    portfolio: "https://www.linkedin.com/in/401kevin/"
+  },
+    KEVIN_BONNEAU: {
+    firstName: "Kevin",
+    lastName: "Bonneau",
+    portfolio: "https://www.linkedin.com/in/kevin-bonneau-2b5492184/"
+  },
+    ERIC_MERESSE: {
+    firstName: "Eric",
+    lastName: "Méresse",
+    portfolio: "https://www.linkedin.com/in/éric-méresse-a9401662/"
+  },
+    EMERIC_LABBE: {
+    firstName: "Emeric",
+    lastName: "Labbe",
+    portfolio: "https://www.linkedin.com/in/emeric-labbe-138a451a0/"
+  },
+    EMMANUELLE_GOUOT: {
+    firstName: "Emmanuelle",
+    lastName: "Gouot",
+    portfolio: "https://www.linkedin.com/in/emmanuelle-gouot-57aa6a122/"
+  },
+    FLORIAN_BLONDEAU: {
+    firstName: "Florian",
+    lastName: "Blondeau",
+    portfolio: "https://www.linkedin.com/in/florian-blondeau-0b234518/"
+  },
+    LOAN_COURCOUL: {
+    firstName: "Loan",
+    lastName: "Courcoul",
+    portfolio: "https://www.linkedin.com/in/loann-courcoul/"
+  },
+    LUCAS_POUJARDIEU: {
+    firstName: "Lucas",
+    lastName: "Poujardieu",
+    portfolio: "https://www.linkedin.com/in/lucas-poujardieu/"
+  },
+    REMY_CARIVENC: {
+    firstName: "Remy",
+    lastName: "Carivenc",
+    portfolio: "https://www.linkedin.com/in/remy-carivenc/"
+  },
+    SEBASTIEN_KHAI: {
+    firstName: "Sebastien",
+    lastName: "Khai",
+    portfolio: "https://www.linkedin.com/in/sebastienkhai/"
+  },
  };

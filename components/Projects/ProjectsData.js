@@ -4,6 +4,176 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [
   {
+      Id: 23,
+      Title: "Collection Infirmière",
+      Type: ProjectTypes.PROFESSIONAL,
+      Period: {
+        start: "2025-01",
+        end: "2025-08"
+      },
+      Technologies: ["Unity3D", "C#", "Unity Gaming Services"],
+      MyRoles: [ProjectRoles.DEVELOPER],
+      Collaborators: [
+        {
+          ...ProjectCollaborators.KEVIN_BLANC,
+          roles: [ProjectRoles.LEAD_DEV]
+        },
+        {
+          ...ProjectCollaborators.EMERIC_LABBE,
+          roles: [ProjectRoles.DEVELOPER]
+        },
+        {
+          ...ProjectCollaborators.REMY_CARIVENC,
+          roles: [ProjectRoles.DEVELOPER]
+        },
+        {
+          ...ProjectCollaborators.LUCAS_POUJARDIEU,
+          roles: [ProjectRoles.WEB_DEVELOPER]
+        },
+        {
+          ...ProjectCollaborators.KEVIN_BONNEAU,
+          roles: [ProjectRoles.ARTIST]
+        },
+        {
+          ...ProjectCollaborators.SEBASTIEN_KHAI,
+          roles: [ProjectRoles.ARTIST]
+        },
+        {
+          ...ProjectCollaborators.ERIC_MERESSE,
+          roles: [ProjectRoles.UX_DESIGNER, ProjectRoles.PRODUCT_DESIGNER]
+        },
+        {
+          ...ProjectCollaborators.EMMANUELLE_GOUOT,
+          roles: [ProjectRoles.LEAD_PROJECT]
+        },
+        {
+          ...ProjectCollaborators.LOAN_COURCOUL,
+          roles: [ProjectRoles.LEAD_PROJECT]
+        },
+        {
+          ...ProjectCollaborators.FLORIAN_BLONDEAU,
+          roles: [ProjectRoles.CTO]
+        },
+      ],
+      Keywords: [
+        "web app",
+        "healthcare", 
+        "educational",
+        "serious game",
+        "simulation",
+        "professional",
+        "WebGL",
+        "nursing training",
+        "medical education",
+        "Unity WebGL",
+      ],
+      Description: "Collection Infirmière is a WebGL educational application I developed as part of a multidisciplinary team at SimforHealth, featuring 10 interactive nursing training simulators built with Unity3D. Working alongside other developers, I contributed to implementing the core simulation systems using our internal OPI framework based on Unity Scriptable Objects and Addressable Assets. The project involved developing WebGL functionality for deployment on our training platform, creating interactive patient dialogue systems, and implementing various game mechanics including clinical assessment quizzes, object selection exercises, and procedural task simulations. I also worked on custom editor tools to streamline content integration and automate build processes for the different nursing training scenarios. Each simulator recreates specific professional environments (hospitals, patient rooms, care units, rehabilitation centers) with animated virtual patients, allowing nursing students to practice clinical decision-making through interactive storylines and immediate feedback systems aligned with the 10 core competencies of the French nursing curriculum.",
+      CardImage: "/assets/images/projects/CollectionInfirmiereProject.webp",
+      BannerImage: "/assets/images/projects/CollectionInfirmiereProject.webp",
+      Url: "/projects/collection-infirmiere",
+      Actions: [
+        {
+          label: "Use the app",
+          url: "https://sso-my.simforhealth.com/authentication/login"
+        },
+        {
+          label: "See the app website",
+          url: "https://www.simforhealth.com/produits/collection-infirmiere/"
+        }
+      ],
+      PDFDocuments: []
+  },
+  {
+    Id: 22,
+    Title: "Collection Aide-Soignante",
+    Type: ProjectTypes.PROFESSIONAL,
+    Period: {
+      start: "2023-10",
+      end: "2024-12"
+    },
+    Technologies: ["Unity3D", "C#", "Unity Gaming Services"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [
+      {
+        ...ProjectCollaborators.KEVIN_BLANC,
+        roles: [ProjectRoles.LEAD_DEV]
+      },
+      {
+        ...ProjectCollaborators.EMERIC_LABBE,
+        roles: [ProjectRoles.DEVELOPER]
+      },
+      {
+        ...ProjectCollaborators.REMY_CARIVENC,
+        roles: [ProjectRoles.DEVELOPER]
+      },
+      {
+        ...ProjectCollaborators.LUCAS_POUJARDIEU,
+        roles: [ProjectRoles.WEB_DEVELOPER]
+      },
+      {
+        ...ProjectCollaborators.KEVIN_BONNEAU,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.SEBASTIEN_KHAI,
+        roles: [ProjectRoles.ARTIST]
+      },
+      {
+        ...ProjectCollaborators.ERIC_MERESSE,
+        roles: [ProjectRoles.UX_DESIGNER, ProjectRoles.PRODUCT_DESIGNER]
+      },
+      {
+        ...ProjectCollaborators.EMMANUELLE_GOUOT,
+        roles: [ProjectRoles.LEAD_PROJECT]
+      },
+      {
+        ...ProjectCollaborators.LOAN_COURCOUL,
+        roles: [ProjectRoles.LEAD_PROJECT]
+      },
+      {
+        ...ProjectCollaborators.FLORIAN_BLONDEAU,
+        roles: [ProjectRoles.CTO]
+      },
+    ],
+      Keywords: [
+      "mobile app",
+      "healthcare",
+      "educational",
+      "serious game",
+      "simulation", 
+      "iOS",
+      "Android",
+      "WebGL",
+      "medical training",
+      "Unity WebGL"
+    ],
+    Description: "Collection Aide-Soignante is a mobile educational application I developed as part of a 10-person team at SimforHealth, featuring 8 interactive healthcare training simulators built with Unity3D. Working alongside 3 other developers, I contributed to implementing the core simulation systems using our internal OPI framework based on Unity Scriptable Objects and Addressable Assets. The project involved developing cross-platform functionality for WebGL, iOS, and Android deployment, creating interactive patient dialogue systems, and implementing various game mechanics including clinical assessment quizzes, object selection exercises, and procedural task simulations. I also worked on custom editor tools to streamline content integration and automate build processes for the different healthcare training scenarios. Each simulator recreates specific professional environments (hospitals, care homes, patient residences) with animated virtual patients, allowing nursing students to practice clinical decision-making through interactive storylines and immediate feedback systems.",
+    CardImage: "/assets/images/projects/CollectionAideSoignanteProject.webp",
+    BannerImage: "/assets/images/projects/CollectionAideSoignanteProject.webp",
+    Url: "/projects/collection-aide-soignante",
+    Actions: [
+      {
+        label: "MultiLink",
+        platforms: {
+          ios: {
+            label: "Download on App Store",
+            url: "https://apps.apple.com/fr/app/collection-aide-soignante/id6449744960"
+          },
+          android: {
+            label: "Get it on Google Play", 
+            url: "https://play.google.com/store/apps/details?id=com.simforhealth.collectionas"
+          },
+          default: "ios"
+        }
+      },
+      {
+        label: "See the app website",
+        url: "https://www.simforhealth.com/produits/collection-aide-soignante"
+      }
+    ],
+    PDFDocuments: []
+  },
+  {
     Id: 21,
     Title: "Oakfolks",
     Type: ProjectTypes.SCHOOL,
@@ -135,13 +305,13 @@ export const projectsData = [
       title: "Final thesis - Designing and developing software applications",
       filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_2_Léo_Séry.pdf",
       description: "Thesis for my Level 7 RNCP qualification on how we designed the Oakfolks project, our master's degree final project.",
-      visible: false
+      visible: true
     },
     {
       title: "final thesis - Keeping the software application in operational condition",
       filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_4_Léo_Séry.pdf",
       description: "Thesis for my Level 7 RNCP qualification on how we managed and maintained our master's degree final project.",
-      visible: false
+      visible: true
     }
   ]
   },

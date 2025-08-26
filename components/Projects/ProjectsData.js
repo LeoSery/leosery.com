@@ -305,13 +305,13 @@ export const projectsData = [
       title: "Final thesis - Designing and developing software applications",
       filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_2_Léo_Séry.pdf",
       description: "Thesis for my Level 7 RNCP qualification on how we designed the Oakfolks project, our master's degree final project.",
-      visible: true
+      visible: false
     },
     {
       title: "final thesis - Keeping the software application in operational condition",
       filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_4_Léo_Séry.pdf",
       description: "Thesis for my Level 7 RNCP qualification on how we managed and maintained our master's degree final project.",
-      visible: true
+      visible: false
     }
   ]
   },

@@ -341,12 +341,6 @@ export const projectsData = [
       "game development"
     ],
     Description: "A highly optimized flocking behavior simulation system implemented in Unreal Engine 5 using C++. This project recreates the classic Boids algorithm by Craig Reynolds with significant optimizations to support thousands of autonomous agents in real-time, built on principles from his paper: Steering Behaviors For Autonomous Characters.",
-    References: [
-      {
-        text: "Steering Behaviors For Autonomous Characters",
-        url: "https://www.red3d.com/cwr/steer/gdc99/"
-      }
-    ],
     CardImage: "/assets/images/projects/Boids.webp",
     BannerImage: "/assets/images/projects/Boids.webp",
     Url: "/projects/boids",
@@ -359,6 +353,10 @@ export const projectsData = [
       {
         label: "Download",
         url: "https://github.com/LeoSery/Boids--UnrealEngine5-2025/releases/download/V1.0/Boids-V1.0_win64.rar"
+      },
+      {
+        label: "Reference Paper",
+        url: "https://www.red3d.com/cwr/steer/gdc99/"
       }
     ]
   },
@@ -652,7 +650,7 @@ export const projectsData = [
     Url: "/projects/a-star-pathfinding",
     Actions: [
       {
-        label: "View on GitHub",
+        label: "View on GitHub",  
         url: "https://github.com/LeoSery/AStar-PathFinding--UnrealEngine5-2024",
         showReadme: true
       }

@@ -268,10 +268,10 @@ const ProjectTemplate = ({ project }) => {
             )}
           </div>
 
-          {/* GitHub README - Section finale pleine largeur */}
+          {/* GitHub README*/}
           {repoInfo && (
-            <section className="mt-8 bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6">
-              <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4">
+            <section className="mt-8 bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow py-2 px-0 md:p-6">
+              <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4 px-2">
                 Project README
               </h2>
               <GitHubReadme 

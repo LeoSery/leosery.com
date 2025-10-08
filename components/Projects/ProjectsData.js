@@ -210,7 +210,7 @@ export const projectsData = [
       },
       {
         ...ProjectCollaborators.MACELIE_FOUCHIER,
-        roles: [ProjectRoles.ARTIST]
+        roles: [ProjectRoles.LEAD_ENVIRO_DA]
       },
       {
         ...ProjectCollaborators.THOMAS_BOUFRIOUA,
@@ -289,7 +289,7 @@ export const projectsData = [
       },
       {
         label: "See the project inspiration",
-        url: "https://www.instagram.com/davidmbird/"
+        url: "https://www.davidmbird.com/"
       },
       {
         label: "View project documentation",

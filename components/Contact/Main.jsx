@@ -55,9 +55,9 @@ const Contact = () => {
             Let&apos;s Connect
           </h1>
           <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] max-w-[600px] sm:max-w-[700px]">
-            I'm currently looking for new opportunities in game development.
+            I&apos;m currently looking for new opportunities in game development.
             <br className="hidden sm:block" />
-            Whether you have a question, I'll try my best to get back to you!
+            Whether you have a question, I&apos;ll try my best to get back to you!
           </p>
         </div>
 

@@ -11,6 +11,7 @@ export const ProjectRoles = {
 
     LEAD_DEV: "Lead Developer",
     LEAD_ARTIST: "Lead Artist",
+    LEAD_ENVIRO_DA: "Lead Enviro DA",
     LEAD_GAME_DESIGNER: "Lead Game Designer",
     LEAD_SOUND_DESIGNER: "Lead Sound Designer",
     LEAD_CONCEPT_ARTIST: "Lead Concept Artist",

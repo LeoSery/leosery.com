@@ -52,10 +52,12 @@ const Contact = () => {
             Contact
           </p>
           <h1 className="text-3xl sm:text-4xl text-gray-800 dark:text-[#BDB7AF] font-light mb-3">
-            Let's Connect
+            Let&apos;s Connect
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] max-w-[600px]">
-            I'm currently looking for new opportunities in game development. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] max-w-[600px] sm:max-w-[700px]">
+            I'm currently looking for new opportunities in game development.
+            <br className="hidden sm:block" />
+            Whether you have a question, I'll try my best to get back to you!
           </p>
         </div>
 

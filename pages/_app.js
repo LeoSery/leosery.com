@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }) {
         <meta name="mobile-web-app-capable" content="yes" />
       </SEO>
       <DarkThemeProvider>
-        <ThemeProvider enableSystem={true} attribute="class">
+        <ThemeProvider enableSystem={false} defaultTheme="dark" forcedTheme="dark" attribute="class">
         <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-[#121212]">
             <Navbar />
             <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">

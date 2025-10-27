@@ -176,7 +176,7 @@ export default function Navbar() {
                   />
               </div>
             </button>
-              <div className="websiteThemeMode cursor-pointer ml-4">
+              <div className="websiteThemeMode cursor-pointer ml-4" style={{ display: 'none' }}>
                 {renderThemeChanger()}
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function Navbar() {
             </button>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center">
+              <div className="flex items-center" style={{ display: 'none' }}>
                 {renderThemeChanger()}
               </div>
               

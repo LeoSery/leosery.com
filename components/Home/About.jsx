@@ -20,9 +20,9 @@ export default function About() {
             </h2>
             <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] text-justify leading-relaxed max-w-[90ch]">
               Immersed in the video game universe from an early age thanks to a family environment connected to the industry, I 
-              naturally directed my path towards development. Completing my Master&apos;s degree in game programming at Ynov Campus 
-              Bordeaux, I develop in C++ and C# with Unity3D and Unreal Engine 5. Engine programming and tools development 
-              are the game programming fields that particularly appeal to me and where I aim to work professionally.
+              naturally directed my path towards development. Recently graduated as valedictorian from Ynov Campus Bordeaux with 
+              a Master&apos;s degree in game programming, I develop in C++ and C# with Unity3D and Unreal Engine 5. Engine programming 
+              and tools development are the game programming fields that particularly appeal to me and where I aim to work professionally.
             </p>
           </div>
         </div>

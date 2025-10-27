@@ -54,7 +54,7 @@ const PDFviewerComponent = () => {
       else if (width <= 768) setScale(0.75);
       else if (width <= 1024) setScale(0.85);
       else if (width <= 1280) setScale(0.9);
-      else setScale(1);
+      else setScale(1.5);
     };
 
     handleResize();

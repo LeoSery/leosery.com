@@ -1,5 +1,6 @@
 export const ProjectTypes = {
   SCHOOL: "school",
   PERSONAL: "personal",
-  PROFESSIONAL: "professional"
+  PROFESSIONAL: "professional",
+  GAME_JAM: "gamejam",
 };

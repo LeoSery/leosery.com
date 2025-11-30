@@ -50,8 +50,8 @@ export default function Footer() {
               />
               <FooterLink 
                 icon={<IoIosMail />}
-                href="mailto:sery.leo0704@gmail.com"
-                text="sery.leo0704@gmail.com"
+                href="mailto:contact-pro@leosery.com"
+                text="contact-pro@leosery.com"
                 ariaLabel="Send me an email"
               />
             </div>

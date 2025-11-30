@@ -4,6 +4,63 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [
   {
+    Id: 24,
+    Title: "Frog This Way",
+    Type: ProjectTypes.GAME_JAM,
+    Period: {
+      start: "2025-11",
+      end: "2025-11"
+    },
+    Technologies: ["Unreal Engine 5", "Blueprint"],
+    MyRoles: [ProjectRoles.LEAD_DEV],
+    Collaborators: [
+    {
+      ...ProjectCollaborators.DORIAN_FONSECA,
+      roles: [ProjectRoles.DEVELOPER]
+    },
+    {
+      ...ProjectCollaborators.MACELIE_FOUCHIER,
+      roles: [ProjectRoles.LEAD_ARTIST]
+    },
+    {
+      ...ProjectCollaborators.LUCA_MAZZILLI,
+      roles: [ProjectRoles.ARTIST]
+    },
+    {
+      ...ProjectCollaborators.ARTHUR_MUTAUX,
+      roles: [ProjectRoles.RIGGER]
+    },
+    {
+      ...ProjectCollaborators.SACHA_PESSIN,
+      roles: [ProjectRoles.GAME_DESIGNER]
+    }
+  ],
+    Keywords: [
+      "puzzle game",
+      "Lemmings-like",
+      "game jam",
+      "mini-games",
+      "Unreal Engine 5",
+      "3D"
+    ],
+    Description: "Frog This Way is a puzzle mini-game created for the Ubisoft Volunteer Week Game Jam 2025, designed to raise awareness about climate change. Players guide a tribe of frogs through a forest before a violent storm hits, helping them reach their ancestral ruins while collecting sap along the way. This continuous stream of frogs, similar to Lemmings, is redirected by players who interact with environmental elements. The game consists of 8 levels, each featuring puzzles and mini-games inspired by games such as Kabuto Park and Dordogne. Players use only the mouse to click and drag natural elements or interact with pillars to clear the path. The approaching storm creates an increasingly threatening atmosphere with darkening skies and thunder, emphasizing the urgency of climate migration. Through collaborative environmental interaction, the game explores the themes of climate migration, collective action, and how individual actions can pave the way for many others toward a better future. Developed entirely with Unreal Engine 5.7 in Blueprint.",
+    CardImage: "/assets/images/projects/FrogThisWayGame.webp",
+    BannerImage: "/assets/images/projects/FrogThisWayGame.webp",
+    Url: "/projects/frog-this-way",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/RockSaladStudio/Ubisoft-Volunteer-Week-Game-Jam--2025",
+        showReadme: true
+      },
+      {
+        label: "Play on itch.io",
+        url: "https://rock-salad.itch.io/frog-this-way"
+      }
+    ],
+    PDFDocuments: []
+  },
+  {
       Id: 23,
       Title: "Collection Infirmière",
       Type: ProjectTypes.PROFESSIONAL,
@@ -706,7 +763,7 @@ export const projectsData = [
   {
     Id: 11,
     Title: "The Probably Enchanted Cavern",
-    Type: ProjectTypes.SCHOOL,
+    Type: ProjectTypes.GAME_JAM,
     Period: {
       start: "2023-03",
       end: "2023-03"

@@ -2,6 +2,7 @@ export const ProjectRoles = {
     DEVELOPER: "Developer",
     WEB_DEVELOPER: "Web Developer",
     ARTIST: "Artist",
+    RIGGER: "Rigger",
     GAME_DESIGNER: "Designer",
     SOUND_DESIGNER: "Sound Designer",
     CONCEPT_ARTIST: "Concept Artist",

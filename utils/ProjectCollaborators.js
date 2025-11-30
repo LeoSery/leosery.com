@@ -214,4 +214,19 @@ export const ProjectCollaborators = {
     lastName: "Khai",
     portfolio: "https://www.linkedin.com/in/sebastienkhai/"
   },
+  LUCA_MAZZILLI: {
+    firstName: "Luca",
+    lastName: "Mazzilli",
+    portfolio: "https://www.artstation.com/luca-mazzilli"
+  },
+  ARTHUR_MUTAUX: {
+    firstName: "Arthur",
+    lastName: "Mutaux",
+    portfolio: "https://www.artstation.com/mutauxarthur8"
+  },
+  DORIAN_FONSECA: {
+    firstName: "Dorian",
+    lastName: "Fonseca",
+    portfolio: "https://github.com/Dorian2002"
+  },
  };

@@ -59,7 +59,8 @@ const formattedPeriod = (() => {
   const typeBadgeStyle = {
     school: "bg-blue-200 text-blue-900 dark:bg-blue-900 dark:text-blue-300",
     personal: "bg-green-200 text-green-900 dark:bg-green-900 dark:text-green-300",
-    professional: "bg-purple-200 text-purple-900 dark:bg-purple-900 dark:text-purple-300"
+    professional: "bg-purple-200 text-purple-900 dark:bg-purple-900 dark:text-purple-300",
+    gamejam: "bg-orange-200 text-orange-900 dark:bg-orange-900 dark:text-orange-300"
   };
 
   const teamSize = collaborators.length + 1;

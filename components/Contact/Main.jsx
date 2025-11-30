@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Contact = () => {
   const [emailCopied, setEmailCopied] = useState(false);
 
-  const email = "sery.leo0704@gmail.com";
+  const email = "contact-pro@leosery.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);

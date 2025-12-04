@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { ThemeContext } from '../../context/themeContext';
@@ -68,9 +68,9 @@ const PDFviewerComponent = () => {
 
   // Security: Disable eval support to mitigate CVE-2024-4367
   // This prevents arbitrary JavaScript execution when opening malicious PDFs
-  const viewerOptions = {
+  const viewerOptions = useMemo(() => ({
     isEvalSupported: false,
-  };
+  }), []);
 
   const handleError = (error) => {
     setError(error);
@@ -212,7 +212,7 @@ const PDFviewerComponent = () => {
           </div>
         )}
 
-        <PDFWorker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js">
+        <PDFWorker workerUrl="/assets/pdf/pdf.worker.min.js">
           <PDFViewer
             fileUrl="/CV.pdf"
             theme={currentTheme()}

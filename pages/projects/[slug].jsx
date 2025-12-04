@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import ProjectTemplate from "../../components/Projects/ProjectTemplate";
 import { projectsData } from "../../components/Projects/ProjectsData";
 import SEO from '../../components/Common/SEO';
-import { FaLaptopHouse } from "react-icons/fa";
 
 export default function ProjectPage() {
   const router = useRouter();

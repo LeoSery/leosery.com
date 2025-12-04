@@ -12,6 +12,7 @@ import TeamSection from './Sections/TeamSection';
 import PDFDocumentsSection from './Sections/FileSection';
 import PDFModal from '../Common/PDFViewer';
 import { useState } from 'react';
+import { formatDate } from '../../utils/dateHelpers';
 
 const ProjectTemplate = ({ project }) => {
   const {
@@ -114,13 +115,6 @@ const ProjectTemplate = ({ project }) => {
                        collaborator.portfolio.includes('linkedin.com') ? 'linkedin' : 
                        collaborator.portfolio.includes('artstation.com') ? 'artstation' : 'other'
       }
-    });
-  };
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', { 
-      month: 'long', 
-      year: 'numeric' 
     });
   };
 

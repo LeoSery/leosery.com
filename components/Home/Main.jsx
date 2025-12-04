@@ -6,6 +6,7 @@ import ScrollIndicator from "../Common/ScrollIndicator";
 import TypeWriter from "../Common/TypeWriter";
 import Link from "next/link";
 import React from "react";
+import * as gtag from '../../lib/gtag';
 
 export default function Main() {
 
@@ -57,29 +58,34 @@ export default function Main() {
               icon={<FaLinkedin />}
               platform="linkedin"
               isExternal={true}
+              onSocialClick={handleSocialClick}
             />
             <SocialButton 
               href="https://github.com/LeoSery" 
               icon={<FaGithub />}
               platform="github"
               isExternal={true}
+              onSocialClick={handleSocialClick}
             />
             <SocialButton 
               href="https://www.youtube.com/@leosery"
               icon={<FaYoutube />}
               platform="youtube"
               isExternal={true}
+              onSocialClick={handleSocialClick}
             />
             <SocialButton 
               href="https://x.com/leo_sery"
               icon={<FaXTwitter />}
               platform="twitter"
               isExternal={true}
+              onSocialClick={handleSocialClick}
             />
             <SocialButton 
               href="/contact" 
               icon={<AiOutlineMail />}
               platform="contact"
+              onSocialClick={handleSocialClick}
             />
           </div>
         </div>
@@ -92,24 +98,24 @@ export default function Main() {
   );
 }
 
-function SocialButton({ href, icon, platform, isExternal = false }) {
-  const LinkWrapper = ({ children }) => (
-    <Link 
-      href={href} 
-      onClick={() => handleSocialClick(platform)}
-      {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
-    >
-      {children}
-    </Link>
-  );
+function SocialButton({ href, icon, platform, isExternal = false, onSocialClick }) {
+  const handleClick = () => {
+    if (onSocialClick) {
+      onSocialClick(platform);
+    }
+  };
 
   return (
-    <LinkWrapper>
+    <Link 
+      href={href} 
+      onClick={handleClick}
+      {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+    >
       <div className="rounded-xl shadow shadow-gray-400 dark:shadow-gray-800 dark:bg-[#1E1E1E] p-3 cursor-pointer hover:scale-105 ease-in duration-200 transition-all hover:shadow-md">
         <span className="text-gray-900 dark:text-white text-base sm:text-lg">
           {icon}
         </span>
       </div>
-    </LinkWrapper>
+    </Link>
   );
 }

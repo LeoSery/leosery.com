@@ -66,6 +66,12 @@ const PDFviewerComponent = () => {
     sidebarTabs: () => [],
   });
 
+  // Security: Disable eval support to mitigate CVE-2024-4367
+  // This prevents arbitrary JavaScript execution when opening malicious PDFs
+  const viewerOptions = {
+    isEvalSupported: false,
+  };
+
   const handleError = (error) => {
     setError(error);
     setIsLoading(false);
@@ -206,7 +212,7 @@ const PDFviewerComponent = () => {
           </div>
         )}
 
-        <PDFWorker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js">
+        <PDFWorker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js">
           <PDFViewer
             fileUrl="/CV.pdf"
             theme={currentTheme()}
@@ -214,6 +220,7 @@ const PDFviewerComponent = () => {
             plugins={[defaultLayoutPluginInstance]}
             onDocumentLoad={() => setIsLoading(false)}
             onError={handleError}
+            {...viewerOptions}
           />
         </PDFWorker>
       </div>

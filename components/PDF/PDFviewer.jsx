@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import dynamic from 'next/dynamic';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { ThemeContext } from '../../context/themeContext';
@@ -26,6 +26,12 @@ const PDFViewer = dynamic(() => import('@react-pdf-viewer/core').then(mod => mod
     </div>
   )
 });
+
+// Security: Disable eval support to mitigate CVE-2024-4367
+// This prevents arbitrary JavaScript execution when opening malicious PDFs
+const viewerOptions = {
+  isEvalSupported: false,
+};
 
 const PDFviewerComponent = () => {
   const [scale, setScale] = useState(1);
@@ -65,12 +71,6 @@ const PDFviewerComponent = () => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin({
     sidebarTabs: () => [],
   });
-
-  // Security: Disable eval support to mitigate CVE-2024-4367
-  // This prevents arbitrary JavaScript execution when opening malicious PDFs
-  const viewerOptions = useMemo(() => ({
-    isEvalSupported: false,
-  }), []);
 
   const handleError = (error) => {
     setError(error);

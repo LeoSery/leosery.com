@@ -148,6 +148,7 @@ const ProjectTemplate = ({ project }) => {
             src={BannerImage}
             alt={`${Title} - Project Banner`}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />

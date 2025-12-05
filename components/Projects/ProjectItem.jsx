@@ -79,6 +79,7 @@ const ProjectItem = ({
           src={backgroundImg}
           alt={title}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className={`object-cover transition-transform duration-300 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}

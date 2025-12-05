@@ -42,6 +42,7 @@ export default function About() {
               src="/assets/images/Home/About-me-image.webp"
               alt="About me"
               fill
+              sizes="(max-width: 768px) 100vw, 40vw"
               className={`object-cover rounded-xl transition-transform duration-300 hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}

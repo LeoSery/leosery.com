@@ -169,6 +169,7 @@ export default function Navbar() {
                   src={ProfilPicture}
                   alt="Profile picture"
                   fill
+                  sizes="144px"
                   className={`object-cover rounded-full ${
                     profileLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
@@ -214,6 +215,7 @@ export default function Navbar() {
                 src={ProfilPicture}
                 alt="Profile picture"
                 fill
+                sizes="48px"
                 className="object-cover"
               />
             </button>

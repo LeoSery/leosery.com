@@ -1,60 +1,39 @@
-import React, { useState, useEffect, useContext } from 'react';
-import dynamic from 'next/dynamic';
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-import { ThemeContext } from '../../context/themeContext';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useTheme } from 'next-themes';
 import Spinner from "../Common/Spinner";
 import LoadingSkeleton from '../Common/LoadingSkeleton';
+import { FiZoomIn, FiZoomOut, FiDownload, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 
-const PDFWorker = dynamic(() => import('@react-pdf-viewer/core').then(mod => mod.Worker), {
-  ssr: false,
-  loading: () => (
-    <div className="flex justify-center items-center h-[50vh]">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-    </div>
-  )
-});
-
-const PDFViewer = dynamic(() => import('@react-pdf-viewer/core').then(mod => mod.Viewer), {
-  ssr: false,
-  loading: () => (
-    <div className="flex justify-center items-center h-[50vh]">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-    </div>
-  )
-});
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const PDFviewerComponent = () => {
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
   const [scale, setScale] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [mounted, setMounted] = useState(false);
-  const { isDark } = useContext(ThemeContext);
-  const { theme, systemTheme } = useTheme();
   
+  const { resolvedTheme } = useTheme();
+  const isDarkMode = mounted && resolvedTheme === 'dark';
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const currentTheme = () => {
-    if (!mounted) return null;
-    const resolvedTheme = theme === 'system' ? systemTheme : theme;
-    return resolvedTheme === 'dark' ? 'dark' : 'light';
-  };
-  
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width <= 375) setScale(0.55);
-      else if (width <= 390) setScale(0.58);
-      else if (width <= 430) setScale(0.62);
+      if (width <= 375) setScale(0.5);
+      else if (width <= 430) setScale(0.6);
       else if (width <= 768) setScale(0.75);
-      else if (width <= 1024) setScale(0.85);
-      else if (width <= 1280) setScale(0.9);
-      else setScale(1.5);
+      else if (width <= 1024) setScale(0.9);
+      else if (width <= 1280) setScale(1.0);
+      else setScale(1.2);
     };
 
     handleResize();
@@ -62,129 +41,137 @@ const PDFviewerComponent = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const defaultLayoutPluginInstance = defaultLayoutPlugin({
-    sidebarTabs: () => [],
-  });
+  const onDocumentLoadSuccess = useCallback(({ numPages }) => {
+    setNumPages(numPages);
+    setIsLoading(false);
+    setError(null);
+  }, []);
 
-  const handleError = (error) => {
+  const onDocumentLoadError = useCallback((error) => {
     setError(error);
     setIsLoading(false);
-    console.error('Error loading PDF:', error);
+  }, []);
+
+  const goToPrevPage = () => setPageNumber(prev => Math.max(prev - 1, 1));
+  const goToNextPage = () => setPageNumber(prev => Math.min(prev + 1, numPages || 1));
+  const zoomIn = () => setScale(prev => Math.min(prev + 0.2, 2.5));
+  const zoomOut = () => setScale(prev => Math.max(prev - 0.2, 0.4));
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/CV.pdf';
+    link.download = 'CV_Sery_Leo.pdf';
+    link.click();
   };
-
-  const globalStyles = `
-    [aria-describedby="rpv-core__tooltip-body-theme-switch"],
-    button[aria-label="Switch to the light theme"],
-    button[aria-label="Open"],
-    .rpv-toolbar__item:has([aria-label="Open"]),
-    button[data-testid="page-navigation__previous-button"],
-    button[data-testid="page-navigation__next-button"],
-    button[data-testid="open__button"],
-    .rpv-page-navigation__current-page-input,
-    .rpv-toolbar__item:has(.rpv-page-navigation__current-page-input) {
-      display: none !important;
-    }
-
-    .rpv-core__viewer.rpv-core__viewer--dark {
-      --rpv-color-page-background: #121212;
-      --rpv-color-foreground: #FAFAFA;
-      --rpv-color-background: #1A1A1A;
-      --rpv-color-popup-background: #1E1E1E;
-      --rpv-color-tooltip-background: #2C2C2C;
-    }
-
-    .rpv-core__viewer.rpv-core__viewer--light {
-      --rpv-color-page-background: #FFFFFF;
-      --rpv-color-foreground: #2D2D2D;
-      --rpv-color-background: #FFFFFF;
-      --rpv-color-popup-background: #FFFFFF;
-      --rpv-color-tooltip-background: #FFFFFF;
-    }
-
-    .rpv-core__viewer {
-      height: 85vh !important;
-      min-height: 600px !important;
-      max-height: 1200px !important;
-    }
-
-    @media (max-width: 1280px) {
-      .rpv-core__viewer {
-        height: 80vh !important;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .rpv-core__viewer {
-        height: 75vh !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .rpv-core__viewer {
-        height: 65vh !important;
-        min-height: 350px !important;
-      }
-
-      .rpv-core__viewer-content,
-      .rpv-core__inner-container,
-      .rpv-core__inner-pages,
-      .rpv-core__inner-page {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      .rpv-core__inner-container {
-        margin-bottom: -20px !important;
-      }
-
-      .rpv-core__inner-page {
-        margin: 0 auto !important;
-        padding-bottom: 0 !important;
-      }
-    }
-
-    @media (max-width: 375px) {
-      .rpv-core__viewer {
-        height: 60vh !important;
-      }
-    }
-
-    .rpv-core__viewer-zone,
-    .rpv-core__inner-pages {
-      height: 100% !important;
-    }
-
-    .rpv-core__inner-container,
-    .rpv-core__viewer-zone {
-      min-width: unset !important;
-      width: 100% !important;
-    }
-
-    .rpv-core__inner-pages {
-      padding-bottom: 0 !important;
-      margin-bottom: 0 !important;
-    }
-  `;
 
   if (!mounted) {
     return (
       <div className="flex justify-center items-center h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+        <Spinner size="lg" />
       </div>
     );
   }
 
   return (
-    <>
-      <style jsx global>{globalStyles}</style>
+    <div 
+      id="pdf-container"
+      className={`w-full rounded-xl overflow-hidden border ${
+        isDarkMode 
+          ? 'bg-[#1A1A1A] border-[#2a2a2a]' 
+          : 'bg-white border-gray-200 shadow-lg'
+      }`}
+      role="document"
+      aria-label="CV PDF Viewer"
+    >
+      {/* Toolbar */}
+      <div className={`flex items-center justify-between px-4 py-3 border-b ${
+        isDarkMode 
+          ? 'bg-[#1E1E1E] border-[#2a2a2a]' 
+          : 'bg-gray-50 border-gray-200'
+      }`}>
+        {/* Navigation */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={goToPrevPage}
+            disabled={pageNumber <= 1}
+            className={`p-2 rounded-lg transition-colors ${
+              pageNumber <= 1 
+                ? 'opacity-50 cursor-not-allowed' 
+                : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
+            } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+            aria-label="Page précédente"
+          >
+            <FiChevronLeft className="w-5 h-5" />
+          </button>
+          
+          <span className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            {pageNumber} / {numPages || '-'}
+          </span>
+          
+          <button
+            onClick={goToNextPage}
+            disabled={pageNumber >= (numPages || 1)}
+            className={`p-2 rounded-lg transition-colors ${
+              pageNumber >= (numPages || 1)
+                ? 'opacity-50 cursor-not-allowed' 
+                : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
+            } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+            aria-label="Page suivante"
+          >
+            <FiChevronRight className="w-5 h-5" />
+          </button>
+        </div>
 
+        {/* Zoom controls */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={zoomOut}
+            disabled={scale <= 0.4}
+            className={`p-2 rounded-lg transition-colors ${
+              scale <= 0.4 
+                ? 'opacity-50 cursor-not-allowed' 
+                : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
+            } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+            aria-label="Zoom arrière"
+          >
+            <FiZoomOut className="w-5 h-5" />
+          </button>
+          
+          <span className={`text-sm font-medium min-w-[50px] text-center ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            {Math.round(scale * 100)}%
+          </span>
+          
+          <button
+            onClick={zoomIn}
+            disabled={scale >= 2.5}
+            className={`p-2 rounded-lg transition-colors ${
+              scale >= 2.5
+                ? 'opacity-50 cursor-not-allowed' 
+                : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
+            } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+            aria-label="Zoom avant"
+          >
+            <FiZoomIn className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Download */}
+        <button
+          onClick={handleDownload}
+          className="flex items-center gap-2 px-3 py-2 rounded-lg transition-colors bg-blue-600 hover:bg-blue-700 text-white"
+          aria-label="Télécharger le CV"
+        >
+          <FiDownload className="w-4 h-4" />
+          <span className="text-sm font-medium hidden sm:inline">Télécharger</span>
+        </button>
+      </div>
+
+      {/* PDF Content - Hauteur adaptive selon le contenu */}
       <div 
-        className={`w-full rounded-lg overflow-hidden ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'}`}
-        role="document"
-        aria-label="CV PDF Viewer"
+        className={`relative overflow-auto ${isDarkMode ? 'bg-[#252525]' : 'bg-gray-100'}`}
       >
         {isLoading && (
-          <div className="flex justify-center items-center h-[50vh]" role="alert" aria-label="Loading PDF">
+          <div className="absolute inset-0 flex justify-center items-center z-10 min-h-[300px]" role="alert" aria-label="Loading PDF">
             <LoadingSkeleton variant="rect" className="w-full h-full absolute" />
             <Spinner size="lg" />
           </div>
@@ -192,32 +179,64 @@ const PDFviewerComponent = () => {
 
         {error && (
           <div 
-            className="text-red-500 text-center py-4 bg-red-100 dark:bg-red-900/20 rounded-lg mx-4 my-2"
+            className="flex items-center justify-center min-h-[300px]"
             role="alert"
             aria-live="polite"
           >
-            <p>Une erreur est survenue lors du chargement du CV.</p>
-            <button 
-              onClick={() => window.location.reload()}
-              className="mt-2 text-sm underline hover:text-red-600 dark:hover:text-red-400"
-            >
-              Cliquez ici pour réessayer
-            </button>
+            <div className={`text-center py-4 rounded-lg px-6 ${isDarkMode ? 'bg-red-900/30 text-red-400' : 'bg-red-100 text-red-500'}`}>
+              <p className="font-medium">Une erreur est survenue lors du chargement du CV.</p>
+              <button 
+                onClick={() => window.location.reload()}
+                className="mt-3 text-sm underline hover:opacity-80"
+              >
+                Cliquez ici pour réessayer
+              </button>
+            </div>
           </div>
         )}
 
-        <PDFWorker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js">
-          <PDFViewer
-            fileUrl="/CV.pdf"
-            theme={currentTheme()}
-            defaultScale={scale}
-            plugins={[defaultLayoutPluginInstance]}
-            onDocumentLoad={() => setIsLoading(false)}
-            onError={handleError}
-          />
-        </PDFWorker>
+        <div className="flex justify-center py-4 sm:py-6">
+          <Document
+            file="/CV.pdf"
+            onLoadSuccess={onDocumentLoadSuccess}
+            onLoadError={onDocumentLoadError}
+            loading={null}
+            className="flex justify-center"
+          >
+            <Page
+              pageNumber={pageNumber}
+              scale={scale}
+              renderTextLayer={true}
+              renderAnnotationLayer={true}
+              className="shadow-2xl rounded-sm"
+              loading={null}
+            />
+          </Document>
+        </div>
       </div>
-    </>
+
+      {/* Mobile page indicator */}
+      {numPages && numPages > 1 && (
+        <div className={`sm:hidden flex justify-center py-2 border-t ${
+          isDarkMode ? 'bg-[#1E1E1E] border-[#2a2a2a]' : 'bg-gray-50 border-gray-200'
+        }`}>
+          <div className="flex gap-1">
+            {Array.from({ length: numPages }, (_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => setPageNumber(i + 1)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  pageNumber === i + 1
+                    ? 'bg-blue-500'
+                    : isDarkMode ? 'bg-gray-600' : 'bg-gray-300'
+                }`}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

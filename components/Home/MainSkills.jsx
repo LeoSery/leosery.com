@@ -79,6 +79,7 @@ function SkillCard({ image, name }) {
             src={image}
             alt={name}
             fill
+            sizes="168px"
             className={`object-contain transition-transform duration-200 group-hover:scale-110 ${
               iconLoaded ? 'opacity-100' : 'opacity-0'
             }`}

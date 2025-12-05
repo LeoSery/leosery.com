@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Pages principales -->
+
   <url>
     <loc>https://leosery.com/</loc>
     <lastmod>2025-04-09</lastmod>
@@ -9,13 +9,13 @@
   </url>
   <url>
     <loc>https://leosery.com/cv</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25,7 +25,12 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Pages de projets individuels -->
+  <url>
+    <loc>https://www.leosery.com/projects/frog-this-way</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://leosery.com/projects/collection-aide-soignante</loc>
     <lastmod>2025-01-27</lastmod>

@@ -3,20 +3,10 @@ import dynamic from 'next/dynamic';
 import React from "react";
 
 const PDFviewer = dynamic(
-  () => {
-    return import('../components/PDF/PDFviewer').then((mod) => {
-      return mod.default;
-    }).catch((err) => {
-      console.error('=== Dynamic import FAILED ===', err);
-      throw err;
-    });
-  },
+  () => import('../components/PDF/PDFviewer'),
   { 
     ssr: false,
-    loading: () => {
-      console.log('=== Loading fallback rendering ===');
-      return <div className="text-white p-4">Loading PDF viewer...</div>;
-    }
+    loading: () => <div className="text-white p-4">Loading PDF viewer...</div>
   }
 );
 
@@ -29,7 +19,7 @@ export default function CV() {
         keywords="CV, Resume, Game Development"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />
-      <div className="flex-1 w-full dark:bg-[#121212] min-h-screen">
+      <div className="flex-1 w-full dark:bg-[#121212]">
         <div className="max-w-6xl mx-auto px-2 sm:px-4 py-4">
           <div className="mb-4">
             <h1 className="text-[#ff9f1c] text-xl sm:text-2xl font-bold tracking-wide">

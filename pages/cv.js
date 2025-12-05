@@ -1,14 +1,32 @@
-import PDFviewerComponent from "../components/PDF/PDFviewer";
 import SEO from '../components/Common/SEO';
+import dynamic from 'next/dynamic';
 import React from "react";
+
+const PDFviewer = dynamic(
+  () => {
+    return import('../components/PDF/PDFviewer').then((mod) => {
+      return mod.default;
+    }).catch((err) => {
+      console.error('=== Dynamic import FAILED ===', err);
+      throw err;
+    });
+  },
+  { 
+    ssr: false,
+    loading: () => {
+      console.log('=== Loading fallback rendering ===');
+      return <div className="text-white p-4">Loading PDF viewer...</div>;
+    }
+  }
+);
 
 export default function CV() {
   return (
     <>
       <SEO
         title="Curriculum Vitae"
-        description="Explore Léo Séry's professional journey in game development. View my education, skills, and experience with Unity3D, Unreal Engine, and game programming."
-        keywords="CV, Resume, Game Development, Unity Developer, Unreal Engine Developer, C++, C#, Game Programming Skills"
+        description="Explore Léo Séry's professional journey in game development."
+        keywords="CV, Resume, Game Development"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />
       <div className="flex-1 w-full dark:bg-[#121212] min-h-screen">
@@ -21,7 +39,7 @@ export default function CV() {
               My professional experience and education history
             </p>
           </div>
-          <PDFviewerComponent />
+            <PDFviewer />
         </div>
       </div>
     </>

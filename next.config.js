@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   reactStrictMode: true,
+
+  transpilePackages: ['react-pdf', 'pdfjs-dist'],
 
   async redirects() {
     return [
@@ -36,6 +40,21 @@ const nextConfig = {
         ],
       },
     ]
+  },
+
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    config.resolve.alias.encoding = false;
+
+    config.resolve.alias['pdfjs-dist'] = path.join(__dirname, 'node_modules/pdfjs-dist/build/pdf.min.mjs');
+
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
+
+    return config;
   },
 }
 

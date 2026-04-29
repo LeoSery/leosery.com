@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
               Recent Work
             </h2>
             <p className="text-sm text-gray-600 dark:text-[#B1AAA0]">
-              My latest game development projects
+              My latest software and game development projects
             </p>
           </div>
 

@@ -55,7 +55,7 @@ const Contact = () => {
             Let&apos;s Connect
           </h1>
           <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] max-w-[600px] sm:max-w-[700px]">
-            I&apos;m currently looking for new opportunities in game development.
+            I&apos;m currently looking for new opportunities in C++, Engine and Tools programming.
             <br className="hidden sm:block" />
             Whether you have a question, I&apos;ll try my best to get back to you!
           </p>
@@ -71,7 +71,7 @@ const Contact = () => {
                   Léo Séry
                 </h2>
                 <p className="text-gray-600 dark:text-[#B1AAA0] mb-3">
-                  Junior Game Programmer
+                  Junior C++ Developper - Engine & Tools Programmer
                 </p>
                 <div className="flex items-center text-gray-600 dark:text-[#B1AAA0] text-sm">
                   <HiLocationMarker className="mr-2 text-[#ff9f1c]" />

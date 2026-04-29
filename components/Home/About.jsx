@@ -19,10 +19,7 @@ export default function About() {
               Who I Am
             </h2>
             <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] text-justify leading-relaxed max-w-[90ch]">
-              Immersed in the video game universe from an early age thanks to a family environment connected to the industry, I 
-              naturally directed my path towards development. Recently graduated as valedictorian from Ynov Campus Bordeaux with 
-              a Master&apos;s degree in game programming, I develop in C++ and C# with Unity3D and Unreal Engine 5. Engine programming 
-              and tools development are the game programming fields that particularly appeal to me and where I aim to work professionally.
+              Immersed in the video game universe from an early age thanks to a family environment connected to the industry, I naturally directed my path towards development. Recently graduated as valedictorian from Ynov Campus Bordeaux with a Master&apos;s degree in game programming, I work mainly in C++. Low-level programming, optimization and performance-oriented work are the areas that particularly motivate me, whether applied to real-time software, simulation or high-performance systems. Within the game industry, this points me towards engine and tools programming, where I aim to work professionally.
             </p>
           </div>
         </div>

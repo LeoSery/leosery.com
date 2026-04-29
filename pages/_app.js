@@ -30,9 +30,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <SEO
-        title="Game Programming Portfolio"
-        description="Game programming portfolio of Léo Séry, showcasing projects in Unity3D, Unreal Engine, and game engine development."
-        keywords="Game Programming, Game Development, Unity3D, Unreal Engine, Portfolio, Léo Séry"
+        title="Junior C++ Developer - Engine & Tools Programmer Portfolio"
+        description="Portfolio of Léo Séry, showcasing projects in C++, Unity3D, Unreal Engine, Game Engine & Tools Programming"
+        keywords="C++ Developer, Engine Programming, Tools Development, Game Programming, Unity3D, Unreal Engine, Low-level, Portfolio, Léo Séry"
       >
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

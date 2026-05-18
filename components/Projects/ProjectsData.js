@@ -2,7 +2,76 @@ import { ProjectTypes } from "../../utils/ProjectTypes";
 import { ProjectRoles } from "../../utils/ProjectRoles";
 import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
-export const projectsData = [
+export const projectsData = [  
+  {
+    Id: 26,
+    Title: "C++ Vulkan Renderer",
+    Type: ProjectTypes.PERSONAL,
+    Period: {
+      start: "2026-03",
+      end: "2026-05"
+    },
+    Technologies: ["C++", "Vulkan", "VMA", "VkBootstrap", "GLFW", "GLM", "SPIRV-Reflect", "ImGui"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [],
+    Keywords: [
+      "C++",
+      "Vulkan",
+      "graphics programming",
+      "renderer",
+      "Blinn-Phong",
+      "OBJ loader",
+      "low-level",
+      "game engine",
+      "3D"
+    ],
+    Description: "This project is a Vulkan renderer written in C++ from scratch, built to understand how a graphics pipeline works at the GPU level. It implements OBJ mesh loading, texture mapping with mipmaps, Blinn-Phong shading with up to 8 simultaneous lights, a free-fly FPS camera, and a real-time ImGui debug interface.\n\nIt uses Vulkan 1.3 modern features including dynamic rendering and descriptor indexing, with VMA for GPU memory management and SPIRV-Reflect for automatic shader introspection. The architecture is built around a strict Pimpl pattern and a CommandEncoder RAII wrapper that keeps Vulkan internals hidden from the rest of the codebase, with the goal of understanding how game engines abstract low-level GPU work.",
+    CardImage: "/assets/images/projects/CppVulkanRenderer.webp",
+    BannerImage: "/assets/images/projects/CppVulkanRenderer.webp",
+    Url: "/projects/cpp-vulkan-renderer",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/VulkanRenderer--CPP-2026",
+        showReadme: true
+      }
+    ],
+    PDFDocuments: []
+  },
+  {
+    Id: 25,
+    Title: "C++ Animation System",
+    Type: ProjectTypes.PERSONAL,
+    Period: {
+      start: "2026-01",
+      end: "2026-02"
+    },
+    Technologies: ["C++"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [],
+    Keywords: [
+      "C++",
+      "animation",
+      "state machine",
+      "blend tree",
+      "skeletal hierarchy",
+      "pose blending",
+      "IK solver",
+      "data-oriented design"
+    ],
+    Description: "This project is a C++ implementation of core animation systems commonly found in game engines, built entirely from scratch without external libraries. It covers a state machine, a 1D blend tree, a skeleton hierarchy using a Structure of Arrays layout, a pose blending system with weight normalization, and a two-bone IK solver using the law of cosines.\n\nAll math primitives (Vector3, Quaternion, Matrix4x4, Transform) are implemented manually, and each system is covered by a dedicated test suite.",
+    CardImage: "/assets/images/projects/simpleCppAnimationSystem.webp",
+    BannerImage: "/assets/images/projects/simpleCppAnimationSystem.webp",
+    Url: "/projects/simple-cpp-animation-system",
+    Actions: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/LeoSery/Simple-Cpp-Animation-System",
+        showReadme: true
+      }
+    ],
+    PDFDocuments: []
+  },
   {
     Id: 24,
     Title: "Frog This Way",

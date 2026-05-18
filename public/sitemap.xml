@@ -3,19 +3,19 @@
 
   <url>
     <loc>https://leosery.com/</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://leosery.com/cv</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://leosery.com/projects</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -26,6 +26,18 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://leosery.com/projects/cpp-vulkan-renderer</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leosery.com/projects/simple-cpp-animation-system</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://www.leosery.com/projects/frog-this-way</loc>
     <lastmod>2025-11-30</lastmod>

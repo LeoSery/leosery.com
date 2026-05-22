@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const SEO = ({ 
   title,
@@ -8,9 +9,13 @@ const SEO = ({
   ogType = 'website',
   children 
 }) => {
+  const router = useRouter();
   const fullTitle = title ? `Léo Séry - ${title}` : 'Léo Séry - Game Programming Portfolio';
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.leosery.com';
+
+  const cleanPath = router.asPath.split('#')[0].split('?')[0];
+  const canonicalUrl = `${baseUrl}${cleanPath === '/' ? '' : cleanPath}`;
   
   return (
     <Head>
@@ -39,7 +44,7 @@ const SEO = ({
       <link rel="icon" href="/favicon.ico" />
       
       {/* Canonical URL */}
-      <link rel="canonical" href={baseUrl} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {children}
     </Head>

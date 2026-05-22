@@ -434,3 +434,12 @@ html {
   vertical-align: middle;
   box-shadow: none;
 }
+
+.github-readme h1,
+.github-readme h2,
+.github-readme h3,
+.github-readme h4,
+.github-readme h5,
+.github-readme h6 {
+  scroll-margin-top: calc(var(--navbar-height, 80px) + 16px);
+}

@@ -16,6 +16,22 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
+  const getTextContent = (node) => {
+  if (typeof node === 'string') return node;
+  if (Array.isArray(node)) return node.map(getTextContent).join('');
+  if (node?.props?.children) return getTextContent(node.props.children);
+  return '';
+  };
+
+  const slugify = (children) =>
+  getTextContent(children)
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -245,18 +261,33 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
           return <code {...props}>{children}</code>;
         },
         
+        h1: ({ children }) => <h1 id={slugify(children)}>{children}</h1>,
+        h2: ({ children }) => <h2 id={slugify(children)}>{children}</h2>,
+        h3: ({ children }) => <h3 id={slugify(children)}>{children}</h3>,
+        h4: ({ children }) => <h4 id={slugify(children)}>{children}</h4>,
+        h5: ({ children }) => <h5 id={slugify(children)}>{children}</h5>,
+        h6: ({ children }) => <h6 id={slugify(children)}>{children}</h6>,
+
         a({ node, children, href, ...props }) {
-          return (
-            <a 
-              href={href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              {...props}
-            >
-              {children}
-            </a>
-          );
+        if (href?.startsWith('#')) {
+          const handleClick = (e) => {
+            e.preventDefault();
+            const element = document.getElementById(href.slice(1));
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          };
+          return <a href={href} onClick={handleClick} {...props}>{children}</a>;
         }
+        if (href?.startsWith('/')) {
+          return <a href={href} {...props}>{children}</a>;
+        }
+        return (
+          <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+            {children}
+          </a>
+        );
+      }
       }}
     >
       {content}

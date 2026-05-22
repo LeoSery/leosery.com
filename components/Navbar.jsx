@@ -19,6 +19,8 @@ export default function Navbar() {
   const { isDark, setIsDark } = useContext(ThemeContext);
   const [profileLoaded, setProfileLoaded] = useState(false);
 
+  const navbarRef = useRef(null);
+
   const navRefs = useRef({
     '/': React.createRef(),
     '/cv': React.createRef(),
@@ -46,6 +48,21 @@ export default function Navbar() {
       });
     }
   }, [router.pathname]);
+
+  useEffect(() => {
+    const navbar = navbarRef.current;
+    if (!navbar) return;
+
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.setProperty(
+        '--navbar-height',
+        `${navbar.offsetHeight}px`
+      );
+    });
+
+    observer.observe(navbar);
+    return () => observer.disconnect();
+  }, []);
 
   const renderThemeChanger = () => {
     if (!mounted) return null;
@@ -146,7 +163,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="shadow-md sticky top-0 w-full min-w-[320px] z-50 bg-gray-50 dark:bg-[#212121] border-b border-gray-200 dark:border-gray-800">
+    <nav ref={navbarRef} className="shadow-md sticky top-0 w-full min-w-[320px] z-50 bg-gray-50 dark:bg-[#212121] border-b border-gray-200 dark:border-gray-800">
       <div className="w-full">
         <div className="flex items-center h-20 w-full">
           {/* Desktop version */}

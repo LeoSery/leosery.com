@@ -1,6 +1,6 @@
 import React from 'react';
 
-const KeywordsSection = ({ keywords = [], size = "single" }) => {
+const KeywordsSection = ({ keywords = [], size = "single", id }) => {
   const sizeClasses = {
     single: "",
     double: "md:col-span-2"
@@ -12,6 +12,7 @@ const KeywordsSection = ({ keywords = [], size = "single" }) => {
 
   return (
     <section 
+      id={id}
       aria-label="Project keywords" 
       className={`bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6 ${sizeClasses[size]}`}
     >

@@ -8,7 +8,8 @@ const TeamSection = ({
   onCollaboratorClick,
   projectTitle,
   size = "single",
-  membersLimit = 6 
+  membersLimit = 6,
+  id
 }) => {
   const [showAllMembers, setShowAllMembers] = useState(false);
   
@@ -39,6 +40,7 @@ const TeamSection = ({
 
   return (
     <section 
+      id={id}
       aria-label="Project team" 
       className={`bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6 ${sizeClasses[size]}`}
     >

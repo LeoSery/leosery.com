@@ -14,7 +14,7 @@ import {
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
-const ProjectLinksSection = ({ actions = [], onActionClick, projectTitle, size = "single" }) => {
+const ProjectLinksSection = ({ actions = [], onActionClick, projectTitle, size = "single", id }) => {
   const platform = usePlatform();
   
   const sizeClasses = {
@@ -122,6 +122,7 @@ const ProjectLinksSection = ({ actions = [], onActionClick, projectTitle, size =
 
   return (
     <section 
+      id={id}
       aria-label="Project links" 
       className={`bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6 ${sizeClasses[size]}`}
     >

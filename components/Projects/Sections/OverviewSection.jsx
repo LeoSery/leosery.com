@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OverviewSection = ({ description, references = [], size = "double" }) => {
+const OverviewSection = ({ description, references = [], size = "double", id }) => {
   const sizeClasses = {
     single: "",
     double: "md:col-span-2"
@@ -39,6 +39,7 @@ const OverviewSection = ({ description, references = [], size = "double" }) => {
 
   return (
     <section 
+      id={id}
       aria-label="Project overview" 
       className={`bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-4 md:p-6 ${sizeClasses[size]}`}
     >

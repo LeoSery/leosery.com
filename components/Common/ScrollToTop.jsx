@@ -40,26 +40,31 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg
-                 bg-blue-600 dark:bg-blue-800 text-white
-                 transition-all duration-300 ease-in-out transform
-                 hover:bg-[#ff9f1c] dark:hover:bg-[#ff9f1c]
-                 hover:scale-110 
-                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-                 active:scale-95
-                 disabled:opacity-0 disabled:translate-y-20 disabled:cursor-default
-                 z-50
-                 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}
+      className={`fixed bottom-6 right-6 p-3 rounded-full shadow-md
+           group flex items-center
+           bg-gray-50 dark:bg-[#212121]
+           border border-gray-200 dark:border-gray-800
+           text-gray-700 dark:text-[#CAC5BE]
+           hover:text-[#ff9f1c] dark:hover:text-[#ff9f1c]
+           hover:border-[#ff9f1c] dark:hover:border-[#ff9f1c]
+           transition-all duration-300 ease-in-out
+           hover:scale-105 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-[#ff9f1c]/30
+           disabled:opacity-0 disabled:translate-y-20 disabled:cursor-default
+           z-50
+           ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}
       aria-label="Retourner en haut de la page"
       title="Retourner en haut de la page"
       disabled={!isVisible}
       tabIndex={isVisible ? 0 : -1}
     >
-      <IoIosArrowUp 
-        className={`text-2xl transform transition-transform 
-                   group-hover:animate-bounce`}
-        aria-hidden="true"
-      />
+      <span className="max-w-0 overflow-hidden whitespace-nowrap
+                 group-hover:max-w-[100px]
+                 transition-all duration-300 ease-in-out
+                 text-sm font-medium normal-case mr-0 group-hover:mr-2">
+        Back to top
+      </span>
+      <IoIosArrowUp className="text-2xl flex-shrink-0" aria-hidden="true" />
     </button>
   );
 };

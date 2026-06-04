@@ -36,7 +36,11 @@ export const projectsData = [
         showReadme: true
       }
     ],
-    PDFDocuments: []
+    PDFDocuments: [],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=XLhzgoPBucs",
+      duration: "PT1M25S"
+    }
   },
   {
     Id: 25,
@@ -127,7 +131,11 @@ export const projectsData = [
         url: "https://rock-salad.itch.io/frog-this-way"
       }
     ],
-    PDFDocuments: []
+    PDFDocuments: [],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=Lmxq5ltQMNU",
+      duration: "PT38S"
+    }
   },
   {
       Id: 23,
@@ -427,19 +435,23 @@ export const projectsData = [
       }
     ],
     PDFDocuments: [
-    {
-      title: "Final thesis - Designing and developing software applications",
-      filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_2_Léo_Séry.pdf",
-      description: "Thesis for my Level 7 RNCP qualification on how we designed the Oakfolks project, our master's degree final project.",
-      visible: false
-    },
-    {
-      title: "final thesis - Keeping the software application in operational condition",
-      filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_4_Léo_Séry.pdf",
-      description: "Thesis for my Level 7 RNCP qualification on how we managed and maintained our master's degree final project.",
-      visible: false
+      {
+        title: "Final thesis - Designing and developing software applications",
+        filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_2_Léo_Séry.pdf",
+        description: "Thesis for my Level 7 RNCP qualification on how we designed the Oakfolks project, our master's degree final project.",
+        visible: false
+      },
+      {
+        title: "final thesis - Keeping the software application in operational condition",
+        filename: "/assets/documents/projects/oakfolks/Rapport_RNCP_Bloc_4_Léo_Séry.pdf",
+        description: "Thesis for my Level 7 RNCP qualification on how we managed and maintained our master's degree final project.",
+        visible: false
+      }
+    ],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=LA6W9b5rAzs",
+      duration: "PT1M12S"
     }
-  ]
   },
   {
     Id: 20,
@@ -484,7 +496,11 @@ export const projectsData = [
         label: "Reference Paper",
         url: "https://www.red3d.com/cwr/steer/gdc99/"
       }
-    ]
+    ],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=spN3RhSOoaM",
+      duration: "PT45S"
+    }
   },
   {
     Id: 19,
@@ -597,7 +613,11 @@ export const projectsData = [
         label: "Download",
         url: "https://github.com/LeoSery/ProceduralTerrainGeneration--UnrealEngine5-2024/releases/download/V1.0/v1.0_win64.zip"
       }
-    ]
+    ],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=hvdo4ZJvnaU",
+      duration: "PT1M"
+    }
   },
   {
     Id: 16,
@@ -712,7 +732,11 @@ export const projectsData = [
         label: "View engine documentation",
         url: "https://leosery.github.io/FrostEngine--OpenGL-2024/"
       }
-    ]
+    ],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=WpAVgjs9y-8",
+      duration: "PT45S"
+    }
   },
   {
     Id: 14,
@@ -747,7 +771,11 @@ export const projectsData = [
         label: "Download",
         url: "https://github.com/LeoSery/Conway-s-Game-of-Life-3D--Unity6-2024/releases/download/v1.30/GameOfLife3D_v1.30_win64.zip"
       }
-    ]
+    ],
+    Youtube: {
+      url: "https://www.youtube.com/watch?v=NDbSMsvU6YI",
+      duration: "PT1M53S"
+    }
   },
   {
     Id: 13,

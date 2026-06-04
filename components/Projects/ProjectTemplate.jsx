@@ -11,8 +11,10 @@ import KeywordsSection from './Sections/KeywordsSection';
 import TeamSection from './Sections/TeamSection';
 import PDFDocumentsSection from './Sections/FileSection';
 import PDFModal from '../Common/PDFViewer';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { formatDate } from '../../utils/dateHelpers';
+import YoutubeSection from './Sections/YoutubeSection';
+import TableOfContents from './TableOfContents';
 
 const ProjectTemplate = ({ project }) => {
   const {
@@ -25,11 +27,16 @@ const ProjectTemplate = ({ project }) => {
     MyRoles,
     Collaborators = [],
     Keywords = [],
-    PDFDocuments  = []
+    PDFDocuments  = [],
+    Youtube,
   } = project;
 
   const [pdfModalData, setPdfModalData] = useState(null);
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+  const [readmeHeadings, setReadmeHeadings] = useState(null);
+  const handleHeadingsParsed = useCallback((headings) => {
+    setReadmeHeadings(headings);
+  }, []);
 
   const handlePDFClick = (pdfTitle, pdfData) => {
     setPdfModalData({
@@ -121,6 +128,13 @@ const ProjectTemplate = ({ project }) => {
   const teamSize = Collaborators.length + 1;
   const metaDescription = Description.length > 155 ? Description.slice(0, 152) + '...' : Description;
 
+  const tocSections = [
+    { id: 'project-overview', label: 'Overview' },
+    PDFDocuments.filter(d => d.visible !== false).length > 0 && { id: 'project-files', label: 'Files' },
+    Youtube?.url && { id: 'project-video', label: 'Video' },
+    repoInfo && { id: 'project-readme', label: 'Readme' },
+  ].filter(Boolean);
+
   return (
     <>
       <Head>
@@ -141,9 +155,40 @@ const ProjectTemplate = ({ project }) => {
         <meta name="twitter:image" content={BannerImage} />
       </Head>
 
+      <Link
+        href="/projects"
+        className="fixed z-50 group flex items-center shadow-md
+           bg-gray-50 dark:bg-[#212121]
+           border border-gray-200 dark:border-gray-800
+           text-gray-700 dark:text-[#CAC5BE]
+           hover:text-[#ff9f1c] dark:hover:text-[#ff9f1c]
+           hover:border-[#ff9f1c] dark:hover:border-[#ff9f1c]
+           hover:scale-105 active:scale-95
+           rounded-full p-3
+           transition-all duration-300 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-[#ff9f1c]/30"
+        style={{ top: 'calc(var(--navbar-height, 80px) + 8px)', left: '16px' }}
+        aria-label="Return to projects list"
+        title="Back to projects"
+      >
+        <IoArrowBack className="text-2xl flex-shrink-0" aria-hidden="true" />
+        <span className="max-w-0 overflow-hidden whitespace-nowrap
+                        group-hover:max-w-[120px]
+                        transition-all duration-300 ease-in-out
+                        text-sm font-medium ml-0 group-hover:ml-2">
+          Back to projects
+        </span>
+    </Link>
+
+    <TableOfContents
+      sections={tocSections}
+      readmeHeadings={readmeHeadings}
+      className="hidden min-[1640px]:block"
+    />
+
       <article className="w-full pb-16">
         {/* Hero Section */}
-        <header className="relative w-full h-[45vh] rounded-b-xl overflow-hidden">
+        <header id="project-info" className="relative w-full h-[45vh] rounded-b-xl overflow-hidden">
           <Image
             src={BannerImage}
             alt={`${Title} - Project Banner`}
@@ -154,24 +199,14 @@ const ProjectTemplate = ({ project }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30" />
           
-          {/* Contenu Hero */}
           <div className="absolute inset-0 flex flex-col justify-center">
-            <div className="max-w-[1240px] mx-auto px-4 w-full">
-              <Link 
-                href="/projects"
-                className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white 
-                         transition-colors mb-6"
-                aria-label="Return to projects list"
-              >
-                <IoArrowBack aria-hidden="true" />
-                <span>Back to projects</span>
-              </Link>
-              <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{Title}</h1>
-              <p className="text-sm text-white/80">
-                {formatDate(Period.start)} - {Period.end ? formatDate(Period.end) : 'Present'}
-              </p>
-            </div>
+          <div className="max-w-[1240px] mx-auto px-4 w-full">
+            <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{Title}</h1>
+            <p className="text-sm text-white/80">
+              {formatDate(Period.start)} - {Period.end ? formatDate(Period.end) : 'Present'}
+            </p>
           </div>
+        </div>
         </header>
 
         {/* Main Content */}
@@ -193,6 +228,7 @@ const ProjectTemplate = ({ project }) => {
           {/* Sections Grid Layout */}
           <div className="space-y-6">
             <OverviewSection 
+              id="project-overview"
               description={Description}
               references={project.References}
               size="double"
@@ -202,6 +238,7 @@ const ProjectTemplate = ({ project }) => {
               <>
                 <div className="grid md:grid-cols-2 gap-6">
                   <ProjectLinksSection 
+                    id="project-links"
                     actions={Actions}
                     onActionClick={handleActionClick}
                     projectTitle={Title}
@@ -209,12 +246,14 @@ const ProjectTemplate = ({ project }) => {
                   />
                   
                   <KeywordsSection 
+                    id="project-keywords"
                     keywords={Keywords}
                     size="single"
                   />
                 </div>
 
                 <PDFDocumentsSection 
+                  id="project-files"
                   pdfDocuments={PDFDocuments}
                   onPDFClick={handlePDFClick}
                   projectTitle={Title}
@@ -222,6 +261,7 @@ const ProjectTemplate = ({ project }) => {
                 />
 
                 <TeamSection 
+                  id="project-team"
                   myRoles={MyRoles}
                   collaborators={Collaborators}
                   onCollaboratorClick={handleCollaboratorClick}
@@ -233,6 +273,7 @@ const ProjectTemplate = ({ project }) => {
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <ProjectLinksSection 
+                  id="project-links"
                   actions={Actions}
                   onActionClick={handleActionClick}
                   projectTitle={Title}
@@ -240,11 +281,13 @@ const ProjectTemplate = ({ project }) => {
                 />
                 
                 <KeywordsSection 
+                  id="project-keywords"
                   keywords={Keywords}
                   size="single"
                 />
 
                 <PDFDocumentsSection 
+                  id="project-files"
                   pdfDocuments={PDFDocuments}
                   onPDFClick={handlePDFClick}
                   projectTitle={Title}
@@ -252,6 +295,7 @@ const ProjectTemplate = ({ project }) => {
                 />
 
                 <TeamSection 
+                  id="project-team"
                   myRoles={MyRoles}
                   collaborators={Collaborators}
                   onCollaboratorClick={handleCollaboratorClick}
@@ -261,17 +305,29 @@ const ProjectTemplate = ({ project }) => {
                 />
               </div>
             )}
+
+          {Youtube?.url && (
+            <YoutubeSection
+              youtubeVideo={Youtube?.url}
+              title={`${Title} - demo video`}
+              uploadDate={Period.end || Period.start}
+              description={Description}
+              duration={Youtube?.duration}
+              size="double"
+            />
+          )}
           </div>
 
-          {/* GitHub README*/}
+          {/* GitHub README */}
           {repoInfo && (
-            <section className="mt-8 bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow py-2 px-0 md:p-6">
+            <section id="project-readme" className="mt-8 bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow py-2 px-0 md:p-6">
               <h2 className="text-lg font-bold text-gray-700 dark:text-white mb-4 px-2">
                 Project README
               </h2>
               <GitHubReadme 
                 username={repoInfo.username} 
                 repo={repoInfo.repo}
+                onHeadingsParsed={handleHeadingsParsed}
               />
             </section>
           )}

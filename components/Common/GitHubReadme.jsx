@@ -8,29 +8,27 @@ import LoadingSkeleton from './LoadingSkeleton';
 import Spinner from './Spinner';
 import { useTheme } from 'next-themes';
 import { FaGithub } from 'react-icons/fa';
+import { slugify, getTextContent } from '../../utils/slugify';
 
-const GitHubReadme = ({ username, repo, branch = 'main' }) => {
+const GitHubReadme = ({ username, repo, branch = 'main', onHeadingsParsed }) => {
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { theme, resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
-  const getTextContent = (node) => {
-  if (typeof node === 'string') return node;
-  if (Array.isArray(node)) return node.map(getTextContent).join('');
-  if (node?.props?.children) return getTextContent(node.props.children);
-  return '';
-  };
-
-  const slugify = (children) =>
-  getTextContent(children)
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  const extractH2Headings = useCallback((markdownText) => {
+  const headings = [];
+  const noFences = markdownText.replace(/```[\s\S]*?```/g, '');
+  noFences.split('\n').forEach(line => {
+      const match = line.match(/^##\s+(.+)$/);
+      if (match) {
+        const text = match[1].trim();
+        headings.push({ id: slugify(text), text: text.replace(/[*_`]/g, '').replace(/:$/, '').trim() });
+      }
+    });
+    return headings;
+  }, []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -78,6 +76,26 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
     }
   }, [isLocalStorageAvailable]);
 
+  const saveHeadingsToCache = useCallback((key, headings) => {
+    if (!isLocalStorageAvailable()) return;
+    try {
+      localStorage.setItem(`${key}-h2`, JSON.stringify({ headings, timestamp: Date.now() }));
+    } catch (e) { /* quota */ }
+  }, [isLocalStorageAvailable]);
+
+  const getHeadingsFromCache = useCallback((key) => {
+    if (!isLocalStorageAvailable()) return null;
+    try {
+      const data = localStorage.getItem(`${key}-h2`);
+      if (!data) return null;
+      const { headings, timestamp } = JSON.parse(data);
+      if (Date.now() - timestamp < 86400000) return headings;
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }, [isLocalStorageAvailable]);
+
   const preprocessMarkdown = useCallback((markdown) => {
     let processed = markdown.replace(
       /!\[(.*?)\]\((?!http|https:\/\/)(.*?)\)/g,
@@ -119,10 +137,14 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
       }
       
       const cacheKey = `github-readme-${username}-${repo}-${branch}`;
-      const cachedContent = getFromCache(cacheKey);
       
+      const cachedContent = getFromCache(cacheKey);
       if (cachedContent) {
         setContent(cachedContent);
+        if (onHeadingsParsed) {
+          const cachedH = getHeadingsFromCache(cacheKey);
+          onHeadingsParsed(cachedH || extractH2Headings(cachedContent));
+        }
         setIsLoading(false);
         return;
       }
@@ -176,11 +198,15 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
         }
         
         const text = await readmeResponse.text();
+        const headings = extractH2Headings(text);
         const processedContent = preprocessMarkdown(text);
         setContent(processedContent);
+
+        if (onHeadingsParsed) onHeadingsParsed(headings);
         
         const cacheKey = `github-readme-${username}-${repo}-${currentBranch}`;
         saveToCache(cacheKey, processedContent);
+        saveHeadingsToCache(cacheKey, headings);
         
         setIsLoading(false);
         return true;
@@ -191,7 +217,7 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
 
     setIsLoading(true);
     fetchReadme();
-  }, [username, repo, branch, getFromCache, preprocessMarkdown, saveToCache]);
+  }, [username, repo, branch, getFromCache, preprocessMarkdown, saveToCache, extractH2Headings, onHeadingsParsed, getHeadingsFromCache, saveHeadingsToCache]);
 
   if (isLoading) {
     return (
@@ -261,12 +287,12 @@ const GitHubReadme = ({ username, repo, branch = 'main' }) => {
           return <code {...props}>{children}</code>;
         },
         
-        h1: ({ children }) => <h1 id={slugify(children)}>{children}</h1>,
-        h2: ({ children }) => <h2 id={slugify(children)}>{children}</h2>,
-        h3: ({ children }) => <h3 id={slugify(children)}>{children}</h3>,
-        h4: ({ children }) => <h4 id={slugify(children)}>{children}</h4>,
-        h5: ({ children }) => <h5 id={slugify(children)}>{children}</h5>,
-        h6: ({ children }) => <h6 id={slugify(children)}>{children}</h6>,
+        h1: ({ children }) => <h1 id={slugify(getTextContent(children))}>{children}</h1>,
+        h2: ({ children }) => <h2 id={slugify(getTextContent(children))}>{children}</h2>,
+        h3: ({ children }) => <h3 id={slugify(getTextContent(children))}>{children}</h3>,
+        h4: ({ children }) => <h4 id={slugify(getTextContent(children))}>{children}</h4>,
+        h5: ({ children }) => <h5 id={slugify(getTextContent(children))}>{children}</h5>,
+        h6: ({ children }) => <h6 id={slugify(getTextContent(children))}>{children}</h6>,
 
         a({ node, children, href, ...props }) {
         if (href?.startsWith('#')) {

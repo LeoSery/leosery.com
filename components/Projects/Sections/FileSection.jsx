@@ -5,7 +5,8 @@ const FileSection = ({
   pdfDocuments = [], 
   onPDFClick, 
   projectTitle, 
-  size = "single" 
+  size = "single",
+  id 
 }) => {
   const sizeClasses = {
     single: "",
@@ -29,7 +30,8 @@ const FileSection = ({
   }
 
   return (
-    <section 
+    <section
+      id={id} 
       aria-label="Project PDF documents" 
       className={`bg-gray-50 dark:bg-[#1E1E1E] rounded-xl shadow p-6 ${sizeClasses[size]}`}
     >

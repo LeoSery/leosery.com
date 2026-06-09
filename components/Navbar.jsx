@@ -170,30 +170,26 @@ export default function Navbar() {
           <div className="hidden md:flex items-center justify-between w-full px-4 lg:px-20">
             <div className="flex items-center flex-shrink-0">
             <button 
-              onClick={() => router.push("/")}
-              className="relative w-20 h-20 my-auto rounded-full overflow-hidden transition-transform hover:scale-105 flex-shrink-0"
-            >
-              {!profileLoaded && (
-                <>
-                  <LoadingSkeleton variant="circle" className="absolute inset-0" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Spinner size="sm" />
-                  </div>
-                </>
-              )}
-              <div className="relative w-full h-full">
-                <Image
-                  src={ProfilPicture}
-                  alt="Profile picture"
-                  fill
-                  sizes="144px"
-                  className={`object-cover rounded-full ${
-                    profileLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  onLoad={() => setProfileLoaded(true)}
-                  />
-              </div>
-            </button>
+            onClick={() => router.push("/")}
+            className="relative w-16 h-16 my-auto rounded-full overflow-hidden transition-transform hover:scale-105 flex-shrink-0"
+          >
+            {!profileLoaded && (
+              <>
+                <LoadingSkeleton variant="circle" className="absolute inset-0" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Spinner size="sm" />
+                </div>
+              </>
+            )}
+            <Image
+              src={ProfilPicture}
+              alt="Profile picture"
+              fill
+              sizes="160px"
+              className={`object-cover ${profileLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setProfileLoaded(true)}
+            />
+          </button>
               <div className="websiteThemeMode cursor-pointer ml-4" style={{ display: 'none' }}>
                 {renderThemeChanger()}
               </div>

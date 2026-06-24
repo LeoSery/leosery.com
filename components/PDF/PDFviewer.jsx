@@ -10,7 +10,7 @@ import 'react-pdf/dist/Page/TextLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const PDFviewerComponent = () => {
+const PDFviewerComponent = ({ file = '/CV_files/CV_Séry_Léo_C++.pdf', downloadName = 'CV_Séry_Léo.pdf' }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [scale, setScale] = useState(1);
@@ -41,6 +41,13 @@ const PDFviewerComponent = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    setPageNumber(1);
+    setNumPages(null);
+    setIsLoading(true);
+    setError(null);
+  }, [file]);
+
   const onDocumentLoadSuccess = useCallback(({ numPages }) => {
     setNumPages(numPages);
     setIsLoading(false);
@@ -59,8 +66,8 @@ const PDFviewerComponent = () => {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/CV.pdf';
-    link.download = 'CV_Sery_Leo.pdf';
+    link.href = file;
+    link.download = downloadName;
     link.click();
   };
 
@@ -99,7 +106,7 @@ const PDFviewerComponent = () => {
                 ? 'opacity-50 cursor-not-allowed' 
                 : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
             } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
-            aria-label="Page précédente"
+            aria-label="Previous page"
           >
             <FiChevronLeft className="w-5 h-5" />
           </button>
@@ -116,7 +123,7 @@ const PDFviewerComponent = () => {
                 ? 'opacity-50 cursor-not-allowed' 
                 : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
             } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
-            aria-label="Page suivante"
+            aria-label="Next page"
           >
             <FiChevronRight className="w-5 h-5" />
           </button>
@@ -132,7 +139,7 @@ const PDFviewerComponent = () => {
                 ? 'opacity-50 cursor-not-allowed' 
                 : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
             } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
-            aria-label="Zoom arrière"
+            aria-label="Zoom out"
           >
             <FiZoomOut className="w-5 h-5" />
           </button>
@@ -149,7 +156,7 @@ const PDFviewerComponent = () => {
                 ? 'opacity-50 cursor-not-allowed' 
                 : isDarkMode ? 'hover:bg-[#2a2a2a]' : 'hover:bg-gray-200'
             } ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
-            aria-label="Zoom avant"
+            aria-label="Zoom in"
           >
             <FiZoomIn className="w-5 h-5" />
           </button>
@@ -159,16 +166,16 @@ const PDFviewerComponent = () => {
         <button
           onClick={handleDownload}
           className="flex items-center gap-2 px-3 py-2 rounded-lg transition-colors bg-blue-600 hover:bg-blue-700 text-white"
-          aria-label="Télécharger le CV"
+          aria-label="Download CV"
         >
           <FiDownload className="w-4 h-4" />
-          <span className="text-sm font-medium hidden sm:inline">Télécharger</span>
+          <span className="text-sm font-medium hidden sm:inline">Download</span>
         </button>
       </div>
 
       {/* PDF Content - Hauteur adaptive selon le contenu */}
       <div 
-        className={`relative overflow-auto ${isDarkMode ? 'bg-[#252525]' : 'bg-gray-100'}`}
+        className={`relative overflow-auto max-h-[80vh] ${isDarkMode ? 'bg-[#252525]' : 'bg-gray-100'}`}
       >
         {isLoading && (
           <div className="absolute inset-0 flex justify-center items-center z-10 min-h-[300px]" role="alert" aria-label="Loading PDF">
@@ -184,12 +191,12 @@ const PDFviewerComponent = () => {
             aria-live="polite"
           >
             <div className={`text-center py-4 rounded-lg px-6 ${isDarkMode ? 'bg-red-900/30 text-red-400' : 'bg-red-100 text-red-500'}`}>
-              <p className="font-medium">Une erreur est survenue lors du chargement du CV.</p>
+              <p className="font-medium">An error occurred while loading the CV.</p>
               <button 
                 onClick={() => window.location.reload()}
                 className="mt-3 text-sm underline hover:opacity-80"
               >
-                Cliquez ici pour réessayer
+                Click here to retry
               </button>
             </div>
           </div>
@@ -197,9 +204,11 @@ const PDFviewerComponent = () => {
 
         <div className="flex justify-center py-4 sm:py-6">
           <Document
-            file="/CV.pdf"
+            file={file}
             onLoadSuccess={onDocumentLoadSuccess}
             onLoadError={onDocumentLoadError}
+            externalLinkTarget="_blank"
+            externalLinkRel="noopener noreferrer"
             loading={null}
             className="flex justify-center"
           >

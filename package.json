@@ -1,6 +1,6 @@
 {
   "name": "leosery-portfolio",
-  "version": "2.5",
+  "version": "2.6",
   "private": true,
   "engines": {
     "node": "22.x"

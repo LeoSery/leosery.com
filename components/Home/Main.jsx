@@ -48,8 +48,11 @@ export default function Main() {
           </div>
           
           <h2 className="pt-2 sm:pt-3 md:pt-4 text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-[#BDB7AF] text-center font-light tracking-wide">
-            Junior C++ Developer - Engine & Tools Programmer
+            Junior C++ / C# Software Engineer
           </h2>
+          <p className="pt-1 sm:pt-2 text-sm sm:text-base text-gray-500 dark:text-[#8A8480] text-center font-light tracking-wide">
+            Engine &amp; Tools Programmer
+          </p>
 
           {/* Social Buttons */}
           <div className="flex items-center justify-center gap-3 w-full max-w-[380px] mt-4">

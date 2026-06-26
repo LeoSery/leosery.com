@@ -1,16 +1,51 @@
-import VisualStudio from "../../public/assets/images/Home/skills/visual-studio.webp";
-import UnityLogo from "../../public/assets/images/Home/skills/unity.webp";
-import CSharp from "../../public/assets/images/Home/skills/c-sharp.webp";
-import GitHub from "../../public/assets/images/Home/skills/github.webp";
-import cpluplus from "../../public/assets/images/Home/skills/c-plusplus.webp";
-import unreal5 from "../../public/assets/images/Home/skills/Unreal-engine-5.webp";
-import plastic from "../../public/assets/images/Home/skills/plastic-scm.webp";
-import rider from "../../public/assets/images/Home/skills/rider.webp";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import React, { useState } from 'react';
-import Spinner from "../Common/Spinner";
-import LoadingSkeleton from '../Common/LoadingSkeleton';
+import Link from "next/link";
+import React from 'react';
+import { FiTool, FiZap, FiCode, FiLayers } from 'react-icons/fi';
+import { FaGamepad, FaVrCardboard } from 'react-icons/fa';
+
+const groups = [
+  {
+    category: "Software Development",
+    categoryIcon: FiCode,
+    items: [
+      {
+        icon: FaVrCardboard,
+        title: "Real-Time & XR Applications",
+        description: "3 years of professional experience building cross-platform AR/VR/XR applications, developing real-time systems, custom editor tools, and multi-platform builds across WebGL, iOS, Android and PC.",
+        tags: ["Unity3D", "C#", "Vuforia", "Oculus SDK"],
+        selectionKey: "real-time-xr-applications",
+      },
+      {
+        icon: FiZap,
+        title: "Low-Level & Performance",
+        description: "Low-level programming and optimization are what excites me most. Building systems where every cycle counts, from memory management to data-oriented design.",
+        tags: ["C++", "Vulkan", "GLSL", "Data-Oriented"],
+        selectionKey: "low-level-performance",
+      },
+    ],
+  },
+  {
+    category: "Game Development",
+    categoryIcon: FaGamepad,
+    items: [
+      {
+        icon: FiLayers,
+        title: "Gameplay & Systems",
+        description: "Through my game programming studies and personal projects, I've built gameplay systems and game architecture, from solo experiments to team productions.",
+        tags: ["C++", "C#", "UE5", "Blueprint"],
+        selectionKey: "gameplay-systems",
+      },
+      {
+        icon: FiTool,
+        title: "Engine & Tools Programming",
+        description: "Engine and tools programming is where I want to take my career, building the systems and pipelines other developers rely on.",
+        tags: ["C++", "Vulkan", "OpenGL", "ImGui"],
+        selectionKey: "engine-tools-programming",
+      },
+    ],
+  },
+];
 
 export default function MainSkills() {
   const router = useRouter();
@@ -27,19 +62,17 @@ export default function MainSkills() {
           </h2>
         </div>
 
-        {/* Grid des compétences */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-6">
-          <SkillCard image={UnityLogo} name="Unity3D" />
-          <SkillCard image={CSharp} name="C-Sharp" />
-          <SkillCard image={plastic} name="Plastic SCM" />
-          <SkillCard image={VisualStudio} name="Visual Studio" />
-          <SkillCard image={unreal5} name="Unreal Engine" />
-          <SkillCard image={cpluplus} name="C++" />
-          <SkillCard image={GitHub} name="GitHub" />
-          <SkillCard image={rider} name="Rider" />
-        </div>
+        {groups.map((group) => (
+          <div key={group.category} className="mb-7 last:mb-6">
+            <CategoryHeader icon={group.categoryIcon} label={group.category} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+              {group.items.map((item) => (
+                <CapabilityCard key={item.title} {...item} />
+              ))}
+            </div>
+          </div>
+        ))}
 
-        {/* Bouton */}
         <div className="flex justify-center md:justify-start">
           <button
             onClick={() => router.push("/cv")}
@@ -57,39 +90,51 @@ export default function MainSkills() {
   );
 }
 
-function SkillCard({ image, name }) {
-  const [iconLoaded, setIconLoaded] = useState(false);
-
+function CategoryHeader({ icon: Icon, label }) {
   return (
-    <div className="bg-gray-50 dark:bg-[#1E1E1E] p-3 sm:p-4 rounded-lg
-                    shadow hover:shadow-md
-                    transition-all duration-200 ease-in-out
-                    hover:scale-[1.02] group">
-      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
-        <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
-          {!iconLoaded && (
-            <>
-              <LoadingSkeleton variant="rect" className="absolute inset-0 rounded-lg" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Spinner size="sm" />
-              </div>
-            </>
-          )}
-          <Image
-            src={image}
-            alt={name}
-            fill
-            sizes="168px"
-            className={`object-contain transition-transform duration-200 group-hover:scale-110 ${
-              iconLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoad={() => setIconLoaded(true)}
-          />
-        </div>
-        <h3 className="text-sm sm:text-base font-medium text-gray-700 dark:text-[#CAC5BE] text-center sm:text-left">
-          {name}
-        </h3>
-      </div>
+    <div className="flex items-center gap-2.5 mb-3.5">
+      <Icon className="w-[18px] h-[18px] text-[#ff9f1c] flex-shrink-0" />
+      <span className="text-[13px] uppercase tracking-[0.08em] font-medium text-gray-700 dark:text-[#BDB7AF]">
+        {label}
+      </span>
+      <span className="flex-1 h-px bg-gray-200 dark:bg-[#2a2a2a]" />
     </div>
+  );
+}
+
+function CapabilityCard({ icon: Icon, title, description, tags, selectionKey }) {
+  return (
+    <Link
+      href={`/projects?selection=${selectionKey}`}
+      aria-label={`See ${title} projects`}
+      className="bg-gray-50 dark:bg-[#1E1E1E] p-5 sm:p-6 rounded-xl
+                  border border-gray-200 dark:border-[#2a2a2a]
+                  shadow hover:shadow-md
+                  transition-all duration-200 ease-in-out
+                  hover:scale-[1.02] group flex flex-col gap-3 cursor-pointer
+                  hover:border-[#ff9f1c]/30"
+    >
+      <div className="w-11 h-11 rounded-[11px] bg-[#ff9f1c]/10
+                      flex items-center justify-center flex-shrink-0">
+        <Icon className="w-6 h-6 text-[#ff9f1c] transition-transform duration-200 group-hover:scale-110" />
+      </div>
+      <h3 className="text-base sm:text-lg font-medium text-gray-800 dark:text-[#ECE7DF]">
+        {title}
+      </h3>
+      <p className="text-sm leading-relaxed text-gray-600 dark:text-[#8f8a82]">
+        {description}
+      </p>
+      <div className="mt-auto pt-2 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-xs text-gray-700 dark:text-[#BDB7AF]
+                       bg-gray-100 dark:bg-[#2a2a2a] px-2.5 py-1 rounded-md"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </Link>
   );
 }

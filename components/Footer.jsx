@@ -1,6 +1,7 @@
 import { FaLinkedin } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { HiLocationMarker } from "react-icons/hi";
+import { CgWebsite } from "react-icons/cg";
 import { FaGithub, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import Link from "next/link";
 import React from "react";
@@ -11,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 dark:bg-[#202020] w-full min-w-[320px] overflow-hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] dark:shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.3)]">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-6 sm:py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 sm:gap-x-6 lg:gap-x-12 gap-y-6 sm:gap-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-6 sm:gap-y-8">
           
           {/* Name & Copyright */}
           <div className="flex flex-col">
@@ -28,9 +29,9 @@ export default function Footer() {
                 <HiLocationMarker className="text-lg text-blue-600 flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-gray-600 dark:text-[#B1AAA0]">
                   <p className="font-medium">Bordeaux, France</p>
-                  <p className="text-green-600 dark:text-green-400 font-medium mt-1">
+                  {/* <p className="text-green-600 dark:text-green-400 font-medium mt-1">
                     🟢 Open to opportunities
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -84,26 +85,29 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company Section */}
-          {/* <div className="min-w-0">
-            <h3 className="text-gray-700 dark:text-[#BDB7AF] font-bold text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 whitespace-nowrap">
-              My work-study company
+                    {/* Company Section */}
+          <div className="min-w-0">
+            <h3 className="text-gray-700 dark:text-[#BDB7AF] font-bold text-lg sm:text-xl md:text-2xl mb-1 whitespace-nowrap">
+              Where I work
             </h3>
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-[#8A8480] mb-3 sm:mb-4">
+              As a C++ Embedded Software Engineer
+            </p>
             <div className="space-y-2 sm:space-y-3">
               <FooterLink 
                 icon={<FaLinkedin />}
-                href="https://www.linkedin.com/company/simforhealth/"
-                text="SimforHealth"
-                ariaLabel="Visit SimforHealth LinkedIn profile"
+                href="https://www.linkedin.com/company/madic-industries/"
+                text="MADIC Industries"
+                ariaLabel="Visit MADIC Industries LinkedIn profile"
               />
               <FooterLink 
                 icon={<CgWebsite />}
-                href="https://simforhealth.fr/"
-                text="simforhealth.fr"
-                ariaLabel="Visit SimforHealth website"
+                href="https://madic-group.com/"
+                text="madic-group.com"
+                ariaLabel="Visit MADIC group website"
               />
             </div>
-          </div> */}
+          </div>
           
         </div>
       </div>

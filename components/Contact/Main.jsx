@@ -54,10 +54,8 @@ const Contact = () => {
           <h1 className="text-3xl sm:text-4xl text-gray-800 dark:text-[#BDB7AF] font-light mb-3">
             Let&apos;s Connect
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0]">
-            I&apos;m currently looking for new opportunities in game development / software engineering, whether in C++ or C#.
-            <br className="hidden sm:block" />
-            Whether you have a question, I&apos;ll try my best to get back to you!
+          <p className="text-sm sm:text-base text-gray-600 dark:text-[#B1AAA0] text-balance sm:text-pretty">
+            I&apos;m currently working as a C++ Embedded Software Engineer, and I remain strongly interested in engine and tools programming for the game industry. Whether you have a question, I&apos;ll try my best to get back to you!
           </p>
         </div>
 
@@ -71,7 +69,7 @@ const Contact = () => {
                   Léo Séry
                 </h2>
                 <p className="text-gray-600 dark:text-[#B1AAA0] mb-3">
-                  Junior C++ / C# Software Engineer
+                  Junior C++ Embedded Software Engineer
                 </p>
                 <div className="flex items-center text-gray-600 dark:text-[#B1AAA0] text-sm">
                   <HiLocationMarker className="mr-2 text-[#ff9f1c]" />

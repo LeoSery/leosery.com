@@ -19,7 +19,7 @@ const groups = [
       {
         icon: FiZap,
         title: "Low-Level & Performance",
-        description: "Low-level programming and optimization are what excites me most. Building systems where every cycle counts, from memory management to data-oriented design.",
+                description: "Low-level programming and optimization are what excites me most, now the focus of my professional work. Building systems where every cycle counts, from memory management to data-oriented design.",
         tags: ["C++", "Vulkan", "GLSL", "Data-Oriented"],
         selectionKey: "low-level-performance",
       },

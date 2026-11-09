@@ -8,9 +8,9 @@ export default function About() {
 
   return (
     <div className="w-full py-8 lg:py-12">
-      <div className="max-w-[90rem] md:grid grid-cols-5 gap-6 lg:gap-8 mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] md:grid grid-cols-3 gap-6 lg:gap-12 items-center mx-auto px-3 sm:px-6 lg:px-8">
         {/* Contenu textuel */}
-        <div id="home/about" className="col-span-3">
+        <div id="home/about" className="col-span-2">
           <div className="flex flex-col items-start">
             <p className="text-xl uppercase tracking-wider text-[#ff9f1c] font-medium">
               About me
@@ -25,8 +25,8 @@ export default function About() {
         </div>
 
         {/* Image container */}
-        <div className="col-span-2 w-full h-auto mt-6 md:mt-0">
-              <div className="relative w-full h-0 pb-[70%] bg-[#1E1E1E]/5 dark:bg-[#1E1E1E] rounded-xl overflow-hidden">
+        <div className="col-span-1 w-full max-w-[280px] md:max-w-none mx-auto mt-8 md:mt-0">
+          <div className="relative w-full h-0 pb-[125%] bg-[#1E1E1E]/5 dark:bg-[#1E1E1E] rounded-xl overflow-hidden">
             {!imageLoaded && (
               <>
                 <LoadingSkeleton variant="rect" className="absolute inset-0 rounded-xl" />
@@ -36,11 +36,12 @@ export default function About() {
               </>
             )}
             <Image
-              src="/assets/images/Home/About-me-image.webp"
-              alt="About me"
+              src="/assets/images/Home/About-me-photo.webp"
+              alt="Portrait of Léo Séry"
               fill
-              sizes="(max-width: 768px) 100vw, 40vw"
-              className={`object-cover rounded-xl transition-transform duration-300 hover:scale-105 ${
+              quality={85}
+              sizes="(max-width: 767px) 280px, (max-width: 1440px) 30vw, 430px"
+              className={`object-cover object-[50%_15%] rounded-xl ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setImageLoaded(true)}

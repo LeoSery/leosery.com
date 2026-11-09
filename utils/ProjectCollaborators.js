@@ -229,4 +229,9 @@ export const ProjectCollaborators = {
     lastName: "Fonseca",
     portfolio: "https://github.com/Dorian2002"
   },
+    DORIAN_BARAT: {
+    firstName: "Dorian",
+    lastName: "Barat",
+    portfolio: "https://github.com/Dorian-2000"
+  },
  };

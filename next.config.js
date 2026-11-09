@@ -6,6 +6,10 @@ const nextConfig = {
 
   transpilePackages: ['react-pdf', 'pdfjs-dist'],
 
+    images: {
+    qualities: [75, 85],
+  },
+
   async redirects() {
     return [
       {

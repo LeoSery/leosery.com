@@ -7,7 +7,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contact"
-        description="Get in touch with Léo Séry for game development opportunities, project collaborations, or questions about game programming and engine development."
+        description="Get in touch with Léo Séry for C++ and embedded software opportunities, game engine and tools programming, or project collaborations."
         keywords="Contact Léo Séry, Game Developer Contact, Unity Developer, Unreal Engine Developer, Game Programming"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />

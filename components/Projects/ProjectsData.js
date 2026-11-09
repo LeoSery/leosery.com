@@ -4,6 +4,45 @@ import { ProjectCollaborators } from "../../utils/ProjectCollaborators";
 
 export const projectsData = [  
   {
+    Id: 27,
+    Title: "Word First",
+    Type: ProjectTypes.PERSONAL,
+    Period: {
+      start: "2026-11",
+      end: "2026-11"
+    },
+    Technologies: ["JavaScript", "Node.js", "HTML", "CSS"],
+    MyRoles: [ProjectRoles.DEVELOPER],
+    Collaborators: [
+      {
+        ...ProjectCollaborators.DORIAN_BARAT,
+        roles: [ProjectRoles.LEAD_DEV]
+      }
+    ],
+    Keywords: [
+      "JavaScript",
+      "Node.js",
+      "web development",
+      "full-stack",
+      "real-time",
+      "Server-Sent Events",
+      "refactoring",
+      "performance optimization",
+      "word game"
+    ],
+        Description: "Word First is a daily web word game where players find as many answers as possible on a theme that changes every day. The first players to find a word earn bonus points, and every answer floats on a large shared board that updates live. Words a player has not found yet stay blurred until the end of the game.\n\nThe game was first built in about a week by its lead developer. I led the refactoring of its codebase, a dependency-free Node.js server and a vanilla JavaScript client, by splitting both into modules, removing blocking disk writes and redundant work on the server, moving the word blur to the server so hidden answers can no longer be read in the network tab, and fixing the client-side bugs suspected of causing the freezes reported by players.",
+    CardImage: "/assets/images/projects/WordFirstGame.webp",
+    BannerImage: "/assets/images/projects/WordFirstGame.webp",
+    Url: "/projects/word-first",
+    Actions: [
+      {
+        label: "Play on lettrenuage.fr",
+        url: "https://lettrenuage.fr/"
+      }
+    ],
+    PDFDocuments: []
+  },
+  {
     Id: 26,
     Title: "C++ Vulkan Renderer",
     Type: ProjectTypes.PERSONAL,

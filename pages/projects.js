@@ -11,7 +11,7 @@ export default function Projects() {
     <>
       <SEO
         title="Projects"
-        description="Browse through Léo Séry's game development portfolio. From game engines to complete games, discover projects built with Unity3D, Unreal Engine, and custom technologies."
+        description="Browse Léo Séry's portfolio of C++, game engine and XR projects, from a Vulkan renderer to complete games built with Unity3D and Unreal Engine."
         keywords="Game Development Projects, Unity Games, Unreal Engine Projects, Game Programming Portfolio, C++, C#"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />

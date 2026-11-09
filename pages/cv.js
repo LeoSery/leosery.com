@@ -50,7 +50,7 @@ export default function CV() {
     <>
       <SEO
         title="Curriculum Vitae"
-        description="Explore Léo Séry's professional journey in game development."
+        description="Resume of Léo Séry, Junior C++ Embedded Software Engineer with experience in embedded Linux and XR development, and a background in game engine programming. C++ and C# versions available."
         keywords="CV, Resume, Game Development, C++, C#, Engine Programming"
         ogImage="/assets/images/Common/DefaultMediaImage.png"
       />
